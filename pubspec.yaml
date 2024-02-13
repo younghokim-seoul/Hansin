@@ -1,0 +1,42 @@
+name: hansin
+description: "Hansin Mobile Application"
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+
+environment:
+  sdk: '>=3.2.3 <4.0.0'
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+  get_it: ^7.6.4
+  gap: ^3.0.1
+  google_fonts: ^6.1.0
+  auto_route: ^7.8.4
+  freezed_annotation: ^2.4.1
+  rxdart: ^0.27.7
+  fluttertoast: ^8.2.4
+
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+  flutter_lints: ^2.0.0
+  freezed: ^2.4.5
+  auto_route_generator: ^7.3.2
+  json_serializable: ^6.7.1
+  build_runner:
+  flutter_gen_runner:
+
+
+flutter:
+  uses-material-design: true
+
+
+flutter_gen:
+  output: lib/assets/
