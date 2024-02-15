@@ -12,6 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
   get_it: ^7.6.4
+  injectable: 2.2.0
   gap: ^3.0.1
   google_fonts: ^6.1.0
   auto_route: ^7.8.4
@@ -20,6 +21,11 @@ dependencies:
   fluttertoast: ^8.2.4
 
   cupertino_icons: ^1.0.2
+  flutter_svg: ^2.0.9
+
+  yaru: ^1.2.1
+  yaru_icons: ^2.3.0
+  yaru_widgets: ^3.4.0
 
 dev_dependencies:
   flutter_test:
@@ -30,13 +36,19 @@ dev_dependencies:
   freezed: ^2.4.5
   auto_route_generator: ^7.3.2
   json_serializable: ^6.7.1
+  injectable_generator:
   build_runner:
   flutter_gen_runner:
 
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/images/
+
 
 
 flutter_gen:
+  integrations:
+    flutter_svg: true
   output: lib/assets/
