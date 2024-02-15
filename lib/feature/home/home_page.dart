@@ -1,10 +1,11 @@
-import 'package:auto_route/annotations.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hansin/assets/assets.gen.dart';
 import 'package:hansin/feature/home/component/home_bottom_box.dart';
 import 'package:hansin/feature/home/component/home_list_box.dart';
 import 'package:hansin/theme.dart';
+import 'package:hansin/utils/router/app_route.dart';
 
 @RoutePage()
 class HomePage extends StatelessWidget {
@@ -41,7 +42,7 @@ class HomePage extends StatelessWidget {
                   child: HomeListBox(
                     title: '반드시\n확인할 사항',
                     bgColor: AppColors.boxDark,
-                    onTap: () {},
+                    onTap: () => context.router.push(const VerificationRoute()),
                   ),
                 ),
               ],

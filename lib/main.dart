@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:hansin/injector.dart';
 import 'package:hansin/theme.dart';
 import 'package:hansin/utils/router/app_route.dart';
 import 'package:yaru/yaru.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  configureDependencies();
   runApp(App());
 }
 

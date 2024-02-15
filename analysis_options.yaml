@@ -47,7 +47,7 @@ linter:
     - curly_braces_in_flow_control_structures
     - slash_for_doc_comments
     - non_constant_identifier_names
-    - one_member_abstracts
+#    - one_member_abstracts
     - prefer_const_constructors
 
 # Additional information about this file can be found at
