@@ -1,0 +1,222 @@
+import 'package:flutter/material.dart';
+import 'package:hansin/widget/passcode/configurations/key_pad_config.dart';
+import 'package:hansin/widget/passcode/configurations/screen_lock_config.dart';
+import 'package:hansin/widget/passcode/configurations/secrets_config.dart';
+import 'package:hansin/widget/passcode/input_controller.dart';
+import 'package:hansin/widget/passcode/screen_lock.dart';
+
+
+Future<void> screenLock({
+  required BuildContext context,
+  required String correctString,
+  VoidCallback? onUnlocked,
+  VoidCallback? onOpened,
+  ValidationCallback? onValidate,
+  VoidCallback? onCancelled,
+  ValueChanged<int>? onError,
+  ValueChanged<int>? onMaxRetries,
+  int maxRetries = 0,
+  Duration retryDelay = Duration.zero,
+  Widget? title,
+  ScreenLockConfig? config,
+  SecretsConfig? secretsConfig,
+  KeyPadConfig? keyPadConfig,
+  DelayBuilderCallback? delayBuilder,
+  Widget? customizedButtonChild,
+  VoidCallback? customizedButtonTap,
+  Widget? footer,
+  Widget? cancelButton,
+  Widget? deleteButton,
+  InputController? inputController,
+  SecretsBuilderCallback? secretsBuilder,
+  bool useBlur = true,
+  bool useLandscape = true,
+  bool canCancel = true,
+}) async {
+  return Navigator.push<void>(
+    context,
+    PageRouteBuilder<void>(
+      opaque: false,
+      barrierColor: Colors.black.withOpacity(0.8),
+      pageBuilder: (context, animation, secondaryAnimation) =>
+      //     PopScope(
+      //   onWillPop: () async => canCancel && onCancelled == null,
+      //   child: ScreenLock(
+      //     correctString: correctString,
+      //     onUnlocked: onUnlocked ?? Navigator.of(context).pop,
+      //     onOpened: onOpened,
+      //     onValidate: onValidate,
+      //     onCancelled:
+      //         canCancel ? onCancelled ?? Navigator.of(context).pop : null,
+      //     onError: onError,
+      //     onMaxRetries: onMaxRetries,
+      //     maxRetries: maxRetries,
+      //     retryDelay: retryDelay,
+      //     title: title,
+      //     config: config,
+      //     secretsConfig: secretsConfig,
+      //     keyPadConfig: keyPadConfig,
+      //     delayBuilder: delayBuilder,
+      //     customizedButtonChild: customizedButtonChild,
+      //     customizedButtonTap: customizedButtonTap,
+      //     footer: footer,
+      //     cancelButton: cancelButton,
+      //     deleteButton: deleteButton,
+      //     inputController: inputController,
+      //     secretsBuilder: secretsBuilder,
+      //     useBlur: useBlur,
+      //     useLandscape: useLandscape,
+      //   ),
+      // ),
+      ScreenLock(
+        correctString: correctString,
+        onUnlocked: onUnlocked ?? Navigator.of(context).pop,
+        onOpened: onOpened,
+        onValidate: onValidate,
+        onCancelled:
+        canCancel ? onCancelled ?? Navigator.of(context).pop : null,
+        onError: onError,
+        onMaxRetries: onMaxRetries,
+        maxRetries: maxRetries,
+        retryDelay: retryDelay,
+        title: title,
+        config: config,
+        secretsConfig: secretsConfig,
+        keyPadConfig: keyPadConfig,
+        delayBuilder: delayBuilder,
+        customizedButtonChild: customizedButtonChild,
+        customizedButtonTap: customizedButtonTap,
+        footer: footer,
+        cancelButton: cancelButton,
+        deleteButton: deleteButton,
+        inputController: inputController,
+        secretsBuilder: secretsBuilder,
+        useBlur: useBlur,
+        useLandscape: useLandscape,
+      ),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+          SlideTransition(
+        position: Tween<Offset>(
+          begin: const Offset(0.0, 2.4),
+          end: Offset.zero,
+        ).animate(animation),
+        child: SlideTransition(
+          position: Tween<Offset>(
+            begin: Offset.zero,
+            end: const Offset(0.0, 2.4),
+          ).animate(secondaryAnimation),
+          child: child,
+        ),
+      ),
+    ),
+  );
+}
+
+Future<void> screenLockCreate({
+  required BuildContext context,
+  required ValueChanged<String> onConfirmed,
+  VoidCallback? onOpened,
+  ValidationCallback? onValidate,
+  VoidCallback? onCancelled,
+  ValueChanged<int>? onError,
+  ValueChanged<int>? onMaxRetries,
+  int maxRetries = 0,
+  int digits = 4,
+  Duration retryDelay = Duration.zero,
+  Widget? title,
+  Widget? confirmTitle,
+  ScreenLockConfig? config,
+  SecretsConfig? secretsConfig,
+  KeyPadConfig? keyPadConfig,
+  DelayBuilderCallback? delayBuilder,
+  Widget? customizedButtonChild,
+  VoidCallback? customizedButtonTap,
+  Widget? footer,
+  Widget? cancelButton,
+  Widget? deleteButton,
+  InputController? inputController,
+  SecretsBuilderCallback? secretsBuilder,
+  bool useBlur = true,
+  bool useLandscape = true,
+  bool canCancel = true,
+}) async {
+  return Navigator.push<void>(
+    context,
+    PageRouteBuilder<void>(
+      opaque: false,
+      barrierColor: Colors.black.withOpacity(0.8),
+      pageBuilder: (context, animation, secondaryAnimation) =>
+      //     PopScope(
+      //   onWillPop: () async => canCancel && onCancelled == null,
+      //   child: ScreenLock.create(
+      //     onConfirmed: onConfirmed,
+      //     onOpened: onOpened,
+      //     onValidate: onValidate,
+      //     onCancelled:
+      //         canCancel ? onCancelled ?? Navigator.of(context).pop : null,
+      //     onError: onError,
+      //     onMaxRetries: onMaxRetries,
+      //     maxRetries: maxRetries,
+      //     digits: digits,
+      //     retryDelay: retryDelay,
+      //     title: title,
+      //     confirmTitle: confirmTitle,
+      //     config: config,
+      //     secretsConfig: secretsConfig,
+      //     keyPadConfig: keyPadConfig,
+      //     delayBuilder: delayBuilder,
+      //     customizedButtonChild: customizedButtonChild,
+      //     customizedButtonTap: customizedButtonTap,
+      //     footer: footer,
+      //     cancelButton: cancelButton,
+      //     deleteButton: deleteButton,
+      //     inputController: inputController,
+      //     secretsBuilder: secretsBuilder,
+      //     useBlur: useBlur,
+      //     useLandscape: useLandscape,
+      //   ),
+      // ),
+      ScreenLock.create(
+        onConfirmed: onConfirmed,
+        onOpened: onOpened,
+        onValidate: onValidate,
+        onCancelled:
+        canCancel ? onCancelled ?? Navigator.of(context).pop : null,
+        onError: onError,
+        onMaxRetries: onMaxRetries,
+        maxRetries: maxRetries,
+        digits: digits,
+        retryDelay: retryDelay,
+        title: title,
+        confirmTitle: confirmTitle,
+        config: config,
+        secretsConfig: secretsConfig,
+        keyPadConfig: keyPadConfig,
+        delayBuilder: delayBuilder,
+        customizedButtonChild: customizedButtonChild,
+        customizedButtonTap: customizedButtonTap,
+        footer: footer,
+        cancelButton: cancelButton,
+        deleteButton: deleteButton,
+        inputController: inputController,
+        secretsBuilder: secretsBuilder,
+        useBlur: useBlur,
+        useLandscape: useLandscape,
+      ),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+          SlideTransition(
+        position: Tween<Offset>(
+          begin: const Offset(0.0, 2.4),
+          end: Offset.zero,
+        ).animate(animation),
+        child: SlideTransition(
+          position: Tween<Offset>(
+            begin: Offset.zero,
+            end: const Offset(0.0, 2.4),
+          ).animate(secondaryAnimation),
+          child: child,
+        ),
+      ),
+    ),
+  );
+}

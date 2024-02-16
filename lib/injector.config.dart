@@ -14,8 +14,12 @@ import 'package:hansin/data/datasource/remote/http_request.dart' as _i4;
 import 'package:hansin/data/datasource/remote/remote_datasource.dart' as _i3;
 import 'package:hansin/data/repository/item_repository_impl.dart' as _i6;
 import 'package:hansin/domain/repository/item_repository.dart' as _i5;
+import 'package:hansin/feature/mega_sale/mega_sale_view_model.dart' as _i8;
+import 'package:hansin/feature/show_room/show_room_reservation_view_model.dart'
+    as _i9;
+import 'package:hansin/feature/stock/live_stock_view_model.dart' as _i7;
 import 'package:hansin/feature/verification/verification_view_model.dart'
-    as _i7;
+    as _i10;
 import 'package:injectable/injectable.dart' as _i2;
 
 extension GetItInjectableX on _i1.GetIt {
@@ -32,8 +36,14 @@ extension GetItInjectableX on _i1.GetIt {
     gh.lazySingleton<_i3.RemoteDataSource>(() => _i4.HttpRequest());
     gh.lazySingleton<_i5.ItemRepository>(
         () => _i6.ItemRepositoryImpl(gh<_i3.RemoteDataSource>()));
-    gh.factory<_i7.VerificationModel>(
-        () => _i7.VerificationModel(gh<_i5.ItemRepository>()));
+    gh.factory<_i7.LiveStockViewModel>(
+        () => _i7.LiveStockViewModel(gh<_i5.ItemRepository>()));
+    gh.factory<_i8.MegaSaleViewModel>(
+        () => _i8.MegaSaleViewModel(gh<_i5.ItemRepository>()));
+    gh.factory<_i9.ShowRoomReservationViewModel>(
+        () => _i9.ShowRoomReservationViewModel(gh<_i5.ItemRepository>()));
+    gh.factory<_i10.VerificationModel>(
+        () => _i10.VerificationModel(gh<_i5.ItemRepository>()));
     return this;
   }
 }

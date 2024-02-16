@@ -21,6 +21,30 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const HomePage(),
       );
     },
+    LiveStockRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const LiveStockPage(),
+      );
+    },
+    LoginRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const LoginPage(),
+      );
+    },
+    MegaSaleRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const MegaSalePage(),
+      );
+    },
+    ShowRoomReservationRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ShowRoomReservationPage(),
+      );
+    },
     VerificationRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -40,6 +64,62 @@ class HomeRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'HomeRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [LiveStockPage]
+class LiveStockRoute extends PageRouteInfo<void> {
+  const LiveStockRoute({List<PageRouteInfo>? children})
+      : super(
+          LiveStockRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'LiveStockRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [LoginPage]
+class LoginRoute extends PageRouteInfo<void> {
+  const LoginRoute({List<PageRouteInfo>? children})
+      : super(
+          LoginRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'LoginRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [MegaSalePage]
+class MegaSaleRoute extends PageRouteInfo<void> {
+  const MegaSaleRoute({List<PageRouteInfo>? children})
+      : super(
+          MegaSaleRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MegaSaleRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ShowRoomReservationPage]
+class ShowRoomReservationRoute extends PageRouteInfo<void> {
+  const ShowRoomReservationRoute({List<PageRouteInfo>? children})
+      : super(
+          ShowRoomReservationRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ShowRoomReservationRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

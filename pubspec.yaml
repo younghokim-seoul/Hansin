@@ -11,6 +11,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_riverpod: ^2.1.1
   get_it: ^7.6.4
   injectable: 2.2.0
   gap: ^3.0.1
@@ -27,6 +28,9 @@ dependencies:
   yaru_icons: ^2.3.0
   yaru_widgets: ^3.4.0
   http: ^1.2.0
+  cached_network_image: ^3.3.1
+  flutter_inappwebview: ^5.8.0
+  table_calendar: ^3.1.0
 
 dev_dependencies:
   flutter_test:
