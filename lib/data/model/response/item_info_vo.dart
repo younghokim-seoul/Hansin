@@ -10,6 +10,7 @@ class ItemInfoVO with _$ItemInfoVO{
     required String itemGbn,
     required String itemName,
     required int itemCnt,
+    required String lastUpdateDt,
   }) = _ItemInfoVO;
 
   factory ItemInfoVO.fromJson(Map<String,dynamic> json) => _$ItemInfoVOFromJson(json);

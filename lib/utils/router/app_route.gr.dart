@@ -34,15 +34,25 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     MegaSaleRoute.name: (routeData) {
+      final args = routeData.argsAs<MegaSaleRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const MegaSalePage(),
+        child: MegaSalePage(
+          key: args.key,
+          contentName: args.contentName,
+        ),
       );
     },
     ShowRoomReservationRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const ShowRoomReservationPage(),
+      );
+    },
+    SignUpRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const SignUpPage(),
       );
     },
     VerificationRoute.name: (routeData) {
@@ -98,16 +108,40 @@ class LoginRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [MegaSalePage]
-class MegaSaleRoute extends PageRouteInfo<void> {
-  const MegaSaleRoute({List<PageRouteInfo>? children})
-      : super(
+class MegaSaleRoute extends PageRouteInfo<MegaSaleRouteArgs> {
+  MegaSaleRoute({
+    Key? key,
+    required String contentName,
+    List<PageRouteInfo>? children,
+  }) : super(
           MegaSaleRoute.name,
+          args: MegaSaleRouteArgs(
+            key: key,
+            contentName: contentName,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'MegaSaleRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<MegaSaleRouteArgs> page =
+      PageInfo<MegaSaleRouteArgs>(name);
+}
+
+class MegaSaleRouteArgs {
+  const MegaSaleRouteArgs({
+    this.key,
+    required this.contentName,
+  });
+
+  final Key? key;
+
+  final String contentName;
+
+  @override
+  String toString() {
+    return 'MegaSaleRouteArgs{key: $key, contentName: $contentName}';
+  }
 }
 
 /// generated route for
@@ -120,6 +154,20 @@ class ShowRoomReservationRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'ShowRoomReservationRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [SignUpPage]
+class SignUpRoute extends PageRouteInfo<void> {
+  const SignUpRoute({List<PageRouteInfo>? children})
+      : super(
+          SignUpRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SignUpRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

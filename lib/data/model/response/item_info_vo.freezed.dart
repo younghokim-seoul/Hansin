@@ -23,6 +23,7 @@ mixin _$ItemInfoVO {
   String get itemGbn => throw _privateConstructorUsedError;
   String get itemName => throw _privateConstructorUsedError;
   int get itemCnt => throw _privateConstructorUsedError;
+  String get lastUpdateDt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +37,8 @@ abstract class $ItemInfoVOCopyWith<$Res> {
           ItemInfoVO value, $Res Function(ItemInfoVO) then) =
       _$ItemInfoVOCopyWithImpl<$Res, ItemInfoVO>;
   @useResult
-  $Res call({String itemGbn, String itemName, int itemCnt});
+  $Res call(
+      {String itemGbn, String itemName, int itemCnt, String lastUpdateDt});
 }
 
 /// @nodoc
@@ -55,6 +57,7 @@ class _$ItemInfoVOCopyWithImpl<$Res, $Val extends ItemInfoVO>
     Object? itemGbn = null,
     Object? itemName = null,
     Object? itemCnt = null,
+    Object? lastUpdateDt = null,
   }) {
     return _then(_value.copyWith(
       itemGbn: null == itemGbn
@@ -69,6 +72,10 @@ class _$ItemInfoVOCopyWithImpl<$Res, $Val extends ItemInfoVO>
           ? _value.itemCnt
           : itemCnt // ignore: cast_nullable_to_non_nullable
               as int,
+      lastUpdateDt: null == lastUpdateDt
+          ? _value.lastUpdateDt
+          : lastUpdateDt // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -81,7 +88,8 @@ abstract class _$$ItemInfoVOImplCopyWith<$Res>
       __$$ItemInfoVOImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String itemGbn, String itemName, int itemCnt});
+  $Res call(
+      {String itemGbn, String itemName, int itemCnt, String lastUpdateDt});
 }
 
 /// @nodoc
@@ -98,6 +106,7 @@ class __$$ItemInfoVOImplCopyWithImpl<$Res>
     Object? itemGbn = null,
     Object? itemName = null,
     Object? itemCnt = null,
+    Object? lastUpdateDt = null,
   }) {
     return _then(_$ItemInfoVOImpl(
       itemGbn: null == itemGbn
@@ -112,6 +121,10 @@ class __$$ItemInfoVOImplCopyWithImpl<$Res>
           ? _value.itemCnt
           : itemCnt // ignore: cast_nullable_to_non_nullable
               as int,
+      lastUpdateDt: null == lastUpdateDt
+          ? _value.lastUpdateDt
+          : lastUpdateDt // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -120,7 +133,10 @@ class __$$ItemInfoVOImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ItemInfoVOImpl implements _ItemInfoVO {
   _$ItemInfoVOImpl(
-      {required this.itemGbn, required this.itemName, required this.itemCnt});
+      {required this.itemGbn,
+      required this.itemName,
+      required this.itemCnt,
+      required this.lastUpdateDt});
 
   factory _$ItemInfoVOImpl.fromJson(Map<String, dynamic> json) =>
       _$$ItemInfoVOImplFromJson(json);
@@ -131,10 +147,12 @@ class _$ItemInfoVOImpl implements _ItemInfoVO {
   final String itemName;
   @override
   final int itemCnt;
+  @override
+  final String lastUpdateDt;
 
   @override
   String toString() {
-    return 'ItemInfoVO(itemGbn: $itemGbn, itemName: $itemName, itemCnt: $itemCnt)';
+    return 'ItemInfoVO(itemGbn: $itemGbn, itemName: $itemName, itemCnt: $itemCnt, lastUpdateDt: $lastUpdateDt)';
   }
 
   @override
@@ -145,12 +163,15 @@ class _$ItemInfoVOImpl implements _ItemInfoVO {
             (identical(other.itemGbn, itemGbn) || other.itemGbn == itemGbn) &&
             (identical(other.itemName, itemName) ||
                 other.itemName == itemName) &&
-            (identical(other.itemCnt, itemCnt) || other.itemCnt == itemCnt));
+            (identical(other.itemCnt, itemCnt) || other.itemCnt == itemCnt) &&
+            (identical(other.lastUpdateDt, lastUpdateDt) ||
+                other.lastUpdateDt == lastUpdateDt));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, itemGbn, itemName, itemCnt);
+  int get hashCode =>
+      Object.hash(runtimeType, itemGbn, itemName, itemCnt, lastUpdateDt);
 
   @JsonKey(ignore: true)
   @override
@@ -170,7 +191,8 @@ abstract class _ItemInfoVO implements ItemInfoVO {
   factory _ItemInfoVO(
       {required final String itemGbn,
       required final String itemName,
-      required final int itemCnt}) = _$ItemInfoVOImpl;
+      required final int itemCnt,
+      required final String lastUpdateDt}) = _$ItemInfoVOImpl;
 
   factory _ItemInfoVO.fromJson(Map<String, dynamic> json) =
       _$ItemInfoVOImpl.fromJson;
@@ -181,6 +203,8 @@ abstract class _ItemInfoVO implements ItemInfoVO {
   String get itemName;
   @override
   int get itemCnt;
+  @override
+  String get lastUpdateDt;
   @override
   @JsonKey(ignore: true)
   _$$ItemInfoVOImplCopyWith<_$ItemInfoVOImpl> get copyWith =>

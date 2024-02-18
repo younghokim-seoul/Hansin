@@ -41,7 +41,7 @@ class ItemRepositoryImpl implements ItemRepository {
           return ItemInfoVO.fromJson(e);
         })
         .map((e) => StockEntity(
-            itemGbn: e.itemGbn, itemName: e.itemName, itemCnt: e.itemCnt))
+            itemGbn: e.itemGbn, itemName: e.itemName, itemCnt: e.itemCnt,lastUpdateDt: e.lastUpdateDt))
         .toList();
 
     return entity;

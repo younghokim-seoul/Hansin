@@ -17,9 +17,10 @@ import 'package:hansin/domain/repository/item_repository.dart' as _i5;
 import 'package:hansin/feature/mega_sale/mega_sale_view_model.dart' as _i8;
 import 'package:hansin/feature/show_room/show_room_reservation_view_model.dart'
     as _i9;
+import 'package:hansin/feature/sign_up/sign_up_view_model.dart' as _i10;
 import 'package:hansin/feature/stock/live_stock_view_model.dart' as _i7;
 import 'package:hansin/feature/verification/verification_view_model.dart'
-    as _i10;
+    as _i11;
 import 'package:injectable/injectable.dart' as _i2;
 
 extension GetItInjectableX on _i1.GetIt {
@@ -42,8 +43,10 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i8.MegaSaleViewModel(gh<_i5.ItemRepository>()));
     gh.factory<_i9.ShowRoomReservationViewModel>(
         () => _i9.ShowRoomReservationViewModel(gh<_i5.ItemRepository>()));
-    gh.factory<_i10.VerificationModel>(
-        () => _i10.VerificationModel(gh<_i5.ItemRepository>()));
+    gh.factory<_i10.SignUpViewModel>(
+        () => _i10.SignUpViewModel(gh<_i5.ItemRepository>()));
+    gh.factory<_i11.VerificationModel>(
+        () => _i11.VerificationModel(gh<_i5.ItemRepository>()));
     return this;
   }
 }

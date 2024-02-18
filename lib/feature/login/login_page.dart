@@ -16,16 +16,27 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
+        child: Stack(
           children: [
-            Assets.images.mainLogo.image(width : getScreenHeight(context) * 0.3 ,fit: BoxFit.fill),
-            SizedBox(height: getScreenHeight(context) * 0.15,),
-            LoginButtonBox(
-                title: "로그인", bgColor: AppColors.boxDark, onTap: () {}),
-            const Gap(10),
-            LoginButtonBox(title: "회원가입", bgColor: AppColors.boxLight, onTap: () {}),
-            SizedBox(height: getScreenHeight(context) * 0.15,)
+            Positioned.fill(
+              child: Assets.images.loginBg.image(fit: BoxFit.fill),
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                SizedBox(
+                  height: getScreenHeight(context) * 0.15,
+                ),
+                LoginButtonBox(
+                    title: "로그인", bgColor: AppColors.boxDark, onTap: () {}),
+                const Gap(10),
+                LoginButtonBox(
+                    title: "회원가입", bgColor: AppColors.boxLight, onTap: () {}),
+                SizedBox(
+                  height: getScreenHeight(context) * 0.05,
+                )
+              ],
+            )
           ],
         ),
       ),

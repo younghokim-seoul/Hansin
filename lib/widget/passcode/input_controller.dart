@@ -34,7 +34,9 @@ class InputController {
 
   /// Add some text at the end and stream it.
   void addCharacter(String input) {
+    Log.d("::addCharacter _currentInputs.length size.. ${_currentInputs.length}");
     if (_currentInputs.length >= _digits) {
+      Log.d("::addCharacter _currentInputs.length over... return");
       return;
     }
 
@@ -90,6 +92,8 @@ class InputController {
     Log.d(":::..verify");
     final inputText = _currentInputs.join();
     late String correctString;
+
+    Log.d(":::..inputText.. $inputText");
 
     if (_correctString != null) {
       correctString = _correctString!;

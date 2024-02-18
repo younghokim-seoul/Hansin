@@ -8,6 +8,7 @@ class StockEntity with _$StockEntity{
     required String itemGbn,
     required String itemName,
     required int itemCnt,
+    required String lastUpdateDt,
   }) = _StockEntity;
 
   factory StockEntity.fromJson(Map<String,dynamic> json) => _$StockEntityFromJson(json);

@@ -23,6 +23,7 @@ mixin _$StockEntity {
   String get itemGbn => throw _privateConstructorUsedError;
   String get itemName => throw _privateConstructorUsedError;
   int get itemCnt => throw _privateConstructorUsedError;
+  String get lastUpdateDt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +37,8 @@ abstract class $StockEntityCopyWith<$Res> {
           StockEntity value, $Res Function(StockEntity) then) =
       _$StockEntityCopyWithImpl<$Res, StockEntity>;
   @useResult
-  $Res call({String itemGbn, String itemName, int itemCnt});
+  $Res call(
+      {String itemGbn, String itemName, int itemCnt, String lastUpdateDt});
 }
 
 /// @nodoc
@@ -55,6 +57,7 @@ class _$StockEntityCopyWithImpl<$Res, $Val extends StockEntity>
     Object? itemGbn = null,
     Object? itemName = null,
     Object? itemCnt = null,
+    Object? lastUpdateDt = null,
   }) {
     return _then(_value.copyWith(
       itemGbn: null == itemGbn
@@ -69,6 +72,10 @@ class _$StockEntityCopyWithImpl<$Res, $Val extends StockEntity>
           ? _value.itemCnt
           : itemCnt // ignore: cast_nullable_to_non_nullable
               as int,
+      lastUpdateDt: null == lastUpdateDt
+          ? _value.lastUpdateDt
+          : lastUpdateDt // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -81,7 +88,8 @@ abstract class _$$StockEntityImplCopyWith<$Res>
       __$$StockEntityImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String itemGbn, String itemName, int itemCnt});
+  $Res call(
+      {String itemGbn, String itemName, int itemCnt, String lastUpdateDt});
 }
 
 /// @nodoc
@@ -98,6 +106,7 @@ class __$$StockEntityImplCopyWithImpl<$Res>
     Object? itemGbn = null,
     Object? itemName = null,
     Object? itemCnt = null,
+    Object? lastUpdateDt = null,
   }) {
     return _then(_$StockEntityImpl(
       itemGbn: null == itemGbn
@@ -112,6 +121,10 @@ class __$$StockEntityImplCopyWithImpl<$Res>
           ? _value.itemCnt
           : itemCnt // ignore: cast_nullable_to_non_nullable
               as int,
+      lastUpdateDt: null == lastUpdateDt
+          ? _value.lastUpdateDt
+          : lastUpdateDt // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -120,7 +133,10 @@ class __$$StockEntityImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$StockEntityImpl implements _StockEntity {
   _$StockEntityImpl(
-      {required this.itemGbn, required this.itemName, required this.itemCnt});
+      {required this.itemGbn,
+      required this.itemName,
+      required this.itemCnt,
+      required this.lastUpdateDt});
 
   factory _$StockEntityImpl.fromJson(Map<String, dynamic> json) =>
       _$$StockEntityImplFromJson(json);
@@ -131,10 +147,12 @@ class _$StockEntityImpl implements _StockEntity {
   final String itemName;
   @override
   final int itemCnt;
+  @override
+  final String lastUpdateDt;
 
   @override
   String toString() {
-    return 'StockEntity(itemGbn: $itemGbn, itemName: $itemName, itemCnt: $itemCnt)';
+    return 'StockEntity(itemGbn: $itemGbn, itemName: $itemName, itemCnt: $itemCnt, lastUpdateDt: $lastUpdateDt)';
   }
 
   @override
@@ -145,12 +163,15 @@ class _$StockEntityImpl implements _StockEntity {
             (identical(other.itemGbn, itemGbn) || other.itemGbn == itemGbn) &&
             (identical(other.itemName, itemName) ||
                 other.itemName == itemName) &&
-            (identical(other.itemCnt, itemCnt) || other.itemCnt == itemCnt));
+            (identical(other.itemCnt, itemCnt) || other.itemCnt == itemCnt) &&
+            (identical(other.lastUpdateDt, lastUpdateDt) ||
+                other.lastUpdateDt == lastUpdateDt));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, itemGbn, itemName, itemCnt);
+  int get hashCode =>
+      Object.hash(runtimeType, itemGbn, itemName, itemCnt, lastUpdateDt);
 
   @JsonKey(ignore: true)
   @override
@@ -170,7 +191,8 @@ abstract class _StockEntity implements StockEntity {
   factory _StockEntity(
       {required final String itemGbn,
       required final String itemName,
-      required final int itemCnt}) = _$StockEntityImpl;
+      required final int itemCnt,
+      required final String lastUpdateDt}) = _$StockEntityImpl;
 
   factory _StockEntity.fromJson(Map<String, dynamic> json) =
       _$StockEntityImpl.fromJson;
@@ -181,6 +203,8 @@ abstract class _StockEntity implements StockEntity {
   String get itemName;
   @override
   int get itemCnt;
+  @override
+  String get lastUpdateDt;
   @override
   @JsonKey(ignore: true)
   _$$StockEntityImplCopyWith<_$StockEntityImpl> get copyWith =>

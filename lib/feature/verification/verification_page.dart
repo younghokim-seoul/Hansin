@@ -3,6 +3,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hansin/assets/assets.gen.dart';
+import 'package:hansin/data/model/response/content_info_vo.dart';
 import 'package:hansin/feature/verification/verification_state.dart';
 import 'package:hansin/feature/verification/verification_view_model.dart';
 import 'package:hansin/injector.dart';
@@ -90,11 +91,11 @@ class _VerificationPageState extends State<VerificationPage> {
       });
 
   Widget buildVolumeCustomerService() => InkWell(
-    onTap: () => context.router.push(const MegaSaleRoute()),
+    onTap: () => context.router.push(MegaSaleRoute(contentName: ContentType.buy.name)),
     child: Container(
       width: getScreenWidth(context) * 0.95,
       decoration: const BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(8)),
+        borderRadius: BorderRadius.all(Radius.circular(22)),
         color: AppColors.boxDark,
       ),
       child: Text(

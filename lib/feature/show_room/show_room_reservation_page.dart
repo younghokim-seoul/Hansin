@@ -100,9 +100,11 @@ class _ShowRoomReservationPageState extends State<ShowRoomReservationPage> {
             ),
             Expanded(
               child: InkWell(
-                  onTap: () => context.router.pop(),
+                  onTap: () {
+
+                  },
                   child: Text(
-                    '이전 화면으로',
+                    '예약하기',
                     textAlign: TextAlign.center,
                     style: AppTextStyle.textStyleBold
                         .copyWith(fontSize: 28, color: Colors.white),

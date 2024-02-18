@@ -16,7 +16,9 @@ import 'package:yaru_widgets/yaru_widgets.dart';
 class MegaSalePage extends StatefulWidget {
   static const routeName = '/mega_sale';
 
-  const MegaSalePage({super.key});
+  const MegaSalePage({super.key, required this.contentName});
+
+  final String contentName;
 
   @override
   State<MegaSalePage> createState() => _MegaSalePageState();
@@ -28,7 +30,7 @@ class _MegaSalePageState extends State<MegaSalePage> {
   @override
   void initState() {
     super.initState();
-    _viewModel.onLoadData();
+    _viewModel.onLoadData(widget.contentName);
   }
 
   @override

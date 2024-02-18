@@ -22,8 +22,9 @@ abstract class AppColors {
   static const textHighlight = secondary;
   static const cardLight = Color(0xFFF9FAFE);
   static const cardDark = Color(0xFF303334);
-  static const boxDark = Color(0xFF58A697);
-  static const boxLight = Color(0xFF8FBFBA);
+  static const boxDark = Color(0xFF309E93);
+  static const boxLight = Color(0xFF76ACA7);
+  static const lightNotConnectedText = Color(0xFFD43838);
 }
 
 abstract class _LightColors {
