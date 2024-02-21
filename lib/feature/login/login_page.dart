@@ -4,6 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:hansin/assets/assets.gen.dart';
 import 'package:hansin/feature/login/component/login_button_box.dart';
 import 'package:hansin/theme.dart';
+import 'package:hansin/utils/router/app_route.dart';
 import 'package:hansin/utils/screen_util.dart';
 
 @RoutePage()
@@ -28,12 +29,12 @@ class LoginPage extends StatelessWidget {
                   height: getScreenHeight(context) * 0.15,
                 ),
                 LoginButtonBox(
-                    title: "로그인", bgColor: AppColors.boxDark, onTap: () {}),
+                    title: "로그인", bgColor: AppColors.boxDark, onTap: () => context.router.push(const PhoneJoinRoute())),
                 const Gap(10),
                 LoginButtonBox(
-                    title: "회원가입", bgColor: AppColors.boxLight, onTap: () {}),
+                    title: "회원가입", bgColor: AppColors.boxLight, onTap: () => context.router.push(const SignUpRoute())),
                 SizedBox(
-                  height: getScreenHeight(context) * 0.05,
+                  height: getScreenHeight(context) * 0.2,
                 )
               ],
             )

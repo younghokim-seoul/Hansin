@@ -43,6 +43,12 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    PhoneJoinRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const PhoneJoinPage(),
+      );
+    },
     ShowRoomReservationRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -53,6 +59,12 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const SignUpPage(),
+      );
+    },
+    SplashRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const SplashPage(),
       );
     },
     VerificationRoute.name: (routeData) {
@@ -145,6 +157,20 @@ class MegaSaleRouteArgs {
 }
 
 /// generated route for
+/// [PhoneJoinPage]
+class PhoneJoinRoute extends PageRouteInfo<void> {
+  const PhoneJoinRoute({List<PageRouteInfo>? children})
+      : super(
+          PhoneJoinRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PhoneJoinRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [ShowRoomReservationPage]
 class ShowRoomReservationRoute extends PageRouteInfo<void> {
   const ShowRoomReservationRoute({List<PageRouteInfo>? children})
@@ -168,6 +194,20 @@ class SignUpRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'SignUpRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [SplashPage]
+class SplashRoute extends PageRouteInfo<void> {
+  const SplashRoute({List<PageRouteInfo>? children})
+      : super(
+          SplashRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SplashRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

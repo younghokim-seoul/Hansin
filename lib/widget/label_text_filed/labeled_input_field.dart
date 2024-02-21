@@ -13,6 +13,7 @@ class LabeledInputField extends StatefulWidget {
     this.errorText,
     this.onChanged,
     this.enabled = true,
+    this.fwMode = false,
     super.key,
   });
 
@@ -31,6 +32,8 @@ class LabeledInputField extends StatefulWidget {
   final ValueChanged<String>? onChanged;
 
   final bool enabled;
+
+  final bool fwMode;
 
   bool get hasError => errorText != null && errorText!.isNotEmpty;
 
@@ -112,6 +115,7 @@ class _LabeledInputFieldState extends State<LabeledInputField> {
               enabled: widget.enabled,
               enableSuggestions: false,
               autocorrect: false,
+              obscureText: widget.fwMode,
               textAlignVertical: TextAlignVertical.center,
               // style: GyverLampTextStyles.body2.copyWith(
               //   color: theme.textSecondary,
