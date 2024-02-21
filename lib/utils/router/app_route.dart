@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hansin/feature/home/home_page.dart';
 import 'package:hansin/feature/login/login_page.dart';
 import 'package:hansin/feature/mega_sale/mega_sale_page.dart';
+import 'package:hansin/feature/show_room/reservation_register/reservation_register_page.dart';
 import 'package:hansin/feature/show_room/show_room_reservation_page.dart';
 import 'package:hansin/feature/sign_up/sign_up_page.dart';
 import 'package:hansin/feature/stock/live_stock_page.dart';
@@ -29,5 +30,7 @@ class AppRouter extends _$AppRouter {
         CupertinoRoute(
             path: LiveStockPage.routeName, page: LiveStockRoute.page),
         CupertinoRoute(path: SignUpPage.routeName, page: SignUpRoute.page),
+        CupertinoRoute(
+            path: ReservationRegisterPage.routeName, page: ReservationRegisterRoute.page),
       ];
 }

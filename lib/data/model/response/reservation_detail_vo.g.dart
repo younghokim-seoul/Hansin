@@ -1,24 +1,27 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'calendar_info_vo.dart';
+part of 'reservation_detail_vo.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$CalendarInfoVOImpl _$$CalendarInfoVOImplFromJson(Map<String, dynamic> json) =>
-    _$CalendarInfoVOImpl(
+_$ReservationDetailVOImpl _$$ReservationDetailVOImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ReservationDetailVOImpl(
       year: json['year'] as String,
       month: json['month'] as String,
       day: json['day'] as String,
-      resYn: json['resYn'] as String,
+      amResYn: json['amResYn'] as String,
+      pmResYn: json['pmResYn'] as String,
     );
 
-Map<String, dynamic> _$$CalendarInfoVOImplToJson(
-        _$CalendarInfoVOImpl instance) =>
+Map<String, dynamic> _$$ReservationDetailVOImplToJson(
+        _$ReservationDetailVOImpl instance) =>
     <String, dynamic>{
       'year': instance.year,
       'month': instance.month,
       'day': instance.day,
-      'resYn': instance.resYn,
+      'amResYn': instance.amResYn,
+      'pmResYn': instance.pmResYn,
     };

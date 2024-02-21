@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'calendar_info_vo.dart';
+part of 'reservation_detail_vo.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,36 +14,38 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-CalendarInfoVO _$CalendarInfoVOFromJson(Map<String, dynamic> json) {
-  return _CalendarInfoVO.fromJson(json);
+ReservationDetailVO _$ReservationDetailVOFromJson(Map<String, dynamic> json) {
+  return _ReservationDetailVO.fromJson(json);
 }
 
 /// @nodoc
-mixin _$CalendarInfoVO {
+mixin _$ReservationDetailVO {
   String get year => throw _privateConstructorUsedError;
   String get month => throw _privateConstructorUsedError;
   String get day => throw _privateConstructorUsedError;
-  String get resYn => throw _privateConstructorUsedError;
+  String get amResYn => throw _privateConstructorUsedError;
+  String get pmResYn => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $CalendarInfoVOCopyWith<CalendarInfoVO> get copyWith =>
+  $ReservationDetailVOCopyWith<ReservationDetailVO> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CalendarInfoVOCopyWith<$Res> {
-  factory $CalendarInfoVOCopyWith(
-          CalendarInfoVO value, $Res Function(CalendarInfoVO) then) =
-      _$CalendarInfoVOCopyWithImpl<$Res, CalendarInfoVO>;
+abstract class $ReservationDetailVOCopyWith<$Res> {
+  factory $ReservationDetailVOCopyWith(
+          ReservationDetailVO value, $Res Function(ReservationDetailVO) then) =
+      _$ReservationDetailVOCopyWithImpl<$Res, ReservationDetailVO>;
   @useResult
-  $Res call({String year, String month, String day, String resYn});
+  $Res call(
+      {String year, String month, String day, String amResYn, String pmResYn});
 }
 
 /// @nodoc
-class _$CalendarInfoVOCopyWithImpl<$Res, $Val extends CalendarInfoVO>
-    implements $CalendarInfoVOCopyWith<$Res> {
-  _$CalendarInfoVOCopyWithImpl(this._value, this._then);
+class _$ReservationDetailVOCopyWithImpl<$Res, $Val extends ReservationDetailVO>
+    implements $ReservationDetailVOCopyWith<$Res> {
+  _$ReservationDetailVOCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -56,7 +58,8 @@ class _$CalendarInfoVOCopyWithImpl<$Res, $Val extends CalendarInfoVO>
     Object? year = null,
     Object? month = null,
     Object? day = null,
-    Object? resYn = null,
+    Object? amResYn = null,
+    Object? pmResYn = null,
   }) {
     return _then(_value.copyWith(
       year: null == year
@@ -71,31 +74,36 @@ class _$CalendarInfoVOCopyWithImpl<$Res, $Val extends CalendarInfoVO>
           ? _value.day
           : day // ignore: cast_nullable_to_non_nullable
               as String,
-      resYn: null == resYn
-          ? _value.resYn
-          : resYn // ignore: cast_nullable_to_non_nullable
+      amResYn: null == amResYn
+          ? _value.amResYn
+          : amResYn // ignore: cast_nullable_to_non_nullable
+              as String,
+      pmResYn: null == pmResYn
+          ? _value.pmResYn
+          : pmResYn // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$CalendarInfoVOImplCopyWith<$Res>
-    implements $CalendarInfoVOCopyWith<$Res> {
-  factory _$$CalendarInfoVOImplCopyWith(_$CalendarInfoVOImpl value,
-          $Res Function(_$CalendarInfoVOImpl) then) =
-      __$$CalendarInfoVOImplCopyWithImpl<$Res>;
+abstract class _$$ReservationDetailVOImplCopyWith<$Res>
+    implements $ReservationDetailVOCopyWith<$Res> {
+  factory _$$ReservationDetailVOImplCopyWith(_$ReservationDetailVOImpl value,
+          $Res Function(_$ReservationDetailVOImpl) then) =
+      __$$ReservationDetailVOImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String year, String month, String day, String resYn});
+  $Res call(
+      {String year, String month, String day, String amResYn, String pmResYn});
 }
 
 /// @nodoc
-class __$$CalendarInfoVOImplCopyWithImpl<$Res>
-    extends _$CalendarInfoVOCopyWithImpl<$Res, _$CalendarInfoVOImpl>
-    implements _$$CalendarInfoVOImplCopyWith<$Res> {
-  __$$CalendarInfoVOImplCopyWithImpl(
-      _$CalendarInfoVOImpl _value, $Res Function(_$CalendarInfoVOImpl) _then)
+class __$$ReservationDetailVOImplCopyWithImpl<$Res>
+    extends _$ReservationDetailVOCopyWithImpl<$Res, _$ReservationDetailVOImpl>
+    implements _$$ReservationDetailVOImplCopyWith<$Res> {
+  __$$ReservationDetailVOImplCopyWithImpl(_$ReservationDetailVOImpl _value,
+      $Res Function(_$ReservationDetailVOImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -104,9 +112,10 @@ class __$$CalendarInfoVOImplCopyWithImpl<$Res>
     Object? year = null,
     Object? month = null,
     Object? day = null,
-    Object? resYn = null,
+    Object? amResYn = null,
+    Object? pmResYn = null,
   }) {
-    return _then(_$CalendarInfoVOImpl(
+    return _then(_$ReservationDetailVOImpl(
       year: null == year
           ? _value.year
           : year // ignore: cast_nullable_to_non_nullable
@@ -119,9 +128,13 @@ class __$$CalendarInfoVOImplCopyWithImpl<$Res>
           ? _value.day
           : day // ignore: cast_nullable_to_non_nullable
               as String,
-      resYn: null == resYn
-          ? _value.resYn
-          : resYn // ignore: cast_nullable_to_non_nullable
+      amResYn: null == amResYn
+          ? _value.amResYn
+          : amResYn // ignore: cast_nullable_to_non_nullable
+              as String,
+      pmResYn: null == pmResYn
+          ? _value.pmResYn
+          : pmResYn // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -129,15 +142,16 @@ class __$$CalendarInfoVOImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$CalendarInfoVOImpl implements _CalendarInfoVO {
-  _$CalendarInfoVOImpl(
+class _$ReservationDetailVOImpl implements _ReservationDetailVO {
+  _$ReservationDetailVOImpl(
       {required this.year,
       required this.month,
       required this.day,
-      required this.resYn});
+      required this.amResYn,
+      required this.pmResYn});
 
-  factory _$CalendarInfoVOImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CalendarInfoVOImplFromJson(json);
+  factory _$ReservationDetailVOImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ReservationDetailVOImplFromJson(json);
 
   @override
   final String year;
@@ -146,52 +160,57 @@ class _$CalendarInfoVOImpl implements _CalendarInfoVO {
   @override
   final String day;
   @override
-  final String resYn;
+  final String amResYn;
+  @override
+  final String pmResYn;
 
   @override
   String toString() {
-    return 'CalendarInfoVO(year: $year, month: $month, day: $day, resYn: $resYn)';
+    return 'ReservationDetailVO(year: $year, month: $month, day: $day, amResYn: $amResYn, pmResYn: $pmResYn)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CalendarInfoVOImpl &&
+            other is _$ReservationDetailVOImpl &&
             (identical(other.year, year) || other.year == year) &&
             (identical(other.month, month) || other.month == month) &&
             (identical(other.day, day) || other.day == day) &&
-            (identical(other.resYn, resYn) || other.resYn == resYn));
+            (identical(other.amResYn, amResYn) || other.amResYn == amResYn) &&
+            (identical(other.pmResYn, pmResYn) || other.pmResYn == pmResYn));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, year, month, day, resYn);
+  int get hashCode =>
+      Object.hash(runtimeType, year, month, day, amResYn, pmResYn);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CalendarInfoVOImplCopyWith<_$CalendarInfoVOImpl> get copyWith =>
-      __$$CalendarInfoVOImplCopyWithImpl<_$CalendarInfoVOImpl>(
+  _$$ReservationDetailVOImplCopyWith<_$ReservationDetailVOImpl> get copyWith =>
+      __$$ReservationDetailVOImplCopyWithImpl<_$ReservationDetailVOImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$CalendarInfoVOImplToJson(
+    return _$$ReservationDetailVOImplToJson(
       this,
     );
   }
 }
 
-abstract class _CalendarInfoVO implements CalendarInfoVO {
-  factory _CalendarInfoVO(
+abstract class _ReservationDetailVO implements ReservationDetailVO {
+  factory _ReservationDetailVO(
       {required final String year,
       required final String month,
       required final String day,
-      required final String resYn}) = _$CalendarInfoVOImpl;
+      required final String amResYn,
+      required final String pmResYn}) = _$ReservationDetailVOImpl;
 
-  factory _CalendarInfoVO.fromJson(Map<String, dynamic> json) =
-      _$CalendarInfoVOImpl.fromJson;
+  factory _ReservationDetailVO.fromJson(Map<String, dynamic> json) =
+      _$ReservationDetailVOImpl.fromJson;
 
   @override
   String get year;
@@ -200,9 +219,11 @@ abstract class _CalendarInfoVO implements CalendarInfoVO {
   @override
   String get day;
   @override
-  String get resYn;
+  String get amResYn;
+  @override
+  String get pmResYn;
   @override
   @JsonKey(ignore: true)
-  _$$CalendarInfoVOImplCopyWith<_$CalendarInfoVOImpl> get copyWith =>
+  _$$ReservationDetailVOImplCopyWith<_$ReservationDetailVOImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

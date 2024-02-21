@@ -3,13 +3,13 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:hansin/feature/show_room/show_room_reservation_state.dart';
 import 'package:hansin/feature/show_room/show_room_reservation_view_model.dart';
-
 import 'package:hansin/injector.dart';
 import 'package:hansin/theme.dart';
 import 'package:hansin/utils/extension/margin_extension.dart';
 import 'package:hansin/utils/extension/value_extension.dart';
 import 'package:hansin/utils/router/app_route.dart';
 import 'package:hansin/utils/screen_util.dart';
+import 'package:hansin/widget/calendar/reservation_calendar.dart';
 import 'package:yaru_icons/yaru_icons.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 
@@ -20,7 +20,8 @@ class ShowRoomReservationPage extends StatefulWidget {
   const ShowRoomReservationPage({super.key});
 
   @override
-  State<ShowRoomReservationPage> createState() => _ShowRoomReservationPageState();
+  State<ShowRoomReservationPage> createState() =>
+      _ShowRoomReservationPageState();
 }
 
 class _ShowRoomReservationPageState extends State<ShowRoomReservationPage> {
@@ -36,11 +37,16 @@ class _ShowRoomReservationPageState extends State<ShowRoomReservationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
+        child: Stack(
           children: [
-            buildShowReservationEventView(),
-            buildBottomView(),
+            Positioned.fill(child: buildShowReservationEventView()),
+            Positioned(
+              bottom: 0,
+              child: Container(
+                color: Colors.white,
+                child: buildBottomView(),
+              ),
+            )
           ],
         ),
       ),
@@ -54,15 +60,14 @@ class _ShowRoomReservationPageState extends State<ShowRoomReservationPage> {
         if (state.data is Success) {
           final model = state.data as Success;
 
-          return Expanded(
-              child: SingleChildScrollView(
+          return  SingleChildScrollView(
             child: CachedNetworkImage(
               imageUrl: model.entity.contentImage,
               placeholder: (context, url) =>
                   const YaruCircularProgressIndicator(strokeWidth: 2),
               errorWidget: (context, url, error) => const Icon(YaruIcons.error),
             ),
-          ));
+          );
         }
 
         if (state is Loading) {}
@@ -72,45 +77,53 @@ class _ShowRoomReservationPageState extends State<ShowRoomReservationPage> {
         return Container();
       });
 
-  Widget buildBottomView() => Container(
-        margin: const EdgeInsets.all(0),
-        width: getScreenWidth(context),
-        decoration: const BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(0)),
-          color: AppColors.boxDark,
-        ),
-        child: Flex(
-          direction: Axis.horizontal,
-          children: [
-            Expanded(
-              child: InkWell(
-                  onTap: () => context.router.popUntil(
-                      (route) => route.settings.name == HomeRoute.name),
-                  child: Text(
-                    '기본 화면으로',
-                    textAlign: TextAlign.center,
-                    style: AppTextStyle.textStyleBold
-                        .copyWith(fontSize: 28, color: Colors.white),
-                  ).paddingOnly(top: 15, bottom: 15)),
+  Widget buildBottomView() => IntrinsicHeight(
+          child: Flex(
+        direction: Axis.vertical,
+        children: [
+          SizedBox(
+            width: getScreenWidth(context),
+            height: getScreenHeight(context) * 0.5,
+            child: const ReservationCalendar(),
+          ),
+          Container(
+            margin: const EdgeInsets.all(0),
+            width: getScreenWidth(context),
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(0)),
+              color: AppColors.boxDark,
             ),
-            Container(
-              width: 2,
-              height: 50,
-              color: AppColors.textLigth,
+            child: Row(
+              children: [
+                Expanded(
+                  child: InkWell(
+                      onTap: () => context.router.popUntil(
+                          (route) => route.settings.name == HomeRoute.name),
+                      child: Text(
+                        '기본 화면으로',
+                        textAlign: TextAlign.center,
+                        style: AppTextStyle.textStyleBold
+                            .copyWith(fontSize: 28, color: Colors.white),
+                      ).paddingOnly(top: 15, bottom: 15)),
+                ),
+                Container(
+                  width: 2,
+                  height: 50,
+                  color: AppColors.textLigth,
+                ),
+                Expanded(
+                  child: InkWell(
+                      onTap: () {},
+                      child: Text(
+                        '예약하기',
+                        textAlign: TextAlign.center,
+                        style: AppTextStyle.textStyleBold
+                            .copyWith(fontSize: 28, color: Colors.white),
+                      ).paddingOnly(top: 15, bottom: 15)),
+                ),
+              ],
             ),
-            Expanded(
-              child: InkWell(
-                  onTap: () {
-
-                  },
-                  child: Text(
-                    '예약하기',
-                    textAlign: TextAlign.center,
-                    style: AppTextStyle.textStyleBold
-                        .copyWith(fontSize: 28, color: Colors.white),
-                  ).paddingOnly(top: 15, bottom: 15)),
-            ),
-          ],
-        ),
-      );
+          ),
+        ],
+      ));
 }

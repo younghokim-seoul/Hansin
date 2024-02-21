@@ -46,4 +46,10 @@ class ItemRepositoryImpl implements ItemRepository {
 
     return entity;
   }
+
+  @override
+  Future<List<StockEntity>> getRestCalendarDetail(Map<String, dynamic> param) {
+    // TODO: implement getRestCalendarDetail
+    throw UnimplementedError();
+  }
 }

@@ -9,8 +9,7 @@ class CalendarInfoVO with _$CalendarInfoVO {
     required String year,
     required String month,
     required String day,
-    required String amResYn,
-    required String pmResYn,
+    required String resYn,
   }) = _CalendarInfoVO;
 
   factory CalendarInfoVO.fromJson(Map<String,dynamic> json) => _$CalendarInfoVOFromJson(json);

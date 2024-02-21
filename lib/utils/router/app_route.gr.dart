@@ -43,6 +43,16 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    ReservationRegisterRoute.name: (routeData) {
+      final args = routeData.argsAs<ReservationRegisterRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ReservationRegisterPage(
+          key: args.key,
+          selectedDateTime: args.selectedDateTime,
+        ),
+      );
+    },
     ShowRoomReservationRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -141,6 +151,45 @@ class MegaSaleRouteArgs {
   @override
   String toString() {
     return 'MegaSaleRouteArgs{key: $key, contentName: $contentName}';
+  }
+}
+
+/// generated route for
+/// [ReservationRegisterPage]
+class ReservationRegisterRoute
+    extends PageRouteInfo<ReservationRegisterRouteArgs> {
+  ReservationRegisterRoute({
+    Key? key,
+    required DateTime selectedDateTime,
+    List<PageRouteInfo>? children,
+  }) : super(
+          ReservationRegisterRoute.name,
+          args: ReservationRegisterRouteArgs(
+            key: key,
+            selectedDateTime: selectedDateTime,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'ReservationRegisterRoute';
+
+  static const PageInfo<ReservationRegisterRouteArgs> page =
+      PageInfo<ReservationRegisterRouteArgs>(name);
+}
+
+class ReservationRegisterRouteArgs {
+  const ReservationRegisterRouteArgs({
+    this.key,
+    required this.selectedDateTime,
+  });
+
+  final Key? key;
+
+  final DateTime selectedDateTime;
+
+  @override
+  String toString() {
+    return 'ReservationRegisterRouteArgs{key: $key, selectedDateTime: $selectedDateTime}';
   }
 }
 
