@@ -42,7 +42,7 @@ class _ReservationCalendarState extends State<ReservationCalendar> {
       onPageChanged: _onPageChanged,
       calendarStyle: CalendarStyle(
         outsideTextStyle:
-            AppTextStyle.textStyleBold.copyWith(color: Color(0xFFAEAEAE)),
+            AppTextStyle.textStyleBold.copyWith(color: const Color(0xFFAEAEAE)),
         disabledTextStyle: AppTextStyle.textStyleBold.copyWith(
           color: const Color(0xFFBFBFBF),
           decoration: TextDecoration.lineThrough,

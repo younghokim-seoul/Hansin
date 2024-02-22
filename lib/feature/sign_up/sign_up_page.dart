@@ -21,7 +21,7 @@ class SignUpPage extends ConsumerStatefulWidget {
 class _SignUpPageState extends ConsumerState<SignUpPage> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
-  final TextEditingController _rePhoneController = TextEditingController();
+  final TextEditingController _fwController = TextEditingController();
   final TextEditingController _companyNameController = TextEditingController();
   final TextEditingController _recommenderController = TextEditingController();
 
@@ -54,8 +54,8 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
                 ).paddingOnly(top: 10, bottom: 10),
                 LabeledInputField(
                   controller: _nameController,
-                  label: '* 이름',
-                  hintText: '이름을 입력해주세요.',
+                  label: '* 성명',
+                  hintText: '성명을 입력해주세요.',
                   errorText: null,
                   keyboardType: TextInputType.name,
                 ).marginOnly(left: 20, right: 20, top: 5, bottom: 5),
@@ -67,13 +67,6 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
                   keyboardType: TextInputType.phone,
                 ).marginOnly(left: 20, right: 20, top: 5, bottom: 5),
                 LabeledInputField(
-                  controller: _rePhoneController,
-                  label: '* 전화번호 재확인',
-                  hintText: '같은 전화번호를 입력해주세요.',
-                  errorText: null,
-                  keyboardType: TextInputType.phone,
-                ).marginOnly(left: 20, right: 20, top: 5, bottom: 5),
-                LabeledInputField(
                   controller: _companyNameController,
                   label: '* 회사명',
                   hintText: '회사명을 입력해주세요.',
@@ -81,8 +74,16 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
                   keyboardType: TextInputType.text,
                 ).marginOnly(left: 20, right: 20, top: 5, bottom: 5),
                 LabeledInputField(
+                  controller: _fwController,
+                  label: '* 비밀번호',
+                  hintText: '비밀번호 입력해주세요.',
+                  errorText: null,
+                  keyboardType: TextInputType.text,
+                  fwMode: true,
+                ).marginOnly(left: 20, right: 20, top: 5, bottom: 5),
+                LabeledInputField(
                   controller: _recommenderController,
-                  label: '* 추천인 전화번호 입력',
+                  label: ' 추천인 전화번호 입력',
                   hintText: '추천인의 전화번호를 입력해주세요.',
                   errorText: null,
                   keyboardType: TextInputType.phone,
