@@ -1,9 +1,14 @@
 import 'package:hansin/domain/repository/item_repository.dart';
+import 'package:hansin/feature/login/phone/phone_join_state.dart';
+import 'package:hansin/utils/dev_log.dart';
 import 'package:hansin/utils/reactive/arc_subject.dart';
+import 'package:hansin/viewmodel_interface.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable()
-class PhoneJoinViewModel {
+class PhoneJoinViewModel implements ViewModelInterface {
+  final loginUiState = ArcSubject<PhoneJoinState>();
+
   final ItemRepository _itemRepository;
 
   PhoneJoinViewModel(this._itemRepository);
@@ -15,6 +20,29 @@ class PhoneJoinViewModel {
   }
 
   void login(String id, String pw) async {
-    await _itemRepository.getItemInfo();
+    Map<String, dynamic> param = {};
+    param['userId'] = id;
+    param['userPwd'] = pw;
+    loadState(Loading());
+    try {
+      final response = await _itemRepository.login(param);
+      Log.i("::::response => $response");
+      if (response.result == "S") {
+        loadState(Success(entity: response));
+      } else {
+        loadState(Error());
+      }
+    } on Exception catch (e) {
+      Log.e(e.toString());
+      loadState(Error());
+    }
+  }
+
+  @override
+  disposeAll() {}
+
+  @override
+  loadState(state) {
+    loginUiState.val = state;
   }
 }

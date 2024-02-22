@@ -9,6 +9,8 @@ import 'package:hansin/feature/show_room/show_room_reservation_page.dart';
 import 'package:hansin/feature/sign_up/sign_up_page.dart';
 import 'package:hansin/feature/splash/splash_page.dart';
 import 'package:hansin/feature/stock/live_stock_page.dart';
+import 'package:hansin/feature/terms_page/terms_page.dart';
+import 'package:hansin/feature/terms_page/viewer/terms_detail_page.dart';
 import 'package:hansin/feature/verification/verification_page.dart';
 
 part 'app_route.gr.dart';
@@ -16,8 +18,7 @@ part 'app_route.gr.dart';
 @AutoRouterConfig(replaceInRouteName: 'Page,Route')
 class AppRouter extends _$AppRouter {
   @override
-  List<AutoRoute> get routes =>
-      [
+  List<AutoRoute> get routes => [
         AutoRoute(
             path: SplashPage.routeName, page: SplashRoute.page, initial: true),
         AutoRoute(
@@ -34,9 +35,13 @@ class AppRouter extends _$AppRouter {
         CupertinoRoute(
             path: LiveStockPage.routeName, page: LiveStockRoute.page),
         CupertinoRoute(path: SignUpPage.routeName, page: SignUpRoute.page),
-        CupertinoRoute(path: ReservationRegisterPage.routeName,
+        CupertinoRoute(
+            path: ReservationRegisterPage.routeName,
             page: ReservationRegisterRoute.page),
         CupertinoRoute(
             path: PhoneJoinPage.routeName, page: PhoneJoinRoute.page),
+        CupertinoRoute(path: TermsPage.routeName, page: TermsRoute.page),
+        CupertinoRoute(
+            path: TermsDetailPage.routeName, page: TermsDetailRoute.page),
       ];
 }

@@ -77,6 +77,23 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const SplashPage(),
       );
     },
+    TermsDetailRoute.name: (routeData) {
+      final args = routeData.argsAs<TermsDetailRouteArgs>(
+          orElse: () => const TermsDetailRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: TermsDetailPage(
+          key: args.key,
+          path: args.path,
+        ),
+      );
+    },
+    TermsRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const TermsPage(),
+      );
+    },
     VerificationRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -257,6 +274,58 @@ class SplashRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'SplashRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [TermsDetailPage]
+class TermsDetailRoute extends PageRouteInfo<TermsDetailRouteArgs> {
+  TermsDetailRoute({
+    Key? key,
+    String? path,
+    List<PageRouteInfo>? children,
+  }) : super(
+          TermsDetailRoute.name,
+          args: TermsDetailRouteArgs(
+            key: key,
+            path: path,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'TermsDetailRoute';
+
+  static const PageInfo<TermsDetailRouteArgs> page =
+      PageInfo<TermsDetailRouteArgs>(name);
+}
+
+class TermsDetailRouteArgs {
+  const TermsDetailRouteArgs({
+    this.key,
+    this.path,
+  });
+
+  final Key? key;
+
+  final String? path;
+
+  @override
+  String toString() {
+    return 'TermsDetailRouteArgs{key: $key, path: $path}';
+  }
+}
+
+/// generated route for
+/// [TermsPage]
+class TermsRoute extends PageRouteInfo<void> {
+  const TermsRoute({List<PageRouteInfo>? children})
+      : super(
+          TermsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'TermsRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

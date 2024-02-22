@@ -2,11 +2,19 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hansin/feature/login/login_page.dart';
+import 'package:hansin/feature/login/login_providers.dart';
+import 'package:hansin/feature/login/phone/phone_join_state.dart';
 import 'package:hansin/feature/login/phone/phone_join_view_model.dart';
 import 'package:hansin/injector.dart';
 import 'package:hansin/theme.dart';
+import 'package:hansin/utils/dev_log.dart';
 import 'package:hansin/utils/extension/margin_extension.dart';
+import 'package:hansin/utils/router/app_route.dart';
 import 'package:hansin/utils/screen_util.dart';
+import 'package:hansin/widget/dialog/dialogs.dart';
+
+
 
 @RoutePage()
 class PhoneJoinPage extends ConsumerStatefulWidget {
@@ -22,6 +30,28 @@ class _PhoneJoinPageState extends ConsumerState<PhoneJoinPage> {
   final _viewModel = getIt<PhoneJoinViewModel>();
   final TextEditingController _phoneController = TextEditingController();
   final TextEditingController _passWordController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+
+    _viewModel.loginUiState.stream.listen((state) {
+      Log.d(":::state => $state");
+      if (state is Loading) {}
+
+      if (state is Success) {
+        ref.read(userCacheProvider.notifier).setLoginUserIds(state.entity.userId ?? "");
+        context.router.pushAndPopUntil(const HomeRoute(), predicate: (route) => route.settings.name == LoginPage.routeName);
+      }
+      if (state is Error) {
+        showErrorDialog(
+          context: context,
+          title: '오류',
+          message: '로그인에 실패하였습니다.',
+        );
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +78,9 @@ class _PhoneJoinPageState extends ConsumerState<PhoneJoinPage> {
       bottomNavigationBar:
           _viewModel.isActiveLogin.ui(builder: (context, isClickable) {
         return InkWell(
-          onTap: () {},
+          onTap: () {
+            _viewModel.login(_phoneController.text, _passWordController.text);
+          },
           child: SizedBox(
             width: getScreenWidth(context),
             child: DecoratedBox(
@@ -111,7 +143,7 @@ class _PhoneJoinPageState extends ConsumerState<PhoneJoinPage> {
                       border: InputBorder.none,
                       enabledBorder: InputBorder.none,
                     ),
-                    cursorColor: const Color(0x00000000),
+                    cursorColor: AppColors.boxDark,
                     onChanged: (text) {
                       _checkClickable();
                     },
@@ -150,7 +182,7 @@ class _PhoneJoinPageState extends ConsumerState<PhoneJoinPage> {
                       enabledBorder: InputBorder.none,
                     ),
                     obscureText: true,
-                    cursorColor: const Color(0x00000000),
+                    cursorColor: AppColors.boxDark,
                     onChanged: (text) {
                       _checkClickable();
                     },

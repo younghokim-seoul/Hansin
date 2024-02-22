@@ -33,6 +33,6 @@ class _SplashPageState extends ConsumerState<SplashPage> {
   }
   @override
   Widget build(BuildContext context) {
-    return const SizedBox.shrink();
+    return Container();
   }
 }

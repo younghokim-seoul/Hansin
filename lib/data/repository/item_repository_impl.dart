@@ -2,8 +2,14 @@ import 'dart:convert';
 
 import 'package:hansin/data/api_url.dart';
 import 'package:hansin/data/datasource/remote/remote_datasource.dart';
+import 'package:hansin/data/model/response/calendar_info_vo.dart';
 import 'package:hansin/data/model/response/content_info_vo.dart';
 import 'package:hansin/data/model/response/item_info_vo.dart';
+import 'package:hansin/data/model/response/login_vo.dart';
+import 'package:hansin/data/model/response/reservation_detail_vo.dart';
+import 'package:hansin/data/model/response/reservation_vo.dart';
+import 'package:hansin/data/model/response/sign_up_vo.dart';
+import 'package:hansin/domain/entity/calendar_enable_select_entity.dart';
 import 'package:hansin/domain/entity/content_entity.dart';
 import 'package:hansin/domain/entity/stock_entity.dart';
 import 'package:hansin/domain/repository/item_repository.dart';
@@ -34,22 +40,78 @@ class ItemRepositoryImpl implements ItemRepository {
 
   @override
   Future<List<StockEntity>> getItemInfo() async {
-    var res = await dataSource.request(HttpMethod.get, ApiUrl.getItem, {});
+    var res = await dataSource.request(HttpMethod.get, ApiUrl.getItemInfo, {});
 
     var entity = List<dynamic>.from(json.decode(utf8.decode(res.bodyBytes)))
         .map((e) {
           return ItemInfoVO.fromJson(e);
         })
         .map((e) => StockEntity(
-            itemGbn: e.itemGbn, itemName: e.itemName, itemCnt: e.itemCnt,lastUpdateDt: e.lastUpdateDt))
+            itemGbn: e.itemGbn,
+            itemName: e.itemName,
+            itemCnt: e.itemCnt,
+            lastUpdateDt: e.lastUpdateDt))
         .toList();
 
     return entity;
   }
 
   @override
-  Future<List<StockEntity>> getRestCalendarDetail(Map<String, dynamic> param) {
-    // TODO: implement getRestCalendarDetail
-    throw UnimplementedError();
+  Future<ReservationDetailVO> getRestCalendarDetail(
+      Map<String, dynamic> param) async {
+    var res = await dataSource.request(
+        HttpMethod.post, ApiUrl.getRestCalendarDetail, param);
+
+    var responseModel =
+        ReservationDetailVO.fromJson(json.decode(utf8.decode(res.bodyBytes)));
+
+    return responseModel;
+  }
+
+  @override
+  Future<SignUpVO> createUser(Map<String, dynamic> param) async {
+    var res = await dataSource.request(HttpMethod.post, ApiUrl.signUp, param);
+
+    var responseModel =
+        SignUpVO.fromJson(json.decode(utf8.decode(res.bodyBytes)));
+
+    return responseModel;
+  }
+
+  @override
+  Future<List<CalendarEnableSelectEntity>> getRestCalendar() async {
+    var res =
+        await dataSource.request(HttpMethod.get, ApiUrl.getRestCalendar, {});
+
+    var entity = List<dynamic>.from(json.decode(utf8.decode(res.bodyBytes)))
+        .map((e) {
+          return CalendarInfoVO.fromJson(e);
+        })
+        .map((e) => CalendarEnableSelectEntity(
+            year: e.year, month: e.month, day: e.day, resYn: e.resYn))
+        .toList();
+
+    return entity;
+  }
+
+  @override
+  Future<ReservationVO> insertResInfo(Map<String, dynamic> param) async {
+    var res =
+        await dataSource.request(HttpMethod.post, ApiUrl.insertResInfo, param);
+
+    var responseModel =
+        ReservationVO.fromJson(json.decode(utf8.decode(res.bodyBytes)));
+
+    return responseModel;
+  }
+
+  @override
+  Future<LoginVO> login(Map<String, dynamic> param) async {
+    var res = await dataSource.request(HttpMethod.post, ApiUrl.login, param);
+
+    var responseModel =
+        LoginVO.fromJson(json.decode(utf8.decode(res.bodyBytes)));
+
+    return responseModel;
   }
 }

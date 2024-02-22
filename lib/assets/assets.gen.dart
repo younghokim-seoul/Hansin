@@ -20,12 +20,15 @@ class $AssetsImagesGen {
   AssetGenImage get mainLogo =>
       const AssetGenImage('assets/images/main_logo.png');
 
+  /// File path: assets/images/terms_of_use.pdf
+  String get termsOfUse => 'assets/images/terms_of_use.pdf';
+
   /// File path: assets/images/title_log.png
   AssetGenImage get titleLog =>
       const AssetGenImage('assets/images/title_log.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [loginBg, mainLogo, titleLog];
+  List<dynamic> get values => [loginBg, mainLogo, termsOfUse, titleLog];
 }
 
 class Assets {

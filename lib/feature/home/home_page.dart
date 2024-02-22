@@ -4,7 +4,6 @@ import 'package:gap/gap.dart';
 import 'package:hansin/assets/assets.gen.dart';
 import 'package:hansin/feature/home/component/home_list_box.dart';
 import 'package:hansin/theme.dart';
-import 'package:hansin/utils/extension/margin_extension.dart';
 import 'package:hansin/utils/router/app_route.dart';
 import 'package:hansin/widget/customer_center/customer_center_box.dart';
 
@@ -20,7 +19,7 @@ class HomePage extends StatelessWidget {
       body: SafeArea(
         child: Column(children: [
           const Gap(20),
-          Assets.images.titleLog.image().marginOnly(left: 16, right: 16),
+          Assets.images.titleLog.image(height: 70,fit: BoxFit.fill),
           const Gap(10),
           Expanded(
             child: Column(

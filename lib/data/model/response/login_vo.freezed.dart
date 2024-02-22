@@ -22,10 +22,10 @@ LoginVO _$LoginVOFromJson(Map<String, dynamic> json) {
 mixin _$LoginVO {
   String get result => throw _privateConstructorUsedError;
   String get resultMsg => throw _privateConstructorUsedError;
-  String get userId => throw _privateConstructorUsedError;
-  String get userName => throw _privateConstructorUsedError;
-  String get userCompanyName => throw _privateConstructorUsedError;
-  String get userPhone => throw _privateConstructorUsedError;
+  String? get userId => throw _privateConstructorUsedError;
+  String? get userName => throw _privateConstructorUsedError;
+  String? get userCompanyName => throw _privateConstructorUsedError;
+  String? get userPhone => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -40,10 +40,10 @@ abstract class $LoginVOCopyWith<$Res> {
   $Res call(
       {String result,
       String resultMsg,
-      String userId,
-      String userName,
-      String userCompanyName,
-      String userPhone});
+      String? userId,
+      String? userName,
+      String? userCompanyName,
+      String? userPhone});
 }
 
 /// @nodoc
@@ -61,10 +61,10 @@ class _$LoginVOCopyWithImpl<$Res, $Val extends LoginVO>
   $Res call({
     Object? result = null,
     Object? resultMsg = null,
-    Object? userId = null,
-    Object? userName = null,
-    Object? userCompanyName = null,
-    Object? userPhone = null,
+    Object? userId = freezed,
+    Object? userName = freezed,
+    Object? userCompanyName = freezed,
+    Object? userPhone = freezed,
   }) {
     return _then(_value.copyWith(
       result: null == result
@@ -75,22 +75,22 @@ class _$LoginVOCopyWithImpl<$Res, $Val extends LoginVO>
           ? _value.resultMsg
           : resultMsg // ignore: cast_nullable_to_non_nullable
               as String,
-      userId: null == userId
+      userId: freezed == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-      userName: null == userName
+              as String?,
+      userName: freezed == userName
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
-              as String,
-      userCompanyName: null == userCompanyName
+              as String?,
+      userCompanyName: freezed == userCompanyName
           ? _value.userCompanyName
           : userCompanyName // ignore: cast_nullable_to_non_nullable
-              as String,
-      userPhone: null == userPhone
+              as String?,
+      userPhone: freezed == userPhone
           ? _value.userPhone
           : userPhone // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -105,10 +105,10 @@ abstract class _$$LoginVOImplCopyWith<$Res> implements $LoginVOCopyWith<$Res> {
   $Res call(
       {String result,
       String resultMsg,
-      String userId,
-      String userName,
-      String userCompanyName,
-      String userPhone});
+      String? userId,
+      String? userName,
+      String? userCompanyName,
+      String? userPhone});
 }
 
 /// @nodoc
@@ -124,10 +124,10 @@ class __$$LoginVOImplCopyWithImpl<$Res>
   $Res call({
     Object? result = null,
     Object? resultMsg = null,
-    Object? userId = null,
-    Object? userName = null,
-    Object? userCompanyName = null,
-    Object? userPhone = null,
+    Object? userId = freezed,
+    Object? userName = freezed,
+    Object? userCompanyName = freezed,
+    Object? userPhone = freezed,
   }) {
     return _then(_$LoginVOImpl(
       result: null == result
@@ -138,22 +138,22 @@ class __$$LoginVOImplCopyWithImpl<$Res>
           ? _value.resultMsg
           : resultMsg // ignore: cast_nullable_to_non_nullable
               as String,
-      userId: null == userId
+      userId: freezed == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-      userName: null == userName
+              as String?,
+      userName: freezed == userName
           ? _value.userName
           : userName // ignore: cast_nullable_to_non_nullable
-              as String,
-      userCompanyName: null == userCompanyName
+              as String?,
+      userCompanyName: freezed == userCompanyName
           ? _value.userCompanyName
           : userCompanyName // ignore: cast_nullable_to_non_nullable
-              as String,
-      userPhone: null == userPhone
+              as String?,
+      userPhone: freezed == userPhone
           ? _value.userPhone
           : userPhone // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -177,13 +177,13 @@ class _$LoginVOImpl implements _LoginVO {
   @override
   final String resultMsg;
   @override
-  final String userId;
+  final String? userId;
   @override
-  final String userName;
+  final String? userName;
   @override
-  final String userCompanyName;
+  final String? userCompanyName;
   @override
-  final String userPhone;
+  final String? userPhone;
 
   @override
   String toString() {
@@ -230,10 +230,10 @@ abstract class _LoginVO implements LoginVO {
   factory _LoginVO(
       {required final String result,
       required final String resultMsg,
-      required final String userId,
-      required final String userName,
-      required final String userCompanyName,
-      required final String userPhone}) = _$LoginVOImpl;
+      required final String? userId,
+      required final String? userName,
+      required final String? userCompanyName,
+      required final String? userPhone}) = _$LoginVOImpl;
 
   factory _LoginVO.fromJson(Map<String, dynamic> json) = _$LoginVOImpl.fromJson;
 
@@ -242,13 +242,13 @@ abstract class _LoginVO implements LoginVO {
   @override
   String get resultMsg;
   @override
-  String get userId;
+  String? get userId;
   @override
-  String get userName;
+  String? get userName;
   @override
-  String get userCompanyName;
+  String? get userCompanyName;
   @override
-  String get userPhone;
+  String? get userPhone;
   @override
   @JsonKey(ignore: true)
   _$$LoginVOImplCopyWith<_$LoginVOImpl> get copyWith =>

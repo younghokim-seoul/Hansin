@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gap/gap.dart';
+import 'package:hansin/assets/assets.gen.dart';
 import 'package:hansin/theme.dart';
 import 'package:hansin/utils/extension/margin_extension.dart';
 import 'package:hansin/utils/screen_util.dart';
@@ -46,12 +48,9 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                Text(
-                  '회원가입',
-                  textAlign: TextAlign.center,
-                  style: AppTextStyle.textStyleBold
-                      .copyWith(fontSize: 18, color: Colors.black),
-                ).paddingOnly(top: 10, bottom: 10),
+                const Gap(20),
+                Assets.images.titleLog.image(height: 70,fit: BoxFit.fill),
+                const Gap(10),
                 LabeledInputField(
                   controller: _nameController,
                   label: '* 성명',
@@ -107,8 +106,7 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
                 child: Text(
                   '가입하기',
                   textAlign: TextAlign.center,
-                  style: AppTextStyle.textStyleBold
-                      .copyWith(fontSize: 28, color: Colors.white),
+                  style: AppTextStyle.textStyleBold.copyWith(fontSize: 28, color: Colors.white),
                 ).paddingOnly(top: 15, bottom: 15),
               ),
             )
