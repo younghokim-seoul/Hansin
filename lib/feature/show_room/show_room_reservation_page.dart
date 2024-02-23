@@ -30,7 +30,7 @@ class _ShowRoomReservationPageState extends State<ShowRoomReservationPage> {
   @override
   void initState() {
     super.initState();
-    _viewModel.onLoadData();
+    _viewModel.onLoadGuideData();
   }
 
   @override
@@ -60,7 +60,7 @@ class _ShowRoomReservationPageState extends State<ShowRoomReservationPage> {
         if (state.data is Success) {
           final model = state.data as Success;
 
-          return  SingleChildScrollView(
+          return SingleChildScrollView(
             child: CachedNetworkImage(
               imageUrl: model.entity.contentImage,
               placeholder: (context, url) =>
@@ -78,52 +78,63 @@ class _ShowRoomReservationPageState extends State<ShowRoomReservationPage> {
       });
 
   Widget buildBottomView() => IntrinsicHeight(
-          child: Flex(
-        direction: Axis.vertical,
-        children: [
-          SizedBox(
-            width: getScreenWidth(context),
-            height: getScreenHeight(context) * 0.5,
-            child: const ReservationCalendar(),
-          ),
-          Container(
-            margin: const EdgeInsets.all(0),
-            width: getScreenWidth(context),
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(0)),
-              color: AppColors.boxDark,
+        child: Flex(
+          direction: Axis.vertical,
+          children: [
+            _buildCalendarView(),
+            Container(
+              margin: const EdgeInsets.all(0),
+              width: getScreenWidth(context),
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(0)),
+                color: AppColors.boxDark,
+              ),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: InkWell(
+                        onTap: () => context.router.popUntil(
+                            (route) => route.settings.name == HomeRoute.name),
+                        child: Text(
+                          '기본 화면으로',
+                          textAlign: TextAlign.center,
+                          style: AppTextStyle.textStyleBold
+                              .copyWith(fontSize: 28, color: Colors.white),
+                        ).paddingOnly(top: 15, bottom: 15)),
+                  ),
+                  Container(
+                    width: 2,
+                    height: 50,
+                    color: AppColors.textLigth,
+                  ),
+                  Expanded(
+                    child: InkWell(
+                        onTap: _viewModel.setToggleCalendar,
+                        child: Text(
+                          '예약하기',
+                          textAlign: TextAlign.center,
+                          style: AppTextStyle.textStyleBold
+                              .copyWith(fontSize: 28, color: Colors.white),
+                        ).paddingOnly(top: 15, bottom: 15)),
+                  ),
+                ],
+              ),
             ),
-            child: Row(
-              children: [
-                Expanded(
-                  child: InkWell(
-                      onTap: () => context.router.popUntil(
-                          (route) => route.settings.name == HomeRoute.name),
-                      child: Text(
-                        '기본 화면으로',
-                        textAlign: TextAlign.center,
-                        style: AppTextStyle.textStyleBold
-                            .copyWith(fontSize: 28, color: Colors.white),
-                      ).paddingOnly(top: 15, bottom: 15)),
-                ),
-                Container(
-                  width: 2,
-                  height: 50,
-                  color: AppColors.textLigth,
-                ),
-                Expanded(
-                  child: InkWell(
-                      onTap: () {},
-                      child: Text(
-                        '예약하기',
-                        textAlign: TextAlign.center,
-                        style: AppTextStyle.textStyleBold
-                            .copyWith(fontSize: 28, color: Colors.white),
-                      ).paddingOnly(top: 15, bottom: 15)),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ));
+          ],
+        ),
+      );
+
+  Widget _buildCalendarView() {
+    return _viewModel.isVisibleCalendar.ui(builder: (context, isShow) {
+      if (isShow.data == true) {
+        return SizedBox(
+          width: getScreenWidth(context),
+          height: getScreenHeight(context) * 0.5,
+          child: ReservationCalendar(viewModel: _viewModel),
+        );
+      } else {
+        return const SizedBox.shrink();
+      }
+    });
+  }
 }

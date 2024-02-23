@@ -5,9 +5,9 @@ part 'calendar_enable_select_entity.freezed.dart';
 @freezed
 class CalendarEnableSelectEntity with _$CalendarEnableSelectEntity {
   factory CalendarEnableSelectEntity({
-    required String year,
-    required String month,
-    required String day,
+    required int year,
+    required int month,
+    required int day,
     required String resYn,
   }) = _CalendarEnableSelectEntity;
 }

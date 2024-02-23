@@ -49,6 +49,17 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const PhoneJoinPage(),
       );
     },
+    ReservationCheckRoute.name: (routeData) {
+      final args = routeData.argsAs<ReservationCheckRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ReservationCheckPage(
+          key: args.key,
+          selectedDateTime: args.selectedDateTime,
+          timeType: args.timeType,
+        ),
+      );
+    },
     ReservationRegisterRoute.name: (routeData) {
       final args = routeData.argsAs<ReservationRegisterRouteArgs>();
       return AutoRoutePage<dynamic>(
@@ -195,6 +206,49 @@ class PhoneJoinRoute extends PageRouteInfo<void> {
   static const String name = 'PhoneJoinRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ReservationCheckPage]
+class ReservationCheckRoute extends PageRouteInfo<ReservationCheckRouteArgs> {
+  ReservationCheckRoute({
+    Key? key,
+    required DateTime selectedDateTime,
+    required TimeType timeType,
+    List<PageRouteInfo>? children,
+  }) : super(
+          ReservationCheckRoute.name,
+          args: ReservationCheckRouteArgs(
+            key: key,
+            selectedDateTime: selectedDateTime,
+            timeType: timeType,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'ReservationCheckRoute';
+
+  static const PageInfo<ReservationCheckRouteArgs> page =
+      PageInfo<ReservationCheckRouteArgs>(name);
+}
+
+class ReservationCheckRouteArgs {
+  const ReservationCheckRouteArgs({
+    this.key,
+    required this.selectedDateTime,
+    required this.timeType,
+  });
+
+  final Key? key;
+
+  final DateTime selectedDateTime;
+
+  final TimeType timeType;
+
+  @override
+  String toString() {
+    return 'ReservationCheckRouteArgs{key: $key, selectedDateTime: $selectedDateTime, timeType: $timeType}';
+  }
 }
 
 /// generated route for

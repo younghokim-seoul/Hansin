@@ -15,7 +15,7 @@ Future<File> fromAsset(String asset, String filename) async {
     var bytes = data.buffer.asUint8List();
     await file.writeAsBytes(bytes, flush: true);
     completer.complete(file);
-  } catch (e) {
+  } on Exception catch (e) {
     throw Exception('Error parsing asset file!');
   }
 

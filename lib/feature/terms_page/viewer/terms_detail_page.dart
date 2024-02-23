@@ -73,7 +73,7 @@ class _TermsDetailPageState extends ConsumerState<TermsDetailPage> {
           ),
           errorMessage.isEmpty
               ? !isReady
-                  ? Center(
+                  ? const Center(
                       child: CircularProgressIndicator(),
                     )
                   : Container()

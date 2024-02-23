@@ -9,19 +9,17 @@ part of 'reservation_detail_vo.dart';
 _$ReservationDetailVOImpl _$$ReservationDetailVOImplFromJson(
         Map<String, dynamic> json) =>
     _$ReservationDetailVOImpl(
-      year: json['year'] as String,
-      month: json['month'] as String,
-      day: json['day'] as String,
-      amResYn: json['amResYn'] as String,
-      pmResYn: json['pmResYn'] as String,
+      result: json['result'] as String,
+      schedule: json['schedule'] == null
+          ? null
+          : ScheduleVO.fromJson(json['schedule'] as Map<String, dynamic>),
+      resultMsg: json['resultMsg'] as String,
     );
 
 Map<String, dynamic> _$$ReservationDetailVOImplToJson(
         _$ReservationDetailVOImpl instance) =>
     <String, dynamic>{
-      'year': instance.year,
-      'month': instance.month,
-      'day': instance.day,
-      'amResYn': instance.amResYn,
-      'pmResYn': instance.pmResYn,
+      'result': instance.result,
+      'schedule': instance.schedule,
+      'resultMsg': instance.resultMsg,
     };

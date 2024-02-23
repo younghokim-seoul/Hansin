@@ -8,6 +8,7 @@ class CalendarDetailEntity with _$CalendarDetailEntity {
     required String year,
     required String month,
     required String day,
-    required String resYn,
+    required String amResYn,
+    required String pmResYn,
   }) = _CalendarDetailEntity;
 }

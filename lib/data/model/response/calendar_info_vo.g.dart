@@ -8,17 +8,17 @@ part of 'calendar_info_vo.dart';
 
 _$CalendarInfoVOImpl _$$CalendarInfoVOImplFromJson(Map<String, dynamic> json) =>
     _$CalendarInfoVOImpl(
-      year: json['year'] as String,
-      month: json['month'] as String,
-      day: json['day'] as String,
-      resYn: json['resYn'] as String,
+      result: json['result'] as String,
+      schedule: (json['schedule'] as List<dynamic>)
+          .map((e) => CalendarScheduleVO.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      resultMsg: json['resultMsg'] as String,
     );
 
 Map<String, dynamic> _$$CalendarInfoVOImplToJson(
         _$CalendarInfoVOImpl instance) =>
     <String, dynamic>{
-      'year': instance.year,
-      'month': instance.month,
-      'day': instance.day,
-      'resYn': instance.resYn,
+      'result': instance.result,
+      'schedule': instance.schedule,
+      'resultMsg': instance.resultMsg,
     };

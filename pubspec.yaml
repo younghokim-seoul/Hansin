@@ -58,7 +58,8 @@ flutter:
   assets:
     - assets/images/
     - assets/images/terms_of_use.pdf
-    - assets/images/demo.pdf
+    - assets/images/terms_of_privacy.pdf
+    - assets/images/terms_use_admin.pdf
 
 
 

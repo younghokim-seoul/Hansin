@@ -71,8 +71,7 @@ class _TermsPageState extends ConsumerState<TermsPage> {
                   padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5),
-                    color:
-                        ref.read(selectStateProvider).all
+                    color: selectState.all
                             ? AppColors.boxDark.withOpacity(0.2)
                             : Colors.grey.withOpacity(0.2),
                   ),
@@ -80,14 +79,12 @@ class _TermsPageState extends ConsumerState<TermsPage> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('전체동의',
+                      const Text('전체동의',
                           style: TextStyle(
                               color: Color(0xFF000000),
                               fontSize: 16,
                               fontWeight: FontWeight.bold)),
-                      Icon(ref
-                              .watch(selectStateProvider.notifier)
-                              .allCheckState()
+                      Icon(selectState.all
                           ? YaruIcons.checkbox_checked_filled
                           : YaruIcons.checkbox)
                     ],
@@ -122,8 +119,7 @@ class _TermsPageState extends ConsumerState<TermsPage> {
                             fromAsset(
                               'assets/images/terms_of_use.pdf',
                               'terms_of_use.pdf',
-                            ).then((value) => context.router
-                                .push(TermsDetailRoute(path: value.path)));
+                            ).then((value) => context.router.push(TermsDetailRoute(path: value.path)));
                           },
                           child: const Text('한신 이용약관',
                               overflow: TextOverflow.fade,
@@ -132,9 +128,7 @@ class _TermsPageState extends ConsumerState<TermsPage> {
                                   color: Color(0xFF000000), fontSize: 16)),
                         ),
                       ),
-                      Icon(ref
-                              .watch(selectStateProvider.notifier)
-                              .checkConsent1State()
+                      Icon(selectState.requiredConsent1
                           ? YaruIcons.checkbox_checked_filled
                           : YaruIcons.checkbox)
                     ],
@@ -165,7 +159,12 @@ class _TermsPageState extends ConsumerState<TermsPage> {
                                 bottom: BorderSide(
                                     color: Color(0xFF000000), width: 1))),
                         child: GestureDetector(
-                          onTap: () async {},
+                          onTap: () {
+                            fromAsset(
+                              'assets/images/terms_of_privacy.pdf',
+                              'terms_of_privacy.pdf',
+                            ).then((value) => context.router.push(TermsDetailRoute(path: value.path)));
+                          },
                           child: const Text('한신에어시스템(주) 개인정보처리약관',
                               overflow: TextOverflow.fade,
                               softWrap: true,
@@ -173,9 +172,7 @@ class _TermsPageState extends ConsumerState<TermsPage> {
                                   color: Color(0xFF000000), fontSize: 16)),
                         ),
                       ),
-                      Icon(ref
-                              .watch(selectStateProvider.notifier)
-                              .checkConsent2State()
+                      Icon(selectState.requiredConsent2
                           ? YaruIcons.checkbox_checked_filled
                           : YaruIcons.checkbox)
                     ],
@@ -206,7 +203,12 @@ class _TermsPageState extends ConsumerState<TermsPage> {
                                 bottom: BorderSide(
                                     color: Color(0xFF000000), width: 1))),
                         child: GestureDetector(
-                          onTap: () async {},
+                          onTap: () {
+                            fromAsset(
+                              'assets/images/terms_use_admin.pdf',
+                              'terms_use_admin.pdf',
+                            ).then((value) => context.router.push(TermsDetailRoute(path: value.path)));
+                          },
                           child: const Text('광고수신동의 약관',
                               overflow: TextOverflow.fade,
                               softWrap: true,
@@ -214,9 +216,7 @@ class _TermsPageState extends ConsumerState<TermsPage> {
                                   color: Color(0xFF000000), fontSize: 16)),
                         ),
                       ),
-                      Icon(ref
-                              .watch(selectStateProvider.notifier)
-                              .checkConsent3State()
+                      Icon(selectState.requiredConsent3
                           ? YaruIcons.checkbox_checked_filled
                           : YaruIcons.checkbox)
                     ],
@@ -229,13 +229,13 @@ class _TermsPageState extends ConsumerState<TermsPage> {
       ),
       bottomNavigationBar: InkWell(
         onTap: () {
-          if (ref.watch(selectStateProvider.notifier).allCheckState()) {
+          if (selectState.all) {
             context.router.push(const SignUpRoute());
           }
         },
         child: Container(
           width: getScreenWidth(context),
-          decoration: ref.watch(selectStateProvider.notifier).allCheckState()
+          decoration: selectState.all
               ? const BoxDecoration(color: AppColors.boxDark)
               : const BoxDecoration(color: AppColors.textFaded),
           child: Text(

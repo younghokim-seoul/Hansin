@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:get_it/get_it.dart';
 import 'package:hansin/data/api_url.dart';
 import 'package:hansin/data/datasource/remote/remote_datasource.dart';
 import 'package:hansin/data/model/response/calendar_info_vo.dart';
@@ -9,10 +10,13 @@ import 'package:hansin/data/model/response/login_vo.dart';
 import 'package:hansin/data/model/response/reservation_detail_vo.dart';
 import 'package:hansin/data/model/response/reservation_vo.dart';
 import 'package:hansin/data/model/response/sign_up_vo.dart';
+import 'package:hansin/domain/entity/calendar_detail_entity.dart';
 import 'package:hansin/domain/entity/calendar_enable_select_entity.dart';
 import 'package:hansin/domain/entity/content_entity.dart';
 import 'package:hansin/domain/entity/stock_entity.dart';
 import 'package:hansin/domain/repository/item_repository.dart';
+import 'package:hansin/utils/dev_log.dart';
+import 'package:hansin/utils/extension/value_extension.dart';
 import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: ItemRepository)
@@ -57,7 +61,7 @@ class ItemRepositoryImpl implements ItemRepository {
   }
 
   @override
-  Future<ReservationDetailVO> getRestCalendarDetail(
+  Future<CalendarDetailEntity> getRestCalendarDetail(
       Map<String, dynamic> param) async {
     var res = await dataSource.request(
         HttpMethod.post, ApiUrl.getRestCalendarDetail, param);
@@ -65,7 +69,17 @@ class ItemRepositoryImpl implements ItemRepository {
     var responseModel =
         ReservationDetailVO.fromJson(json.decode(utf8.decode(res.bodyBytes)));
 
-    return responseModel;
+    Log.d(":::responseModel.scheduleVO ${responseModel.schedule}");
+    throwIf(responseModel.schedule.isNullOrEmpty, Exception('scheduleVO null'));
+
+    final entity = CalendarDetailEntity(
+        year: responseModel.schedule!.year.toString(),
+        month: responseModel.schedule!.month.toString(),
+        day: responseModel.schedule!.day.toString(),
+        amResYn: responseModel.schedule!.amResYn,
+        pmResYn: responseModel.schedule!.pmResYn);
+
+    return entity;
   }
 
   @override
@@ -83,10 +97,14 @@ class ItemRepositoryImpl implements ItemRepository {
     var res =
         await dataSource.request(HttpMethod.get, ApiUrl.getRestCalendar, {});
 
-    var entity = List<dynamic>.from(json.decode(utf8.decode(res.bodyBytes)))
-        .map((e) {
-          return CalendarInfoVO.fromJson(e);
-        })
+    var responseModel =
+        CalendarInfoVO.fromJson(json.decode(utf8.decode(res.bodyBytes)));
+
+    throwIf(
+        responseModel.result != "S", Exception('getRestCalendar call error'));
+
+    final entity = responseModel.schedule
+        .where((element) => element.resYn == "N")
         .map((e) => CalendarEnableSelectEntity(
             year: e.year, month: e.month, day: e.day, resYn: e.resYn))
         .toList();

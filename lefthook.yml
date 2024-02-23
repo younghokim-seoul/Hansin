@@ -32,7 +32,7 @@
 #       runner: node
 #     "any.go":
 #       runner: go run
-#pre-commit:
-#  commands:
-#    flutter-analyze:
-#      run: flutter analyze
+pre-commit:
+  commands:
+    flutter-analyze:
+      run: flutter analyze

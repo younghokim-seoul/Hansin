@@ -4,7 +4,9 @@ import 'package:hansin/feature/home/home_page.dart';
 import 'package:hansin/feature/login/login_page.dart';
 import 'package:hansin/feature/login/phone/phone_join_page.dart';
 import 'package:hansin/feature/mega_sale/mega_sale_page.dart';
+import 'package:hansin/feature/show_room/reservation_check/reservation_check_page.dart';
 import 'package:hansin/feature/show_room/reservation_register/reservation_register_page.dart';
+import 'package:hansin/feature/show_room/reservation_register/reservation_register_provider.dart';
 import 'package:hansin/feature/show_room/show_room_reservation_page.dart';
 import 'package:hansin/feature/sign_up/sign_up_page.dart';
 import 'package:hansin/feature/splash/splash_page.dart';
@@ -43,5 +45,8 @@ class AppRouter extends _$AppRouter {
         CupertinoRoute(path: TermsPage.routeName, page: TermsRoute.page),
         CupertinoRoute(
             path: TermsDetailPage.routeName, page: TermsDetailRoute.page),
+        CupertinoRoute(
+            path: ReservationCheckPage.routeName,
+            page: ReservationCheckRoute.page),
       ];
 }

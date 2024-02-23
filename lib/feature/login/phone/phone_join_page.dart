@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hansin/feature/login/login_page.dart';
-import 'package:hansin/feature/login/login_providers.dart';
 import 'package:hansin/feature/login/phone/phone_join_state.dart';
 import 'package:hansin/feature/login/phone/phone_join_view_model.dart';
 import 'package:hansin/injector.dart';
@@ -35,12 +34,11 @@ class _PhoneJoinPageState extends ConsumerState<PhoneJoinPage> {
   void initState() {
     super.initState();
 
-    _viewModel.loginUiState.stream.listen((state) {
+    _viewModel.loginUiState.stream.listen((state) async {
       Log.d(":::state => $state");
       if (state is Loading) {}
 
       if (state is Success) {
-        ref.read(userCacheProvider.notifier).setLoginUserIds(state.entity.userId ?? "");
         context.router.pushAndPopUntil(const HomeRoute(), predicate: (route) => route.settings.name == LoginPage.routeName);
       }
       if (state is Error) {

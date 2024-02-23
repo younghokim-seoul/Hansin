@@ -20,10 +20,9 @@ CalendarInfoVO _$CalendarInfoVOFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CalendarInfoVO {
-  String get year => throw _privateConstructorUsedError;
-  String get month => throw _privateConstructorUsedError;
-  String get day => throw _privateConstructorUsedError;
-  String get resYn => throw _privateConstructorUsedError;
+  String get result => throw _privateConstructorUsedError;
+  List<CalendarScheduleVO> get schedule => throw _privateConstructorUsedError;
+  String get resultMsg => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,7 +36,8 @@ abstract class $CalendarInfoVOCopyWith<$Res> {
           CalendarInfoVO value, $Res Function(CalendarInfoVO) then) =
       _$CalendarInfoVOCopyWithImpl<$Res, CalendarInfoVO>;
   @useResult
-  $Res call({String year, String month, String day, String resYn});
+  $Res call(
+      {String result, List<CalendarScheduleVO> schedule, String resultMsg});
 }
 
 /// @nodoc
@@ -53,27 +53,22 @@ class _$CalendarInfoVOCopyWithImpl<$Res, $Val extends CalendarInfoVO>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? year = null,
-    Object? month = null,
-    Object? day = null,
-    Object? resYn = null,
+    Object? result = null,
+    Object? schedule = null,
+    Object? resultMsg = null,
   }) {
     return _then(_value.copyWith(
-      year: null == year
-          ? _value.year
-          : year // ignore: cast_nullable_to_non_nullable
+      result: null == result
+          ? _value.result
+          : result // ignore: cast_nullable_to_non_nullable
               as String,
-      month: null == month
-          ? _value.month
-          : month // ignore: cast_nullable_to_non_nullable
-              as String,
-      day: null == day
-          ? _value.day
-          : day // ignore: cast_nullable_to_non_nullable
-              as String,
-      resYn: null == resYn
-          ? _value.resYn
-          : resYn // ignore: cast_nullable_to_non_nullable
+      schedule: null == schedule
+          ? _value.schedule
+          : schedule // ignore: cast_nullable_to_non_nullable
+              as List<CalendarScheduleVO>,
+      resultMsg: null == resultMsg
+          ? _value.resultMsg
+          : resultMsg // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -87,7 +82,8 @@ abstract class _$$CalendarInfoVOImplCopyWith<$Res>
       __$$CalendarInfoVOImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String year, String month, String day, String resYn});
+  $Res call(
+      {String result, List<CalendarScheduleVO> schedule, String resultMsg});
 }
 
 /// @nodoc
@@ -101,27 +97,22 @@ class __$$CalendarInfoVOImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? year = null,
-    Object? month = null,
-    Object? day = null,
-    Object? resYn = null,
+    Object? result = null,
+    Object? schedule = null,
+    Object? resultMsg = null,
   }) {
     return _then(_$CalendarInfoVOImpl(
-      year: null == year
-          ? _value.year
-          : year // ignore: cast_nullable_to_non_nullable
+      result: null == result
+          ? _value.result
+          : result // ignore: cast_nullable_to_non_nullable
               as String,
-      month: null == month
-          ? _value.month
-          : month // ignore: cast_nullable_to_non_nullable
-              as String,
-      day: null == day
-          ? _value.day
-          : day // ignore: cast_nullable_to_non_nullable
-              as String,
-      resYn: null == resYn
-          ? _value.resYn
-          : resYn // ignore: cast_nullable_to_non_nullable
+      schedule: null == schedule
+          ? _value._schedule
+          : schedule // ignore: cast_nullable_to_non_nullable
+              as List<CalendarScheduleVO>,
+      resultMsg: null == resultMsg
+          ? _value.resultMsg
+          : resultMsg // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -131,26 +122,30 @@ class __$$CalendarInfoVOImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$CalendarInfoVOImpl implements _CalendarInfoVO {
   _$CalendarInfoVOImpl(
-      {required this.year,
-      required this.month,
-      required this.day,
-      required this.resYn});
+      {required this.result,
+      required final List<CalendarScheduleVO> schedule,
+      required this.resultMsg})
+      : _schedule = schedule;
 
   factory _$CalendarInfoVOImpl.fromJson(Map<String, dynamic> json) =>
       _$$CalendarInfoVOImplFromJson(json);
 
   @override
-  final String year;
+  final String result;
+  final List<CalendarScheduleVO> _schedule;
   @override
-  final String month;
+  List<CalendarScheduleVO> get schedule {
+    if (_schedule is EqualUnmodifiableListView) return _schedule;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_schedule);
+  }
+
   @override
-  final String day;
-  @override
-  final String resYn;
+  final String resultMsg;
 
   @override
   String toString() {
-    return 'CalendarInfoVO(year: $year, month: $month, day: $day, resYn: $resYn)';
+    return 'CalendarInfoVO(result: $result, schedule: $schedule, resultMsg: $resultMsg)';
   }
 
   @override
@@ -158,15 +153,16 @@ class _$CalendarInfoVOImpl implements _CalendarInfoVO {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CalendarInfoVOImpl &&
-            (identical(other.year, year) || other.year == year) &&
-            (identical(other.month, month) || other.month == month) &&
-            (identical(other.day, day) || other.day == day) &&
-            (identical(other.resYn, resYn) || other.resYn == resYn));
+            (identical(other.result, result) || other.result == result) &&
+            const DeepCollectionEquality().equals(other._schedule, _schedule) &&
+            (identical(other.resultMsg, resultMsg) ||
+                other.resultMsg == resultMsg));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, year, month, day, resYn);
+  int get hashCode => Object.hash(runtimeType, result,
+      const DeepCollectionEquality().hash(_schedule), resultMsg);
 
   @JsonKey(ignore: true)
   @override
@@ -185,22 +181,19 @@ class _$CalendarInfoVOImpl implements _CalendarInfoVO {
 
 abstract class _CalendarInfoVO implements CalendarInfoVO {
   factory _CalendarInfoVO(
-      {required final String year,
-      required final String month,
-      required final String day,
-      required final String resYn}) = _$CalendarInfoVOImpl;
+      {required final String result,
+      required final List<CalendarScheduleVO> schedule,
+      required final String resultMsg}) = _$CalendarInfoVOImpl;
 
   factory _CalendarInfoVO.fromJson(Map<String, dynamic> json) =
       _$CalendarInfoVOImpl.fromJson;
 
   @override
-  String get year;
+  String get result;
   @override
-  String get month;
+  List<CalendarScheduleVO> get schedule;
   @override
-  String get day;
-  @override
-  String get resYn;
+  String get resultMsg;
   @override
   @JsonKey(ignore: true)
   _$$CalendarInfoVOImplCopyWith<_$CalendarInfoVOImpl> get copyWith =>

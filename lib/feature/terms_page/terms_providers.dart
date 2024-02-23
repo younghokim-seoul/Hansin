@@ -60,22 +60,6 @@ class TermsCheckBoxNotifier extends StateNotifier<TermsCheckState> {
     }
   }
 
-  bool allCheckState() {
-    return state.all;
-  }
-
-  bool checkConsent1State() {
-    return state.requiredConsent1;
-  }
-
-  bool checkConsent2State() {
-    return state.requiredConsent2;
-  }
-
-  bool checkConsent3State() {
-    return state.requiredConsent3;
-  }
-
 }
 
 final pdfReadProvider =

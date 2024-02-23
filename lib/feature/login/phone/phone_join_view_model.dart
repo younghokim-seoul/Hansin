@@ -1,4 +1,5 @@
 import 'package:hansin/domain/repository/item_repository.dart';
+import 'package:hansin/domain/repository/setting_repository.dart';
 import 'package:hansin/feature/login/phone/phone_join_state.dart';
 import 'package:hansin/utils/dev_log.dart';
 import 'package:hansin/utils/reactive/arc_subject.dart';
@@ -10,8 +11,9 @@ class PhoneJoinViewModel implements ViewModelInterface {
   final loginUiState = ArcSubject<PhoneJoinState>();
 
   final ItemRepository _itemRepository;
+  final SettingRepository _settingRepository;
 
-  PhoneJoinViewModel(this._itemRepository);
+  PhoneJoinViewModel(this._itemRepository,this._settingRepository);
 
   final isActiveLogin = false.sbj;
 
@@ -28,6 +30,7 @@ class PhoneJoinViewModel implements ViewModelInterface {
       final response = await _itemRepository.login(param);
       Log.i("::::response => $response");
       if (response.result == "S") {
+        await _settingRepository.saveUserId(userIds: id);
         loadState(Success(entity: response));
       } else {
         loadState(Error());

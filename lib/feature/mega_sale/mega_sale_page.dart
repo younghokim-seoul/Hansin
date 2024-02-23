@@ -66,8 +66,9 @@ class _MegaSalePageState extends State<MegaSalePage> {
                 filterQuality: FilterQuality.medium,
                 fit: BoxFit.fitHeight,
               ),
-              placeholder: (context, url) =>
-                  const YaruCircularProgressIndicator(strokeWidth: 2),
+              placeholder: (context, url) => const SizedBox.square(
+                child: YaruCircularProgressIndicator(strokeWidth: 2),
+              ),
               errorWidget: (context, url, error) => const Icon(YaruIcons.error),
             ),
           ));

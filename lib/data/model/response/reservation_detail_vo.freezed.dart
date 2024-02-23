@@ -20,11 +20,9 @@ ReservationDetailVO _$ReservationDetailVOFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ReservationDetailVO {
-  String get year => throw _privateConstructorUsedError;
-  String get month => throw _privateConstructorUsedError;
-  String get day => throw _privateConstructorUsedError;
-  String get amResYn => throw _privateConstructorUsedError;
-  String get pmResYn => throw _privateConstructorUsedError;
+  String get result => throw _privateConstructorUsedError;
+  ScheduleVO? get schedule => throw _privateConstructorUsedError;
+  String get resultMsg => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,8 +36,9 @@ abstract class $ReservationDetailVOCopyWith<$Res> {
           ReservationDetailVO value, $Res Function(ReservationDetailVO) then) =
       _$ReservationDetailVOCopyWithImpl<$Res, ReservationDetailVO>;
   @useResult
-  $Res call(
-      {String year, String month, String day, String amResYn, String pmResYn});
+  $Res call({String result, ScheduleVO? schedule, String resultMsg});
+
+  $ScheduleVOCopyWith<$Res>? get schedule;
 }
 
 /// @nodoc
@@ -55,34 +54,36 @@ class _$ReservationDetailVOCopyWithImpl<$Res, $Val extends ReservationDetailVO>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? year = null,
-    Object? month = null,
-    Object? day = null,
-    Object? amResYn = null,
-    Object? pmResYn = null,
+    Object? result = null,
+    Object? schedule = freezed,
+    Object? resultMsg = null,
   }) {
     return _then(_value.copyWith(
-      year: null == year
-          ? _value.year
-          : year // ignore: cast_nullable_to_non_nullable
+      result: null == result
+          ? _value.result
+          : result // ignore: cast_nullable_to_non_nullable
               as String,
-      month: null == month
-          ? _value.month
-          : month // ignore: cast_nullable_to_non_nullable
-              as String,
-      day: null == day
-          ? _value.day
-          : day // ignore: cast_nullable_to_non_nullable
-              as String,
-      amResYn: null == amResYn
-          ? _value.amResYn
-          : amResYn // ignore: cast_nullable_to_non_nullable
-              as String,
-      pmResYn: null == pmResYn
-          ? _value.pmResYn
-          : pmResYn // ignore: cast_nullable_to_non_nullable
+      schedule: freezed == schedule
+          ? _value.schedule
+          : schedule // ignore: cast_nullable_to_non_nullable
+              as ScheduleVO?,
+      resultMsg: null == resultMsg
+          ? _value.resultMsg
+          : resultMsg // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ScheduleVOCopyWith<$Res>? get schedule {
+    if (_value.schedule == null) {
+      return null;
+    }
+
+    return $ScheduleVOCopyWith<$Res>(_value.schedule!, (value) {
+      return _then(_value.copyWith(schedule: value) as $Val);
+    });
   }
 }
 
@@ -94,8 +95,10 @@ abstract class _$$ReservationDetailVOImplCopyWith<$Res>
       __$$ReservationDetailVOImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String year, String month, String day, String amResYn, String pmResYn});
+  $Res call({String result, ScheduleVO? schedule, String resultMsg});
+
+  @override
+  $ScheduleVOCopyWith<$Res>? get schedule;
 }
 
 /// @nodoc
@@ -109,32 +112,22 @@ class __$$ReservationDetailVOImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? year = null,
-    Object? month = null,
-    Object? day = null,
-    Object? amResYn = null,
-    Object? pmResYn = null,
+    Object? result = null,
+    Object? schedule = freezed,
+    Object? resultMsg = null,
   }) {
     return _then(_$ReservationDetailVOImpl(
-      year: null == year
-          ? _value.year
-          : year // ignore: cast_nullable_to_non_nullable
+      result: null == result
+          ? _value.result
+          : result // ignore: cast_nullable_to_non_nullable
               as String,
-      month: null == month
-          ? _value.month
-          : month // ignore: cast_nullable_to_non_nullable
-              as String,
-      day: null == day
-          ? _value.day
-          : day // ignore: cast_nullable_to_non_nullable
-              as String,
-      amResYn: null == amResYn
-          ? _value.amResYn
-          : amResYn // ignore: cast_nullable_to_non_nullable
-              as String,
-      pmResYn: null == pmResYn
-          ? _value.pmResYn
-          : pmResYn // ignore: cast_nullable_to_non_nullable
+      schedule: freezed == schedule
+          ? _value.schedule
+          : schedule // ignore: cast_nullable_to_non_nullable
+              as ScheduleVO?,
+      resultMsg: null == resultMsg
+          ? _value.resultMsg
+          : resultMsg // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -144,29 +137,21 @@ class __$$ReservationDetailVOImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ReservationDetailVOImpl implements _ReservationDetailVO {
   _$ReservationDetailVOImpl(
-      {required this.year,
-      required this.month,
-      required this.day,
-      required this.amResYn,
-      required this.pmResYn});
+      {required this.result, required this.schedule, required this.resultMsg});
 
   factory _$ReservationDetailVOImpl.fromJson(Map<String, dynamic> json) =>
       _$$ReservationDetailVOImplFromJson(json);
 
   @override
-  final String year;
+  final String result;
   @override
-  final String month;
+  final ScheduleVO? schedule;
   @override
-  final String day;
-  @override
-  final String amResYn;
-  @override
-  final String pmResYn;
+  final String resultMsg;
 
   @override
   String toString() {
-    return 'ReservationDetailVO(year: $year, month: $month, day: $day, amResYn: $amResYn, pmResYn: $pmResYn)';
+    return 'ReservationDetailVO(result: $result, schedule: $schedule, resultMsg: $resultMsg)';
   }
 
   @override
@@ -174,17 +159,16 @@ class _$ReservationDetailVOImpl implements _ReservationDetailVO {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ReservationDetailVOImpl &&
-            (identical(other.year, year) || other.year == year) &&
-            (identical(other.month, month) || other.month == month) &&
-            (identical(other.day, day) || other.day == day) &&
-            (identical(other.amResYn, amResYn) || other.amResYn == amResYn) &&
-            (identical(other.pmResYn, pmResYn) || other.pmResYn == pmResYn));
+            (identical(other.result, result) || other.result == result) &&
+            (identical(other.schedule, schedule) ||
+                other.schedule == schedule) &&
+            (identical(other.resultMsg, resultMsg) ||
+                other.resultMsg == resultMsg));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, year, month, day, amResYn, pmResYn);
+  int get hashCode => Object.hash(runtimeType, result, schedule, resultMsg);
 
   @JsonKey(ignore: true)
   @override
@@ -203,25 +187,19 @@ class _$ReservationDetailVOImpl implements _ReservationDetailVO {
 
 abstract class _ReservationDetailVO implements ReservationDetailVO {
   factory _ReservationDetailVO(
-      {required final String year,
-      required final String month,
-      required final String day,
-      required final String amResYn,
-      required final String pmResYn}) = _$ReservationDetailVOImpl;
+      {required final String result,
+      required final ScheduleVO? schedule,
+      required final String resultMsg}) = _$ReservationDetailVOImpl;
 
   factory _ReservationDetailVO.fromJson(Map<String, dynamic> json) =
       _$ReservationDetailVOImpl.fromJson;
 
   @override
-  String get year;
+  String get result;
   @override
-  String get month;
+  ScheduleVO? get schedule;
   @override
-  String get day;
-  @override
-  String get amResYn;
-  @override
-  String get pmResYn;
+  String get resultMsg;
   @override
   @JsonKey(ignore: true)
   _$$ReservationDetailVOImplCopyWith<_$ReservationDetailVOImpl> get copyWith =>

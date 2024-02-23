@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'calendar_detail_entity.dart';
+part of 'schedule_vo.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,34 +14,37 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-/// @nodoc
-mixin _$CalendarDetailEntity {
-  String get year => throw _privateConstructorUsedError;
-  String get month => throw _privateConstructorUsedError;
-  String get day => throw _privateConstructorUsedError;
-  String get amResYn => throw _privateConstructorUsedError;
-  String get pmResYn => throw _privateConstructorUsedError;
+ScheduleVO _$ScheduleVOFromJson(Map<String, dynamic> json) {
+  return _ScheduleVO.fromJson(json);
+}
 
+/// @nodoc
+mixin _$ScheduleVO {
+  int get year => throw _privateConstructorUsedError;
+  int get month => throw _privateConstructorUsedError;
+  int get day => throw _privateConstructorUsedError;
+  String get pmResYn => throw _privateConstructorUsedError;
+  String get amResYn => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $CalendarDetailEntityCopyWith<CalendarDetailEntity> get copyWith =>
+  $ScheduleVOCopyWith<ScheduleVO> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CalendarDetailEntityCopyWith<$Res> {
-  factory $CalendarDetailEntityCopyWith(CalendarDetailEntity value,
-          $Res Function(CalendarDetailEntity) then) =
-      _$CalendarDetailEntityCopyWithImpl<$Res, CalendarDetailEntity>;
+abstract class $ScheduleVOCopyWith<$Res> {
+  factory $ScheduleVOCopyWith(
+          ScheduleVO value, $Res Function(ScheduleVO) then) =
+      _$ScheduleVOCopyWithImpl<$Res, ScheduleVO>;
   @useResult
-  $Res call(
-      {String year, String month, String day, String amResYn, String pmResYn});
+  $Res call({int year, int month, int day, String pmResYn, String amResYn});
 }
 
 /// @nodoc
-class _$CalendarDetailEntityCopyWithImpl<$Res,
-        $Val extends CalendarDetailEntity>
-    implements $CalendarDetailEntityCopyWith<$Res> {
-  _$CalendarDetailEntityCopyWithImpl(this._value, this._then);
+class _$ScheduleVOCopyWithImpl<$Res, $Val extends ScheduleVO>
+    implements $ScheduleVOCopyWith<$Res> {
+  _$ScheduleVOCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -54,52 +57,51 @@ class _$CalendarDetailEntityCopyWithImpl<$Res,
     Object? year = null,
     Object? month = null,
     Object? day = null,
-    Object? amResYn = null,
     Object? pmResYn = null,
+    Object? amResYn = null,
   }) {
     return _then(_value.copyWith(
       year: null == year
           ? _value.year
           : year // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       month: null == month
           ? _value.month
           : month // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       day: null == day
           ? _value.day
           : day // ignore: cast_nullable_to_non_nullable
+              as int,
+      pmResYn: null == pmResYn
+          ? _value.pmResYn
+          : pmResYn // ignore: cast_nullable_to_non_nullable
               as String,
       amResYn: null == amResYn
           ? _value.amResYn
           : amResYn // ignore: cast_nullable_to_non_nullable
-              as String,
-      pmResYn: null == pmResYn
-          ? _value.pmResYn
-          : pmResYn // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$CalendarDetailEntityImplCopyWith<$Res>
-    implements $CalendarDetailEntityCopyWith<$Res> {
-  factory _$$CalendarDetailEntityImplCopyWith(_$CalendarDetailEntityImpl value,
-          $Res Function(_$CalendarDetailEntityImpl) then) =
-      __$$CalendarDetailEntityImplCopyWithImpl<$Res>;
+abstract class _$$ScheduleVOImplCopyWith<$Res>
+    implements $ScheduleVOCopyWith<$Res> {
+  factory _$$ScheduleVOImplCopyWith(
+          _$ScheduleVOImpl value, $Res Function(_$ScheduleVOImpl) then) =
+      __$$ScheduleVOImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String year, String month, String day, String amResYn, String pmResYn});
+  $Res call({int year, int month, int day, String pmResYn, String amResYn});
 }
 
 /// @nodoc
-class __$$CalendarDetailEntityImplCopyWithImpl<$Res>
-    extends _$CalendarDetailEntityCopyWithImpl<$Res, _$CalendarDetailEntityImpl>
-    implements _$$CalendarDetailEntityImplCopyWith<$Res> {
-  __$$CalendarDetailEntityImplCopyWithImpl(_$CalendarDetailEntityImpl _value,
-      $Res Function(_$CalendarDetailEntityImpl) _then)
+class __$$ScheduleVOImplCopyWithImpl<$Res>
+    extends _$ScheduleVOCopyWithImpl<$Res, _$ScheduleVOImpl>
+    implements _$$ScheduleVOImplCopyWith<$Res> {
+  __$$ScheduleVOImplCopyWithImpl(
+      _$ScheduleVOImpl _value, $Res Function(_$ScheduleVOImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -108,105 +110,117 @@ class __$$CalendarDetailEntityImplCopyWithImpl<$Res>
     Object? year = null,
     Object? month = null,
     Object? day = null,
-    Object? amResYn = null,
     Object? pmResYn = null,
+    Object? amResYn = null,
   }) {
-    return _then(_$CalendarDetailEntityImpl(
+    return _then(_$ScheduleVOImpl(
       year: null == year
           ? _value.year
           : year // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       month: null == month
           ? _value.month
           : month // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       day: null == day
           ? _value.day
           : day // ignore: cast_nullable_to_non_nullable
+              as int,
+      pmResYn: null == pmResYn
+          ? _value.pmResYn
+          : pmResYn // ignore: cast_nullable_to_non_nullable
               as String,
       amResYn: null == amResYn
           ? _value.amResYn
           : amResYn // ignore: cast_nullable_to_non_nullable
-              as String,
-      pmResYn: null == pmResYn
-          ? _value.pmResYn
-          : pmResYn // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
 }
 
 /// @nodoc
-
-class _$CalendarDetailEntityImpl implements _CalendarDetailEntity {
-  _$CalendarDetailEntityImpl(
+@JsonSerializable()
+class _$ScheduleVOImpl implements _ScheduleVO {
+  _$ScheduleVOImpl(
       {required this.year,
       required this.month,
       required this.day,
-      required this.amResYn,
-      required this.pmResYn});
+      required this.pmResYn,
+      required this.amResYn});
+
+  factory _$ScheduleVOImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ScheduleVOImplFromJson(json);
 
   @override
-  final String year;
+  final int year;
   @override
-  final String month;
+  final int month;
   @override
-  final String day;
-  @override
-  final String amResYn;
+  final int day;
   @override
   final String pmResYn;
+  @override
+  final String amResYn;
 
   @override
   String toString() {
-    return 'CalendarDetailEntity(year: $year, month: $month, day: $day, amResYn: $amResYn, pmResYn: $pmResYn)';
+    return 'ScheduleVO(year: $year, month: $month, day: $day, pmResYn: $pmResYn, amResYn: $amResYn)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CalendarDetailEntityImpl &&
+            other is _$ScheduleVOImpl &&
             (identical(other.year, year) || other.year == year) &&
             (identical(other.month, month) || other.month == month) &&
             (identical(other.day, day) || other.day == day) &&
-            (identical(other.amResYn, amResYn) || other.amResYn == amResYn) &&
-            (identical(other.pmResYn, pmResYn) || other.pmResYn == pmResYn));
+            (identical(other.pmResYn, pmResYn) || other.pmResYn == pmResYn) &&
+            (identical(other.amResYn, amResYn) || other.amResYn == amResYn));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, year, month, day, amResYn, pmResYn);
+      Object.hash(runtimeType, year, month, day, pmResYn, amResYn);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CalendarDetailEntityImplCopyWith<_$CalendarDetailEntityImpl>
-      get copyWith =>
-          __$$CalendarDetailEntityImplCopyWithImpl<_$CalendarDetailEntityImpl>(
-              this, _$identity);
+  _$$ScheduleVOImplCopyWith<_$ScheduleVOImpl> get copyWith =>
+      __$$ScheduleVOImplCopyWithImpl<_$ScheduleVOImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ScheduleVOImplToJson(
+      this,
+    );
+  }
 }
 
-abstract class _CalendarDetailEntity implements CalendarDetailEntity {
-  factory _CalendarDetailEntity(
-      {required final String year,
-      required final String month,
-      required final String day,
-      required final String amResYn,
-      required final String pmResYn}) = _$CalendarDetailEntityImpl;
+abstract class _ScheduleVO implements ScheduleVO {
+  factory _ScheduleVO(
+      {required final int year,
+      required final int month,
+      required final int day,
+      required final String pmResYn,
+      required final String amResYn}) = _$ScheduleVOImpl;
+
+  factory _ScheduleVO.fromJson(Map<String, dynamic> json) =
+      _$ScheduleVOImpl.fromJson;
 
   @override
-  String get year;
+  int get year;
   @override
-  String get month;
+  int get month;
   @override
-  String get day;
-  @override
-  String get amResYn;
+  int get day;
   @override
   String get pmResYn;
   @override
+  String get amResYn;
+  @override
   @JsonKey(ignore: true)
-  _$$CalendarDetailEntityImplCopyWith<_$CalendarDetailEntityImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$ScheduleVOImplCopyWith<_$ScheduleVOImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
