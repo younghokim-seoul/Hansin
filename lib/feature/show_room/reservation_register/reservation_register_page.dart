@@ -43,6 +43,8 @@ class _ReservationRegisterPageState
   Widget build(BuildContext context) {
     final selectedTimeType = ref.watch(timeTypeProvider);
 
+
+
     return _viewModel.reservationRegisterUiState.ui(builder: (context, state) {
       if (state.data is Loading || state.data is Error) {
         return const Center(

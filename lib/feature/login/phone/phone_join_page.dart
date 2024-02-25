@@ -131,7 +131,7 @@ class _PhoneJoinPageState extends ConsumerState<PhoneJoinPage> {
                     controller: _phoneController,
                     style: AppTextStyle.textStyleBold
                         .copyWith(color: AppColors.cardDark, fontSize: 16),
-                    keyboardType: TextInputType.phone,
+                    keyboardType: TextInputType.text,
                     decoration: InputDecoration(
                       hintText: "전화번호를 입력하세요",
                       hintStyle: AppTextStyle.textStyleBold

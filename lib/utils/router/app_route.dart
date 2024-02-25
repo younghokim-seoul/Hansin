@@ -27,9 +27,9 @@ class AppRouter extends _$AppRouter {
           path: HomePage.routeName,
           page: HomeRoute.page,
         ),
+        AutoRoute(path: LoginPage.routeName, page: LoginRoute.page),
         CupertinoRoute(
             path: VerificationPage.routeName, page: VerificationRoute.page),
-        CupertinoRoute(path: LoginPage.routeName, page: LoginRoute.page),
         CupertinoRoute(path: MegaSalePage.routeName, page: MegaSaleRoute.page),
         CupertinoRoute(
             path: ShowRoomReservationPage.routeName,

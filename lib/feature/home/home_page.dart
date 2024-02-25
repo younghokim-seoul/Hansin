@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
       body: SafeArea(
         child: Column(children: [
           const Gap(20),
-          Assets.images.titleLog.image(height: 70,fit: BoxFit.fill),
+          Assets.images.titleLog.image(height: 70, fit: BoxFit.fill),
           const Gap(10),
           Expanded(
             child: Column(
@@ -30,34 +30,6 @@ class HomePage extends StatelessWidget {
                       title: '쇼룸 안내 및 예약',
                       bgColor: AppColors.boxDark,
                       onTap: () {
-                        // screenLock(
-                        //   title: Text(
-                        //     '전화번호를 입력해주세요.',
-                        //     style: AppTextStyle.textStyleNormal,
-                        //   ),
-                        //   context: context,
-                        //   correctString: 'x' * 11,
-                        //   canCancel: false,
-                        //   onValidate: (value) async {
-                        //     Log.d(":::onValidate .. $value");
-                        //     return false;
-                        //   },
-                        //   footer: Container(
-                        //     width: 68,
-                        //     height: 68,
-                        //     padding: const EdgeInsets.only(top: 10),
-                        //     child: OutlinedButton(
-                        //       onPressed: () => Navigator.pop(context),
-                        //       style: OutlinedButton.styleFrom(
-                        //         backgroundColor: Colors.transparent,
-                        //       ),
-                        //       child: const Padding(
-                        //         padding: EdgeInsets.all(10),
-                        //         child: Text('Cancel'),
-                        //       ),
-                        //     ),
-                        //   ),
-                        // );
                         context.router.push(const ShowRoomReservationRoute());
                       }),
                 ),

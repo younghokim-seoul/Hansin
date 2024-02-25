@@ -52,7 +52,8 @@ class _ReservationCalendarState extends State<ReservationCalendar> {
       if (state.data!.isInitialize == true &&
           !state.data!.items.isNullOrEmpty) {
         for (var element in state.data!.items) {
-          final dateTime = DateTime.utc(element.year, element.month, element.day);
+          final dateTime =
+              DateTime.utc(element.year, element.month, element.day);
           _selectedDays.add(dateTime);
         }
 
@@ -64,6 +65,10 @@ class _ReservationCalendarState extends State<ReservationCalendar> {
           lastDay: kLastDay,
           onDaySelected: _onDaySelected,
           onPageChanged: _onPageChanged,
+          headerStyle: const HeaderStyle(
+              titleCentered: true,
+              formatButtonVisible: false,
+          ),
           calendarStyle: CalendarStyle(
             outsideTextStyle: AppTextStyle.textStyleBold
                 .copyWith(color: const Color(0xFFAEAEAE)),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hansin/injector.dart';
+import 'package:hansin/theme.dart';
 import 'package:hansin/utils/router/app_route.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:yaru/yaru.dart';
@@ -20,20 +21,34 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final brightness = theme.brightness;
-    SystemChrome.setSystemUIOverlayStyle(
-      brightness == Brightness.dark
-          ? SystemUiOverlayStyle.light
-          : SystemUiOverlayStyle.dark,
-    );
+
     return YaruTheme(
       builder: (context, custom, child) => MaterialApp.router(
         theme: custom.theme,
         darkTheme: custom.darkTheme,
-        debugShowCheckedModeBanner: false,
         themeMode: ThemeMode.light,
+        debugShowCheckedModeBanner: false,
         routerConfig: appRouter.config(),
+        builder: (context, child) {
+          final theme = Theme.of(context);
+          final brightness = theme.brightness;
+          final overlayStyle = brightness == Brightness.dark ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark;
+
+          return AnnotatedRegion<SystemUiOverlayStyle>(
+            value: overlayStyle.copyWith(
+              statusBarColor: Colors.white,
+              statusBarBrightness: brightness == Brightness.dark
+                ? Brightness.light
+                : Brightness.dark,
+              systemNavigationBarColor: AppColors.lightBackground,
+              systemNavigationBarIconBrightness:
+              brightness == Brightness.dark
+                  ? Brightness.light
+                  : Brightness.dark,
+            ),
+            child: child!,
+          );
+        },
       ),
     );
   }

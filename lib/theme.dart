@@ -12,6 +12,7 @@ abstract class AppTextStyle {
 }
 
 abstract class AppColors {
+  static const lightBackground = Color(0xFFF4F7FD);
   static const secondary = Color(0xFF3B76F6);
   static const accent = Color(0xFFD6755B);
   static const textDark = Color(0xFF53585A);
