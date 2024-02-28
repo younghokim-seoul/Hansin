@@ -37,6 +37,7 @@ dependencies:
   shared_preferences: ^2.2.2
   flutter_pdfview: ^1.2.7
   path_provider: ^2.1.2
+  flutter_launcher_icons: ^0.13.1
 
 
 dev_dependencies:
@@ -60,7 +61,6 @@ flutter:
     - assets/images/terms_of_use.pdf
     - assets/images/terms_of_privacy.pdf
     - assets/images/terms_use_admin.pdf
-
 
 
 flutter_gen:
