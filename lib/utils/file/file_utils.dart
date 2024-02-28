@@ -16,7 +16,7 @@ Future<File> fromAsset(String asset, String filename) async {
     await file.writeAsBytes(bytes, flush: true);
     completer.complete(file);
   } on Exception catch (e) {
-    throw Exception('Error parsing asset file!');
+    throw Exception(e);
   }
 
   return completer.future;

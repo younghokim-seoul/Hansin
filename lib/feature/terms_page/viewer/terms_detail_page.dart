@@ -42,9 +42,9 @@ class _TermsDetailPageState extends ConsumerState<TermsDetailPage> {
             fitPolicy: FitPolicy.BOTH,
             preventLinkNavigation: false,
 
-            onRender: (_pages) {
+            onRender: (currentPage) {
               setState(() {
-                pages = _pages;
+                pages = currentPage;
                 isReady = true;
               });
             },
