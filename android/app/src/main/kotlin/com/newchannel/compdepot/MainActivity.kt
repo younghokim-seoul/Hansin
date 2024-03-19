@@ -1,4 +1,4 @@
-package com.hansin.app.hansin
+package com.newchannel.compdepot
 
 import io.flutter.embedding.android.FlutterActivity
 
