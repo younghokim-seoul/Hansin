@@ -10,6 +10,7 @@ class TermsCheckState with _$TermsCheckState {
     required bool requiredConsent1,
     required bool requiredConsent2,
     required bool requiredConsent3,
+    required bool isEnable,
   }) = _TermsCheckState;
 
 }

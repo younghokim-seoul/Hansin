@@ -17,4 +17,4 @@ class ContentInfoVO with _$ContentInfoVO {
       _$ContentInfoVOFromJson(json);
 }
 
-enum ContentType { screw, piston, price, buy ,priceBtn}
+enum ContentType { screw, piston, price, buy ,priceBtn,show}

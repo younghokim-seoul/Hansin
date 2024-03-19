@@ -40,7 +40,7 @@ class _VerificationPageState extends State<VerificationPage> {
       body: SafeArea(
         child: Column(children: [
           const Gap(20),
-          Assets.images.titleLog.image(height: 70,fit: BoxFit.fill),
+          Assets.images.titleLogo.image(height: 70,fit: BoxFit.fill),
           Expanded(
             child: SingleChildScrollView(
               child: Column(

@@ -16,33 +16,35 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          Positioned.fill(
-            child: Assets.images.loginBg.image(fit: BoxFit.fill),
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              SizedBox(
-                height: getScreenHeight(context) * 0.15,
-              ),
-              LoginButtonBox(
-                  title: "로그인",
-                  bgColor: AppColors.boxDark,
-                  onTap: () => context.router.push(const PhoneJoinRoute())),
-              const Gap(10),
-              LoginButtonBox(
-                  title: "회원가입",
-                  bgColor: AppColors.boxLight,
-                  onTap: () => context.router.push(const TermsRoute())),
-              SizedBox(
-                height: getScreenHeight(context) * 0.2,
-              )
-            ],
-          ),
-        ],
-      ),
+      body: SafeArea(
+        child: Stack(
+          children: [
+            Positioned.fill(
+              child: Assets.images.loginBg.image(fit: BoxFit.fill),
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                SizedBox(
+                  height: getScreenHeight(context) * 0.15,
+                ),
+                LoginButtonBox(
+                    title: "로그인",
+                    bgColor: AppColors.boxDark,
+                    onTap: () => context.router.push(const PhoneJoinRoute())),
+                const Gap(10),
+                LoginButtonBox(
+                    title: "회원가입",
+                    bgColor: AppColors.boxLight,
+                    onTap: () => context.router.push(const TermsRoute())),
+                SizedBox(
+                  height: getScreenHeight(context) * 0.15,
+                )
+              ],
+            ),
+          ],
+        ),
+      )
     );
   }
 }

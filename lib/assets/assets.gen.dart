@@ -19,19 +19,22 @@ class $AssetsImagesGen {
   AssetGenImage get loginBg =>
       const AssetGenImage('assets/images/login_bg.png');
 
-  /// File path: assets/images/main_logo.png
-  AssetGenImage get mainLogo =>
-      const AssetGenImage('assets/images/main_logo.png');
+  /// File path: assets/images/terms_of_privacy.pdf
+  String get termsOfPrivacy => 'assets/images/terms_of_privacy.pdf';
 
   /// File path: assets/images/terms_of_use.pdf
   String get termsOfUse => 'assets/images/terms_of_use.pdf';
 
-  /// File path: assets/images/title_log.png
-  AssetGenImage get titleLog =>
-      const AssetGenImage('assets/images/title_log.png');
+  /// File path: assets/images/terms_use_admin.pdf
+  String get termsUseAdmin => 'assets/images/terms_use_admin.pdf';
+
+  /// File path: assets/images/title_logo.png
+  AssetGenImage get titleLogo =>
+      const AssetGenImage('assets/images/title_logo.png');
 
   /// List of all assets
-  List<dynamic> get values => [demo, loginBg, mainLogo, termsOfUse, titleLog];
+  List<dynamic> get values =>
+      [demo, loginBg, termsOfPrivacy, termsOfUse, termsUseAdmin, titleLogo];
 }
 
 class Assets {

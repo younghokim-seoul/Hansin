@@ -49,7 +49,7 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
             child: Column(
               children: [
                 const Gap(20),
-                Assets.images.titleLog.image(height: 70,fit: BoxFit.fill),
+                Assets.images.titleLogo.image(height: 70,fit: BoxFit.fill),
                 const Gap(10),
                 LabeledInputField(
                   controller: _nameController,
@@ -57,13 +57,6 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
                   hintText: '성명을 입력해주세요.',
                   errorText: null,
                   keyboardType: TextInputType.name,
-                ).marginOnly(left: 20, right: 20, top: 5, bottom: 5),
-                LabeledInputField(
-                  controller: _phoneController,
-                  label: '* 전화번호',
-                  hintText: '전화 번호를 입력해주세요.',
-                  errorText: null,
-                  keyboardType: TextInputType.phone,
                 ).marginOnly(left: 20, right: 20, top: 5, bottom: 5),
                 LabeledInputField(
                   controller: _companyNameController,

@@ -13,7 +13,7 @@ import 'package:hansin/widget/customer_center/customer_center_box.dart';
 class ReservationCheckPage extends ConsumerStatefulWidget {
   static const routeName = '/reservation_check';
 
-  const ReservationCheckPage({super.key, required this.selectedDateTime,required this.timeType});
+  const ReservationCheckPage({super.key, required this.selectedDateTime, required this.timeType});
 
   final DateTime selectedDateTime;
   final TimeType timeType;
@@ -22,8 +22,7 @@ class ReservationCheckPage extends ConsumerStatefulWidget {
   ConsumerState createState() => _ReservationRegisterPageState();
 }
 
-class _ReservationRegisterPageState
-    extends ConsumerState<ReservationCheckPage> {
+class _ReservationRegisterPageState extends ConsumerState<ReservationCheckPage> {
   @override
   Widget build(BuildContext context) {
     return PopScope(
@@ -32,7 +31,7 @@ class _ReservationRegisterPageState
         body: SafeArea(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
                 '예약 일정 확인',
@@ -48,11 +47,18 @@ class _ReservationRegisterPageState
                 height: 3,
               ),
               const Gap(10),
+              Text(
+                '예약이 완료됐습니다!',
+                style: AppTextStyle.textStyleBold.copyWith(
+                  fontSize: 32,
+                  color: AppColors.boxDark,
+                ),
+              ).marginSymmetric(horizontal: 16, vertical: 10),
+              const Gap(10),
               Container(
                 width: getScreenWidth(context),
                 margin: const EdgeInsets.symmetric(horizontal: 10),
-                padding: const EdgeInsets.only(
-                    left: 10, right: 10, top: 5, bottom: 5),
+                padding: const EdgeInsets.only(left: 10, right: 10, top: 5, bottom: 5),
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(8)),
                   color: AppColors.boxDark,
@@ -76,23 +82,32 @@ class _ReservationRegisterPageState
                     Text(
                       _getSelectedTime(widget.selectedDateTime),
                       style: AppTextStyle.textStyleBold.copyWith(
-                        letterSpacing: 5,
+                        letterSpacing: 1.5,
                         fontSize: 28,
                         color: Colors.white,
                       ),
                     ),
                     Text(
-                      widget.timeType == TimeType.am ? "오전" : "오후",
+                      widget.timeType == TimeType.am ? "오전 10:00 ~ 12:00" : "오후 2:00 ~ 5:00",
                       style: AppTextStyle.textStyleBold.copyWith(
                         letterSpacing: 5,
                         fontSize: 28,
                         color: Colors.white,
                       ),
                     ),
+                    const Gap(10),
                   ],
                 ),
               ),
               const Gap(10),
+              Text(
+                '자세한 예약 시간은\n문자 / 전화를 통해 상담드리겠습니다.',
+                textAlign: TextAlign.center,
+                style: AppTextStyle.textStyleBold.copyWith(
+                  fontSize: 22,
+                  color: Colors.black,
+                ),
+              ).marginSymmetric(horizontal: 16, vertical: 10),
             ],
           ),
         ),
@@ -110,8 +125,7 @@ class _ReservationRegisterPageState
                   child: Text(
                     '확인',
                     textAlign: TextAlign.center,
-                    style: AppTextStyle.textStyleBold
-                        .copyWith(fontSize: 28, color: Colors.white),
+                    style: AppTextStyle.textStyleBold.copyWith(fontSize: 28, color: Colors.white),
                   ).paddingOnly(top: 15, bottom: 15),
                 ),
               )
@@ -123,6 +137,6 @@ class _ReservationRegisterPageState
   }
 
   String _getSelectedTime(DateTime dateTime) {
-    return "${dateTime.year}년${dateTime.month}월${dateTime.day}일";
+    return "${dateTime.year}년 ${dateTime.month}월 ${dateTime.day}일";
   }
 }

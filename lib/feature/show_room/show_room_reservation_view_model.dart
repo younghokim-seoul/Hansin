@@ -22,7 +22,7 @@ class ShowRoomReservationViewModel implements ViewModelInterface {
   void onLoadGuideData() async {
     Log.d(":::onLoadData =>");
     Map<String, String> param = {};
-    param['contentName'] = ContentType.buy.name;
+    param['contentName'] = ContentType.show.name;
     loadState(Loading());
     try {
       final response = await _itemRepository.getContentInfo(param);

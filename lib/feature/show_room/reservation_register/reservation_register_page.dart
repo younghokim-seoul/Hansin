@@ -93,12 +93,21 @@ class _ReservationRegisterPageState
                     ),
                   ),
                 ),
+                const Gap(20),
+                Text(
+                  '방문시간대를 선택해주세요.',
+                  style: AppTextStyle.textStyleBold.copyWith(
+                    fontSize: 28,
+                    color: Colors.black,
+                  ),
+                ).marginSymmetric(horizontal: 16, vertical: 10),
                 const Gap(10),
                 Row(
                   children: [
                     Expanded(
                       child: ChoiceAmPmBox(
                         title: "오전",
+                        timeRangeTitle: "10시~12시",
                         isFocus: selectedTimeType == TimeType.am,
                         onTap: () => {
                           if (model.entity.amResYn == "Y")
@@ -113,6 +122,7 @@ class _ReservationRegisterPageState
                     Expanded(
                         child: ChoiceAmPmBox(
                       title: "오후",
+                          timeRangeTitle: "2시~5시",
                       isFocus: selectedTimeType == TimeType.pm,
                       onTap: () => {
                         if (model.entity.pmResYn == "Y")
@@ -172,7 +182,7 @@ class _ReservationRegisterPageState
                             ? AppColors.textFaded
                             : AppColors.boxDark),
                     child: Text(
-                      '예약하기',
+                      '예약 완료하기',
                       textAlign: TextAlign.center,
                       style: AppTextStyle.textStyleBold
                           .copyWith(fontSize: 28, color: Colors.white),

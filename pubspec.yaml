@@ -15,7 +15,7 @@ dependencies:
   get_it: ^7.6.4
   injectable: 2.2.0
   gap: ^3.0.1
-  google_fonts: ^6.1.0
+
   auto_route: ^7.8.4
   freezed_annotation: ^2.4.1
   rxdart: ^0.27.7
@@ -40,6 +40,7 @@ dependencies:
   flutter_launcher_icons: ^0.13.1
 
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -61,6 +62,11 @@ flutter:
     - assets/images/terms_of_use.pdf
     - assets/images/terms_of_privacy.pdf
     - assets/images/terms_use_admin.pdf
+
+  fonts:
+    - family: Sanhgm
+      fonts:
+        - asset: assets/fonts/Sanhgm-Regular.ttf
 
 
 flutter_gen:

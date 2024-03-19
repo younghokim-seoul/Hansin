@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
       body: SafeArea(
         child: Column(children: [
           const Gap(20),
-          Assets.images.titleLog.image(height: 70, fit: BoxFit.fill),
+          Assets.images.titleLogo.image(height: 70, fit: BoxFit.fill),
           const Gap(10),
           Expanded(
             child: Column(

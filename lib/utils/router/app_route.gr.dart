@@ -43,6 +43,12 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    PassCertifyRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const PassCertifyPage(),
+      );
+    },
     PhoneJoinRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -192,6 +198,20 @@ class MegaSaleRouteArgs {
   String toString() {
     return 'MegaSaleRouteArgs{key: $key, contentName: $contentName}';
   }
+}
+
+/// generated route for
+/// [PassCertifyPage]
+class PassCertifyRoute extends PageRouteInfo<void> {
+  const PassCertifyRoute({List<PageRouteInfo>? children})
+      : super(
+          PassCertifyRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PassCertifyRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for

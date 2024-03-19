@@ -44,10 +44,20 @@ class _LiveStockPageState extends State<LiveStockPage> {
                   const Gap(15),
                   buildLogoView(),
                   const Gap(15),
-                  Text('재고 현황',
-                          style: AppTextStyle.textStyleBold
-                              .copyWith(fontSize: 35, color: Colors.white))
-                      .paddingOnly(left: 10, right: 10),
+                  Text(
+                    '재고 현황',
+                    style: AppTextStyle.textStyleBold.copyWith(
+                      fontSize: 42,
+                      color: Colors.white,
+                      shadows: [
+                        Shadow(
+                          color: AppColors.lightShadow.withOpacity(0.7),
+                          offset: const Offset(0, 4),
+                          blurRadius: 16,
+                        ),
+                      ],
+                    ),
+                  ).paddingOnly(left: 10, right: 10),
                   const Gap(15),
                   Expanded(
                     child: SingleChildScrollView(
@@ -55,13 +65,11 @@ class _LiveStockPageState extends State<LiveStockPage> {
                     ),
                   ),
                   Text('010-7328-8301',
-                          style: AppTextStyle.textStyleBold
-                              .copyWith(fontSize: 28, color: AppColors.boxDark))
+                          style: AppTextStyle.textStyleBold.copyWith(fontSize: 28, color: AppColors.boxDark))
                       .paddingOnly(left: 10, right: 10),
                   Text('문의사항이 있을 시\n문자주시면 24시간 내로 회신드리겠습니다.',
                           textAlign: TextAlign.center,
-                          style: AppTextStyle.textStyleBold
-                              .copyWith(fontSize: 15, color: Colors.black))
+                          style: AppTextStyle.textStyleBold.copyWith(fontSize: 15, color: Colors.black))
                       .paddingOnly(left: 10, right: 10),
                   const Gap(15),
                 ],
@@ -78,24 +86,20 @@ class _LiveStockPageState extends State<LiveStockPage> {
         children: [
           Container(
             width: getScreenWidth(context),
-            margin: const EdgeInsets.all(10),
+            margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
             decoration: BoxDecoration(
-              border: Border.all(color: Colors.white.withOpacity(1), width: 2),
+              border: Border.all(color: Colors.white.withOpacity(1), width: 3),
               borderRadius: const BorderRadius.all(Radius.circular(20)),
             ),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Gap(20),
-                Text('한신 기계 일반 제품',
-                    style: AppTextStyle.textStyleBold
-                        .copyWith(fontSize: 18, color: Colors.white)),
+                const Gap(30),
+                Text('한신기계 일반제품', style: AppTextStyle.textStyleBold.copyWith(fontSize: 18, color: Colors.white)),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('전기종',
-                        style: AppTextStyle.textStyleBold
-                            .copyWith(fontSize: 28, color: AppColors.boxDark)),
+                    Text('전기종', style: AppTextStyle.textStyleBold.copyWith(fontSize: 28, color: AppColors.boxDark)),
                     const Gap(20),
                     Stack(
                       children: [
@@ -104,17 +108,15 @@ class _LiveStockPageState extends State<LiveStockPage> {
                           left: 0,
                           right: 0,
                           child: Container(
-                            decoration: const BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20)),
-                              color: Colors.yellow,
+                            decoration: BoxDecoration(
+                              borderRadius: const BorderRadius.all(Radius.circular(20)),
+                              color: Colors.yellow.withOpacity(0.8),
                             ),
                             height: 15,
                           ),
                         ),
                         Text('120대 보유',
-                            style: AppTextStyle.textStyleBold.copyWith(
-                                fontSize: 28, color: AppColors.boxDark)),
+                            style: AppTextStyle.textStyleBold.copyWith(fontSize: 28, color: AppColors.boxDark)),
                       ],
                     ),
                   ],
@@ -122,8 +124,7 @@ class _LiveStockPageState extends State<LiveStockPage> {
                 StockInformationView(viewModel: _viewModel),
                 Container(
                   width: getScreenWidth(context),
-                  margin: const EdgeInsets.only(
-                      left: 16, right: 16, bottom: 10, top: 10),
+                  margin: const EdgeInsets.only(left: 16, right: 16, bottom: 10, top: 10),
                   decoration: const BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                     color: Colors.white,
@@ -134,18 +135,17 @@ class _LiveStockPageState extends State<LiveStockPage> {
                       Text(
                         '부품 전품종',
                         textAlign: TextAlign.start,
-                        style: AppTextStyle.textStyleBold
-                            .copyWith(fontSize: 28, color: AppColors.boxDark),
+                        style: AppTextStyle.textStyleBold.copyWith(fontSize: 32, color: AppColors.boxDark),
                       ),
                       Text(
                         '상시 보유',
                         textAlign: TextAlign.start,
-                        style: AppTextStyle.textStyleBold
-                            .copyWith(fontSize: 20, color: AppColors.boxDark),
+                        style: AppTextStyle.textStyleBold.copyWith(fontSize: 20, color: AppColors.boxDark),
                       )
                     ],
                   ),
                 ),
+                const Gap(10),
               ],
             ),
           ),
@@ -161,13 +161,12 @@ class _LiveStockPageState extends State<LiveStockPage> {
   Widget buildLogoView() => DecoratedBox(
         decoration: const BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.all(Radius.circular(100)),
+          borderRadius: BorderRadius.all(Radius.circular(500)),
         ),
         child: Text(
           'HANSIN AC',
           textAlign: TextAlign.center,
-          style: AppTextStyle.textStyleBold
-              .copyWith(fontSize: 16, color: AppColors.boxDark),
+          style: AppTextStyle.textStyleBold.copyWith(fontSize: 16, color: AppColors.boxDark),
         ).paddingOnly(left: 10, right: 10),
       );
 
@@ -187,8 +186,7 @@ class _LiveStockPageState extends State<LiveStockPage> {
             child: Text(
               '기본 화면으로 돌아가기',
               textAlign: TextAlign.center,
-              style: AppTextStyle.textStyleBold
-                  .copyWith(fontSize: 28, color: Colors.white),
+              style: AppTextStyle.textStyleBold.copyWith(fontSize: 28, color: Colors.white),
             ).paddingOnly(top: 15, bottom: 15),
           ),
         ),
@@ -208,27 +206,16 @@ class StockTimeStampView extends StatelessWidget {
     return DecoratedBox(
       decoration: const BoxDecoration(
         color: Colors.orangeAccent,
-        borderRadius: BorderRadius.all(Radius.circular(50)),
       ),
       child: _buildDateView(),
     );
   }
 
-  Widget _buildDateView() =>
-      viewModel.liveStockUiState.ui(builder: (context, state) {
-        if (!state.hasData || state.data.isNullOrEmpty) return Container();
-
-        if (state.data is Success) {
-          final model = state.data as Success;
-          return Text(
-            "!${model.entity.first.lastUpdateDt}!",
-            textAlign: TextAlign.center,
-            style: AppTextStyle.textStyleBold
-                .copyWith(fontSize: 15, color: Colors.white),
-          ).paddingOnly(left: 10, right: 10);
-        }
-        return const SizedBox();
-      });
+  Widget _buildDateView() => Text(
+        "이번주 재고 현황",
+        textAlign: TextAlign.center,
+        style: AppTextStyle.textStyleBold.copyWith(fontSize: 15, color: Colors.white),
+      ).paddingSymmetric(horizontal: 20, vertical: 5);
 }
 
 class StockInformationView extends StatelessWidget {
@@ -242,16 +229,20 @@ class StockInformationView extends StatelessWidget {
       children: [
         Expanded(
           child: InkWell(
-              onTap: () => context.router
-                  .push(MegaSaleRoute(contentName: ContentType.screw.name)),
+              onTap: () => context.router.push(MegaSaleRoute(contentName: ContentType.screw.name)),
               borderRadius: BorderRadius.circular(22),
               child: Container(
-                margin: const EdgeInsets.only(
-                    left: 16, right: 16, bottom: 10, top: 10),
+                margin: const EdgeInsets.only(left: 16, right: 16, bottom: 10, top: 10),
                 decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
-                  color: Colors.white,
-                ),
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: AppColors.textDark,
+                        blurRadius: 8,
+                        offset: Offset(0, 4),
+                      )
+                    ]),
                 padding: const EdgeInsets.all(10),
                 child: viewModel.liveStockUiState.ui(builder: (context, state) {
                   if (!state.hasData || state.data.isNullOrEmpty) {
@@ -260,11 +251,34 @@ class StockInformationView extends StatelessWidget {
 
                   if (state.data is Success) {
                     final model = state.data as Success;
-                    return Text(
-                      "${model.entity[0].itemName}\n총 ${model.entity[0].itemCnt}대",
-                      textAlign: TextAlign.start,
-                      style: AppTextStyle.textStyleBold
-                          .copyWith(fontSize: 28, color: Colors.black),
+                    return Column(
+                      children: [
+                        Text(
+                          model.entity[0].itemName,
+                          textAlign: TextAlign.start,
+                          style: AppTextStyle.textStyleBold.copyWith(
+                            fontSize: 32,
+                            color: AppColors.boxDark,
+                            shadows: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.6),
+                                blurRadius: 5.0,
+                                offset: const Offset(0, 3),
+                              )
+                            ],
+                          ),
+                        ),
+                        Text(
+                          "총 ${model.entity[0].itemCnt}대",
+                          textAlign: TextAlign.start,
+                          style: AppTextStyle.textStyleBold.copyWith(fontSize: 23, color: Colors.black),
+                        ),
+                        Text(
+                          "> 더보기",
+                          textAlign: TextAlign.start,
+                          style: AppTextStyle.textStyleBold.copyWith(fontSize: 18, color: AppColors.wine),
+                        )
+                      ],
                     );
                   }
                   return Container();
@@ -273,15 +287,20 @@ class StockInformationView extends StatelessWidget {
         ),
         Expanded(
           child: InkWell(
-            onTap: () => context.router
-                .push(MegaSaleRoute(contentName: ContentType.piston.name)),
+            onTap: () => context.router.push(MegaSaleRoute(contentName: ContentType.piston.name)),
             borderRadius: BorderRadius.circular(22),
             child: Container(
-              margin: const EdgeInsets.only(
-                  left: 16, right: 16, bottom: 10, top: 10),
+              margin: const EdgeInsets.only(left: 16, right: 16, bottom: 10, top: 10),
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(10)),
                 color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    color: AppColors.textDark,
+                    blurRadius: 8,
+                    offset: Offset(0, 4),
+                  )
+                ],
               ),
               padding: const EdgeInsets.all(10),
               child: viewModel.liveStockUiState.ui(builder: (context, state) {
@@ -291,11 +310,34 @@ class StockInformationView extends StatelessWidget {
 
                 if (state.data is Success) {
                   final model = state.data as Success;
-                  return Text(
-                    "${model.entity[1].itemName}\n총 ${model.entity[1].itemCnt}대",
-                    textAlign: TextAlign.start,
-                    style: AppTextStyle.textStyleBold
-                        .copyWith(fontSize: 28, color: Colors.black),
+                  return Column(
+                    children: [
+                      Text(
+                        model.entity[1].itemName,
+                        textAlign: TextAlign.start,
+                        style: AppTextStyle.textStyleBold.copyWith(
+                          fontSize: 32,
+                          color: AppColors.boxDark,
+                          shadows: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.6),
+                              blurRadius: 5.0,
+                              offset: const Offset(0, 3),
+                            )
+                          ],
+                        ),
+                      ),
+                      Text(
+                        "총 ${model.entity[1].itemCnt}대",
+                        textAlign: TextAlign.start,
+                        style: AppTextStyle.textStyleBold.copyWith(fontSize: 23, color: Colors.black),
+                      ),
+                      Text(
+                        "> 더보기",
+                        textAlign: TextAlign.start,
+                        style: AppTextStyle.textStyleBold.copyWith(fontSize: 18, color: AppColors.wine),
+                      )
+                    ],
                   );
                 }
                 return Container();

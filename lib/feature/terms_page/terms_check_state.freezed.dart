@@ -20,6 +20,7 @@ mixin _$TermsCheckState {
   bool get requiredConsent1 => throw _privateConstructorUsedError;
   bool get requiredConsent2 => throw _privateConstructorUsedError;
   bool get requiredConsent3 => throw _privateConstructorUsedError;
+  bool get isEnable => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TermsCheckStateCopyWith<TermsCheckState> get copyWith =>
@@ -36,7 +37,8 @@ abstract class $TermsCheckStateCopyWith<$Res> {
       {bool all,
       bool requiredConsent1,
       bool requiredConsent2,
-      bool requiredConsent3});
+      bool requiredConsent3,
+      bool isEnable});
 }
 
 /// @nodoc
@@ -56,6 +58,7 @@ class _$TermsCheckStateCopyWithImpl<$Res, $Val extends TermsCheckState>
     Object? requiredConsent1 = null,
     Object? requiredConsent2 = null,
     Object? requiredConsent3 = null,
+    Object? isEnable = null,
   }) {
     return _then(_value.copyWith(
       all: null == all
@@ -74,6 +77,10 @@ class _$TermsCheckStateCopyWithImpl<$Res, $Val extends TermsCheckState>
           ? _value.requiredConsent3
           : requiredConsent3 // ignore: cast_nullable_to_non_nullable
               as bool,
+      isEnable: null == isEnable
+          ? _value.isEnable
+          : isEnable // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -90,7 +97,8 @@ abstract class _$$TermsCheckStateImplCopyWith<$Res>
       {bool all,
       bool requiredConsent1,
       bool requiredConsent2,
-      bool requiredConsent3});
+      bool requiredConsent3,
+      bool isEnable});
 }
 
 /// @nodoc
@@ -108,6 +116,7 @@ class __$$TermsCheckStateImplCopyWithImpl<$Res>
     Object? requiredConsent1 = null,
     Object? requiredConsent2 = null,
     Object? requiredConsent3 = null,
+    Object? isEnable = null,
   }) {
     return _then(_$TermsCheckStateImpl(
       all: null == all
@@ -126,6 +135,10 @@ class __$$TermsCheckStateImplCopyWithImpl<$Res>
           ? _value.requiredConsent3
           : requiredConsent3 // ignore: cast_nullable_to_non_nullable
               as bool,
+      isEnable: null == isEnable
+          ? _value.isEnable
+          : isEnable // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -137,7 +150,8 @@ class _$TermsCheckStateImpl implements _TermsCheckState {
       {required this.all,
       required this.requiredConsent1,
       required this.requiredConsent2,
-      required this.requiredConsent3});
+      required this.requiredConsent3,
+      required this.isEnable});
 
   @override
   final bool all;
@@ -147,10 +161,12 @@ class _$TermsCheckStateImpl implements _TermsCheckState {
   final bool requiredConsent2;
   @override
   final bool requiredConsent3;
+  @override
+  final bool isEnable;
 
   @override
   String toString() {
-    return 'TermsCheckState(all: $all, requiredConsent1: $requiredConsent1, requiredConsent2: $requiredConsent2, requiredConsent3: $requiredConsent3)';
+    return 'TermsCheckState(all: $all, requiredConsent1: $requiredConsent1, requiredConsent2: $requiredConsent2, requiredConsent3: $requiredConsent3, isEnable: $isEnable)';
   }
 
   @override
@@ -164,12 +180,14 @@ class _$TermsCheckStateImpl implements _TermsCheckState {
             (identical(other.requiredConsent2, requiredConsent2) ||
                 other.requiredConsent2 == requiredConsent2) &&
             (identical(other.requiredConsent3, requiredConsent3) ||
-                other.requiredConsent3 == requiredConsent3));
+                other.requiredConsent3 == requiredConsent3) &&
+            (identical(other.isEnable, isEnable) ||
+                other.isEnable == isEnable));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, all, requiredConsent1, requiredConsent2, requiredConsent3);
+  int get hashCode => Object.hash(runtimeType, all, requiredConsent1,
+      requiredConsent2, requiredConsent3, isEnable);
 
   @JsonKey(ignore: true)
   @override
@@ -184,7 +202,8 @@ abstract class _TermsCheckState implements TermsCheckState {
       {required final bool all,
       required final bool requiredConsent1,
       required final bool requiredConsent2,
-      required final bool requiredConsent3}) = _$TermsCheckStateImpl;
+      required final bool requiredConsent3,
+      required final bool isEnable}) = _$TermsCheckStateImpl;
 
   @override
   bool get all;
@@ -194,6 +213,8 @@ abstract class _TermsCheckState implements TermsCheckState {
   bool get requiredConsent2;
   @override
   bool get requiredConsent3;
+  @override
+  bool get isEnable;
   @override
   @JsonKey(ignore: true)
   _$$TermsCheckStateImplCopyWith<_$TermsCheckStateImpl> get copyWith =>

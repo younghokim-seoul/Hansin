@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:hansin/utils/theme/hansin_text_styles.dart';
 
 abstract class AppTextStyle {
-  static final textStyleBold = GoogleFonts.nanumGothic().copyWith(
-    fontWeight: FontWeight.bold,
-  );
-  static final textStyleNormal = GoogleFonts.nanumGothic().copyWith(
-    fontWeight: FontWeight.w500,
-  );
+  static const textStyleBold = HansinTextStyles.body1Bold;
+  static const textStyleNormal = HansinTextStyles.body2;
 }
 
 abstract class AppColors {
@@ -26,6 +22,8 @@ abstract class AppColors {
   static const boxDark = Color(0xFF309E93);
   static const boxLight = Color(0xFF76ACA7);
   static const lightNotConnectedText = Color(0xFFD43838);
+  static const wine = Color(0xFF930000);
+  static const lightShadow = Color(0x3325323F);
 }
 
 abstract class _LightColors {
@@ -49,10 +47,9 @@ class AppTheme {
   /// Light theme and its settings.
   ThemeData get light => ThemeData(
         brightness: Brightness.light,
-        colorScheme: lightBase.colorScheme.copyWith(secondary: accentColor,background:  _LightColors.background),
+        colorScheme: lightBase.colorScheme.copyWith(secondary: accentColor, background: _LightColors.background),
         visualDensity: visualDensity,
-        textTheme:
-            GoogleFonts.mulishTextTheme().apply(bodyColor: AppColors.textDark),
+        textTheme: HansinTextStyles.textTheme,
         appBarTheme: lightBase.appBarTheme.copyWith(
           iconTheme: lightBase.iconTheme,
           backgroundColor: Colors.transparent,
@@ -79,11 +76,12 @@ class AppTheme {
   /// Dark theme and its settings.
   ThemeData get dark => ThemeData(
         brightness: Brightness.dark,
-        colorScheme: darkBase.colorScheme.copyWith(secondary: accentColor , background: _DarkColors.background,),
+        colorScheme: darkBase.colorScheme.copyWith(
+          secondary: accentColor,
+          background: _DarkColors.background,
+        ),
         visualDensity: visualDensity,
-        textTheme:
-            GoogleFonts.interTextTheme().apply(bodyColor: AppColors.textLigth),
-
+        textTheme: HansinTextStyles.textTheme,
         appBarTheme: darkBase.appBarTheme.copyWith(
           backgroundColor: Colors.transparent,
           elevation: 0,

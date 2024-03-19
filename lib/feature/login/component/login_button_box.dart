@@ -8,14 +8,13 @@ class LoginButtonBox extends StatelessWidget {
   final Color bgColor;
   final VoidCallback? onTap;
 
-  const LoginButtonBox(
-      {super.key, required this.title, required this.bgColor, this.onTap});
+  const LoginButtonBox({super.key, required this.title, required this.bgColor, this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      borderRadius: const BorderRadius.all(Radius.circular(8)),
+      borderRadius: const BorderRadius.all(Radius.circular(20)),
       child: Container(
         margin: const EdgeInsets.only(left: 20, right: 20),
         width: getScreenWidth(context),
@@ -27,9 +26,8 @@ class LoginButtonBox extends StatelessWidget {
           child: Text(
             title,
             textAlign: TextAlign.center,
-            style: AppTextStyle.textStyleBold
-                .copyWith(fontSize: 28, color: Colors.white),
-          ).paddingOnly(top: 10,bottom: 10),
+            style: AppTextStyle.textStyleBold.copyWith(fontSize: 28, color: Colors.white),
+          ).paddingOnly(top: 10, bottom: 10),
         ),
       ),
     );

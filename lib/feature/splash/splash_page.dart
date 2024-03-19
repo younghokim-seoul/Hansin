@@ -36,13 +36,6 @@ class _SplashPageState extends ConsumerState<SplashPage> {
       }
     });
   }
-
-  @override
-  void didChangeDependencies() {
-    // TODO: implement didChangeDependencies
-    super.didChangeDependencies();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Container();

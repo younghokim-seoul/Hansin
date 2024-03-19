@@ -93,19 +93,19 @@ class _MegaSalePageState extends State<MegaSalePage> {
           children: [
             Expanded(
               child: InkWell(
-                  onTap: () => context.router.popUntil(
-                      (route) => route.settings.name == HomeRoute.name),
+                onTap: () => context.router.popUntil((route) => route.settings.name == HomeRoute.name),
+                child: DecoratedBox(
+                  decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(0)),
+                    color: AppColors.iconLight,
+                  ),
                   child: Text(
                     '기본 화면으로',
                     textAlign: TextAlign.center,
-                    style: AppTextStyle.textStyleBold
-                        .copyWith(fontSize: 28, color: Colors.white),
-                  ).paddingOnly(top: 15, bottom: 15)),
-            ),
-            Container(
-              width: 2,
-              height: 50,
-              color: AppColors.textLigth,
+                    style: AppTextStyle.textStyleBold.copyWith(fontSize: 28, color: Colors.black),
+                  ).paddingOnly(top: 15, bottom: 15),
+                ),
+              ),
             ),
             Expanded(
               child: InkWell(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:hansin/feature/show_room/reservation_register/component/disable_paint.dart';
 import 'package:hansin/theme.dart';
 
@@ -6,12 +7,14 @@ class ChoiceAmPmBox extends StatelessWidget {
   const ChoiceAmPmBox({
     super.key,
     required this.title,
+    required this.timeRangeTitle,
     required this.isFocus,
     required this.onTap,
     required this.isDisable,
   });
 
   final String title;
+  final String timeRangeTitle;
   final bool isFocus;
   final bool isDisable;
   final VoidCallback? onTap;
@@ -64,12 +67,26 @@ class ChoiceAmPmBox extends StatelessWidget {
                   )
                 ],
               ),
-              child: Text(
-                title,
-                style: AppTextStyle.textStyleBold.copyWith(
-                  fontSize: 28,
-                  color: !isFocus ? AppColors.boxDark : Colors.white,
-                ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text(
+                    title,
+                    style: AppTextStyle.textStyleBold.copyWith(
+                      fontSize: 28,
+                      color: !isFocus ? AppColors.boxDark : Colors.white,
+                    ),
+                  ),
+                  const Gap(5),
+                  Text(
+                    timeRangeTitle,
+                    style: AppTextStyle.textStyleBold.copyWith(
+                      fontSize: 20,
+                      height: 0,
+                      color: !isFocus ? Colors.black : Colors.white,
+                    ),
+                  ),
+                ],
               ),
             ),
     );
