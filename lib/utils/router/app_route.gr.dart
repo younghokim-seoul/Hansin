@@ -83,9 +83,13 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     SignUpRoute.name: (routeData) {
+      final args = routeData.argsAs<SignUpRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const SignUpPage(),
+        child: SignUpPage(
+          key: args.key,
+          certifyEntity: args.certifyEntity,
+        ),
       );
     },
     SplashRoute.name: (routeData) {
@@ -326,16 +330,39 @@ class ShowRoomReservationRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [SignUpPage]
-class SignUpRoute extends PageRouteInfo<void> {
-  const SignUpRoute({List<PageRouteInfo>? children})
-      : super(
+class SignUpRoute extends PageRouteInfo<SignUpRouteArgs> {
+  SignUpRoute({
+    Key? key,
+    required CertifyEntity certifyEntity,
+    List<PageRouteInfo>? children,
+  }) : super(
           SignUpRoute.name,
+          args: SignUpRouteArgs(
+            key: key,
+            certifyEntity: certifyEntity,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'SignUpRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<SignUpRouteArgs> page = PageInfo<SignUpRouteArgs>(name);
+}
+
+class SignUpRouteArgs {
+  const SignUpRouteArgs({
+    this.key,
+    required this.certifyEntity,
+  });
+
+  final Key? key;
+
+  final CertifyEntity certifyEntity;
+
+  @override
+  String toString() {
+    return 'SignUpRouteArgs{key: $key, certifyEntity: $certifyEntity}';
+  }
 }
 
 /// generated route for

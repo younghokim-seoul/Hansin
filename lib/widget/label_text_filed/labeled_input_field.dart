@@ -103,8 +103,10 @@ class _LabeledInputFieldState extends State<LabeledInputField> {
                             size: 24,
                           ),
                           onTap: () {
-                            _effectiveFocusNode.requestFocus();
-                            _effectiveController.clear();
+                            if(widget.enabled){
+                              _effectiveFocusNode.requestFocus();
+                              _effectiveController.clear();
+                            }
                           },
                         ),
                       );

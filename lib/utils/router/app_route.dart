@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:hansin/domain/entity/certify_entity.dart';
 import 'package:hansin/feature/home/home_page.dart';
 import 'package:hansin/feature/login/login_page.dart';
 import 'package:hansin/feature/login/phone/phone_join_page.dart';

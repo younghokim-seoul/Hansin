@@ -3,12 +3,13 @@ import 'dart:convert';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hansin/domain/entity/certify_entity.dart';
 import 'package:hansin/theme.dart';
 import 'package:hansin/utils/dev_log.dart';
+
 import 'package:hansin/widget/dialog/dialogs.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 
 @RoutePage()
 class PassCertifyPage extends ConsumerStatefulWidget {
@@ -22,20 +23,6 @@ class PassCertifyPage extends ConsumerStatefulWidget {
 
 class _PassCertifyPageState extends ConsumerState<PassCertifyPage> {
   final GlobalKey webViewKey = GlobalKey();
-
-  final controller = WebViewController()
-    ..setJavaScriptMode(JavaScriptMode.unrestricted)
-    ..setBackgroundColor(const Color(0x00000000))
-    ..addJavaScriptChannel('goonghapmessage', onMessageReceived: (message) {
-      final model = const JsonDecoder().convert(message.message);
-      Log.d(":::: goonghapmessage가자... $model");
-    })
-    ..addJavaScriptChannel('PHONE', onMessageReceived: (message) {
-      final model = const JsonDecoder().convert(message.message);
-      Log.d("::::PHONE 가자... $model");
-    })
-    ..loadRequest(Uri.parse('http://13.125.57.183:8080/danal/ready'));
-
   @override
   void initState() {
     super.initState();
@@ -47,30 +34,64 @@ class _PassCertifyPageState extends ConsumerState<PassCertifyPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          titleSpacing: 4.0,
-          backgroundColor: AppColors.boxDark,
-          leading: IconButton(
-            padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
-            icon: const Icon(CupertinoIcons.chevron_back, color: Colors.white),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-          title: Text("PASS",
-              style: AppTextStyle.textStyleBold
-                  .copyWith(fontSize: 20, color: Colors.white)),
-          centerTitle: true,
-          elevation: 0.0,
-          shape: const Border(
-              bottom: BorderSide(color: Color(0xFF485057), width: 1)),
+      appBar: AppBar(
+        titleSpacing: 4.0,
+        backgroundColor: AppColors.boxDark,
+        leading: IconButton(
+          padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+          icon: const Icon(CupertinoIcons.chevron_back, color: Colors.white),
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
-        body: SafeArea(
-          child: Stack(
-            children: [
-              Positioned.fill(child: WebViewWidget(controller: controller)),
-            ],
+        title: Text("PASS",
+            style: AppTextStyle.textStyleBold
+                .copyWith(fontSize: 20, color: Colors.white)),
+        centerTitle: true,
+        elevation: 0.0,
+        shape: const Border(
+            bottom: BorderSide(color: Color(0xFF485057), width: 1)),
+      ),
+      // body: WebViewWidget(controller: controller),
+      body: InAppWebView(
+        key: webViewKey,
+        initialUrlRequest: URLRequest(
+            url: Uri.parse("http://13.125.57.183:8080/danal/requestAuth")),
+        initialOptions: InAppWebViewGroupOptions(
+          crossPlatform: InAppWebViewOptions(
+            cacheEnabled: true,
+            clearCache: true,
+            transparentBackground: true,
+            useShouldOverrideUrlLoading: true,
+            javaScriptEnabled: true,
           ),
-        ));
+          android: AndroidInAppWebViewOptions(
+              useHybridComposition: true,
+              mixedContentMode:
+                  AndroidMixedContentMode.MIXED_CONTENT_ALWAYS_ALLOW,
+              initialScale: 100),
+          ios: IOSInAppWebViewOptions(
+            allowsInlineMediaPlayback: true,
+            allowsBackForwardNavigationGestures: true,
+          ),
+        ),
+        onLoadStop: (InAppWebViewController controller, uri) {},
+        onWebViewCreated: (controller) {
+          controller.addJavaScriptHandler(
+              handlerName: 'FlutterHandler',
+              callback: (args) {
+                final model = const JsonDecoder().convert(args[0]);
+                Log.d("::::hs_main_auth 가자... $model");
+
+                var code = model['code'] as int;
+                var response = model['response'];
+                Log.d(":::code $code");
+                var entity = CertifyEntity(code : code,name: response['name'], gender: response['gender'], phone: response['phone']);
+                Log.d(":::entity $entity");
+                context.router.pop(entity);
+              });
+        },
+      ),
+    );
   }
 }
