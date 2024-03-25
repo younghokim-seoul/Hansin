@@ -145,8 +145,9 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
                 createUserMap['userPwd'] = _fwController.text;
                 createUserMap['userName'] = _nameController.text;
                 createUserMap['userCompanyName'] = _companyNameController.text;
-                createUserMap['userPhone'] = _recommenderController.text;
+                createUserMap['userPhone'] = _phoneController.text;
                 createUserMap['userToken'] = '';
+                createUserMap['userRecPhone'] = _recommenderController.text;
                 _viewModel.submit(createUserMap);
 
               },

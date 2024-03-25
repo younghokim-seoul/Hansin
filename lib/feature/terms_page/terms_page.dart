@@ -246,9 +246,7 @@ class _TermsPageState extends ConsumerState<TermsPage> {
               if (model.code == 0) {
                 AppMessage.showMessage("인증에 성공 하였습니다.");
                 if (context.mounted) {
-                  // context.router.pop();
-                  // context.router.push(SignUpRoute(certifyEntity: model));
-                  context.router.pushAndPopUntil(SignUpRoute(certifyEntity: CertifyEntity(code: 0, name: "name", gender: "gender", phone: "phone")), predicate: (route) => route.settings.name == LoginRoute.name);
+                  context.router.pushAndPopUntil(SignUpRoute(certifyEntity: model), predicate: (route) => route.settings.name == LoginRoute.name);
                 }
               } else {
                 AppMessage.showMessage("인증에 실패 하였습니다.");
