@@ -122,7 +122,7 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
                   label: ' 추천인 전화번호 입력',
                   hintText: '추천인의 전화번호를 입력해주세요.',
                   errorText: null,
-                  keyboardType: TextInputType.phone,
+                  keyboardType: const TextInputType.numberWithOptions(signed: true,decimal: true),
                 ).marginOnly(left: 20, right: 20, top: 5, bottom: 5),
               ],
             ),

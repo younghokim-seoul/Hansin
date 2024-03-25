@@ -28,7 +28,7 @@ class _SplashPageState extends ConsumerState<SplashPage> {
 
   void checkLoginUser() {
     _settingRepository.getUserId().then((userIds) {
-      Log.d(":::userIds... $userIds");
+      Log.d(" $userIds");
       if (!userIds.isNullOrEmpty) {
         context.router.replace(const HomeRoute());
       } else {
