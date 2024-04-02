@@ -13,12 +13,26 @@ class HomePage extends StatelessWidget {
 
   const HomePage({super.key});
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Column(children: [
-          const Gap(20),
+          const Gap(5),
+          Align(
+              alignment: Alignment.topLeft,
+              child: Container(
+                margin: const EdgeInsets.only(left: 16),
+                child: InkWell(
+                  onTap: () => context.router.push(const SettingRoute()),
+                  child: const Icon(
+                    Icons.menu,
+                    size: 32,
+                    color: AppColors.boxDark,
+                  ),
+                ),
+              )),
           Assets.images.titleLogo.image(height: 70, fit: BoxFit.fill),
           const Gap(10),
           Expanded(

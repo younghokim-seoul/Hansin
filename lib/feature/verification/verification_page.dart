@@ -78,7 +78,7 @@ class _VerificationPageState extends State<VerificationPage> {
               fit: BoxFit.fitHeight,
             ),
             placeholder: (context, url) =>
-            const YaruCircularProgressIndicator(strokeWidth: 2),
+            const YaruCircularProgressIndicator(strokeWidth: 2,  color: AppColors.boxDark,),
             errorWidget: (context, url, error) => const Icon(YaruIcons.error),
           );
         }

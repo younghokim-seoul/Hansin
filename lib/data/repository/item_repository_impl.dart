@@ -132,4 +132,13 @@ class ItemRepositoryImpl implements ItemRepository {
 
     return responseModel;
   }
+
+  @override
+  Future<SignUpVO> deleteUser(Map<String, dynamic> param) async {
+    var res = await dataSource.request(HttpMethod.post, ApiUrl.delete, param);
+
+    var responseModel = SignUpVO.fromJson(json.decode(utf8.decode(res.bodyBytes)));
+
+    return responseModel;
+  }
 }

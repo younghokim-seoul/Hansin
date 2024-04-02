@@ -11,6 +11,8 @@ abstract class ItemRepository {
 
   Future<SignUpVO> createUser(Map<String, dynamic> param);
 
+  Future<SignUpVO> deleteUser(Map<String, dynamic> param);
+
   Future<ContentInfoEntity> getContentInfo(Map<String, dynamic> param);
 
   Future<List<StockEntity>> getItemInfo();

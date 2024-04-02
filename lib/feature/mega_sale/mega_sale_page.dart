@@ -67,7 +67,10 @@ class _MegaSalePageState extends State<MegaSalePage> {
                 fit: BoxFit.fitHeight,
               ),
               placeholder: (context, url) => const SizedBox.square(
-                child: YaruCircularProgressIndicator(strokeWidth: 2),
+                child: YaruCircularProgressIndicator(
+                  strokeWidth: 2,
+                  color: AppColors.boxDark,
+                ),
               ),
               errorWidget: (context, url, error) => const Icon(YaruIcons.error),
             ),
@@ -93,7 +96,8 @@ class _MegaSalePageState extends State<MegaSalePage> {
           children: [
             Expanded(
               child: InkWell(
-                onTap: () => context.router.popUntil((route) => route.settings.name == HomeRoute.name),
+                onTap: () => context.router
+                    .popUntil((route) => route.settings.name == HomeRoute.name),
                 child: DecoratedBox(
                   decoration: const BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(0)),
@@ -102,7 +106,8 @@ class _MegaSalePageState extends State<MegaSalePage> {
                   child: Text(
                     '기본 화면으로',
                     textAlign: TextAlign.center,
-                    style: AppTextStyle.textStyleBold.copyWith(fontSize: 28, color: Colors.black),
+                    style: AppTextStyle.textStyleBold
+                        .copyWith(fontSize: 28, color: Colors.black),
                   ).paddingOnly(top: 15, bottom: 15),
                 ),
               ),

@@ -18,14 +18,15 @@ import 'package:hansin/domain/repository/item_repository.dart' as _i7;
 import 'package:hansin/domain/repository/setting_repository.dart' as _i5;
 import 'package:hansin/feature/login/phone/phone_join_view_model.dart' as _i11;
 import 'package:hansin/feature/mega_sale/mega_sale_view_model.dart' as _i10;
+import 'package:hansin/feature/setting/setting_view_model.dart' as _i13;
 import 'package:hansin/feature/show_room/reservation_register/reservation_register_view_model.dart'
     as _i12;
 import 'package:hansin/feature/show_room/show_room_reservation_view_model.dart'
-    as _i13;
-import 'package:hansin/feature/sign_up/sign_up_view_model.dart' as _i14;
+    as _i14;
+import 'package:hansin/feature/sign_up/sign_up_view_model.dart' as _i15;
 import 'package:hansin/feature/stock/live_stock_view_model.dart' as _i9;
 import 'package:hansin/feature/verification/verification_view_model.dart'
-    as _i15;
+    as _i16;
 import 'package:injectable/injectable.dart' as _i2;
 
 extension GetItInjectableX on _i1.GetIt {
@@ -56,12 +57,16 @@ extension GetItInjectableX on _i1.GetIt {
               gh<_i7.ItemRepository>(),
               gh<_i5.SettingRepository>(),
             ));
-    gh.factory<_i13.ShowRoomReservationViewModel>(
-        () => _i13.ShowRoomReservationViewModel(gh<_i7.ItemRepository>()));
-    gh.factory<_i14.SignUpViewModel>(
-        () => _i14.SignUpViewModel(gh<_i7.ItemRepository>()));
-    gh.factory<_i15.VerificationModel>(
-        () => _i15.VerificationModel(gh<_i7.ItemRepository>()));
+    gh.factory<_i13.SettingViewModel>(() => _i13.SettingViewModel(
+          gh<_i7.ItemRepository>(),
+          gh<_i5.SettingRepository>(),
+        ));
+    gh.factory<_i14.ShowRoomReservationViewModel>(
+        () => _i14.ShowRoomReservationViewModel(gh<_i7.ItemRepository>()));
+    gh.factory<_i15.SignUpViewModel>(
+        () => _i15.SignUpViewModel(gh<_i7.ItemRepository>()));
+    gh.factory<_i16.VerificationModel>(
+        () => _i16.VerificationModel(gh<_i7.ItemRepository>()));
     return this;
   }
 }

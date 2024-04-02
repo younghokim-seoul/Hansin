@@ -42,61 +42,66 @@ class _ReservationCalendarState extends State<ReservationCalendar> {
   Widget build(BuildContext context) {
     return widget.viewModel.showRoomCalendarUiState.ui(
         builder: (context, state) {
-          if (!state.hasData || state.data.isNullOrEmpty) {
-            return Container();
-          }
+      if (!state.hasData || state.data.isNullOrEmpty) {
+        return Container();
+      }
 
-          if (state.data!.isInitialize == true &&
-              (state.data!.isLoading || state.data!.error)) {
-            return const Center(child: YaruCircularProgressIndicator());
-          }
+      if (state.data!.isInitialize == true &&
+          (state.data!.isLoading || state.data!.error)) {
+        return const Center(
+          child: YaruCircularProgressIndicator(
+            strokeWidth: 2,
+            color: AppColors.boxDark,
+          ),
+        );
+      }
 
-          if (state.data!.isInitialize == true &&
-              !state.data!.items.isNullOrEmpty) {
-            for (var element in state.data!.items) {
-              final dateTime =
+      if (state.data!.isInitialize == true &&
+          !state.data!.items.isNullOrEmpty) {
+        for (var element in state.data!.items) {
+          final dateTime =
               DateTime.utc(element.year, element.month, element.day);
-              _selectedDays.add(dateTime);
-            }
+          _selectedDays.add(dateTime);
+        }
 
-            return Column(
-              children: [
-                Text(
-                  '날짜를 선택해주세요!',
-                  style: AppTextStyle.textStyleBold.copyWith(
-                    fontSize: 25,
-                    color: Colors.black,
-                  ),
-                ).marginOnly(top: 15),
-                TableCalendar(
-                  locale: 'ko_KR',
-                  focusedDay: _focusedDay,
-                  selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
-                  firstDay: kFirstDay,
-                  lastDay: kLastDay,
-                  onDaySelected: _onDaySelected,
-                  onPageChanged: _onPageChanged,
-                  headerStyle: const HeaderStyle(
-                    titleCentered: true,
-                    formatButtonVisible: false,
-                  ),
-                  calendarStyle: CalendarStyle(
-                    outsideTextStyle: AppTextStyle.textStyleBold
-                        .copyWith(color: const Color(0xFFAEAEAE)),
-                    disabledTextStyle: AppTextStyle.textStyleBold.copyWith(
-                      color: const Color(0xFFBFBFBF),
-                      decoration: TextDecoration.lineThrough,
-                    ),
-                    defaultTextStyle: AppTextStyle.textStyleBold,
-                  ),
-                  enabledDayPredicate: _enabledDayPredicate,
+        return Column(
+          children: [
+            Text(
+              '날짜를 선택해주세요!',
+              style: AppTextStyle.textStyleBold.copyWith(
+                fontSize: 25,
+                color: Colors.black,
+              ),
+            ).marginOnly(top: 15),
+            TableCalendar(
+              locale: 'ko_KR',
+              focusedDay: _focusedDay,
+              selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
+              firstDay: kFirstDay,
+              lastDay: kLastDay,
+              onDaySelected: _onDaySelected,
+              onPageChanged: _onPageChanged,
+              headerStyle: const HeaderStyle(
+                titleCentered: true,
+                formatButtonVisible: false,
+              ),
+              calendarStyle: CalendarStyle(
+                outsideTextStyle: AppTextStyle.textStyleBold
+                    .copyWith(color: const Color(0xFFAEAEAE)),
+                disabledTextStyle: AppTextStyle.textStyleBold.copyWith(
+                  color: const Color(0xFFBFBFBF),
+                  decoration: TextDecoration.lineThrough,
                 ),
-              ],
-            );
-          }
+                defaultTextStyle: AppTextStyle.textStyleBold,
+              ),
+              enabledDayPredicate: _enabledDayPredicate,
+            ),
+          ],
+        );
+      }
 
-          return const SizedBox.shrink();
-        });
+      return const SizedBox.shrink();
+    });
   }
 
   bool _enabledDayPredicate(DateTime day) {

@@ -76,6 +76,12 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    SettingRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const SettingPage(),
+      );
+    },
     ShowRoomReservationRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -312,6 +318,20 @@ class ReservationRegisterRouteArgs {
   String toString() {
     return 'ReservationRegisterRouteArgs{key: $key, selectedDateTime: $selectedDateTime}';
   }
+}
+
+/// generated route for
+/// [SettingPage]
+class SettingRoute extends PageRouteInfo<void> {
+  const SettingRoute({List<PageRouteInfo>? children})
+      : super(
+          SettingRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SettingRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for

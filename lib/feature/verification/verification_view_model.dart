@@ -7,7 +7,7 @@ import 'package:hansin/viewmodel_interface.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable()
-class VerificationModel implements ViewModelInterface{
+class VerificationModel implements ViewModelInterface {
   final verificationUiState = ArcSubject<VerificationState>();
 
   final ItemRepository _itemRepository;
@@ -19,23 +19,18 @@ class VerificationModel implements ViewModelInterface{
     Map<String, String> param = {};
     param['contentName'] = ContentType.priceBtn.name;
     loadState(Loading());
-    try{
+    try {
       final response = await _itemRepository.getContentInfo(param);
       Log.d(":::response => $response");
       loadState(Success(entity: response));
-    } on Exception catch(e) {
+    } on Exception catch (e) {
       Log.e(":::e => $e");
       loadState(Error());
     }
-
-
-
   }
 
   @override
-  disposeAll() {
-
-  }
+  disposeAll() {}
 
   @override
   loadState(state) {

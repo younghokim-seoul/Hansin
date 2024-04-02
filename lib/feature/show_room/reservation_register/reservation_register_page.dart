@@ -43,15 +43,16 @@ class _ReservationRegisterPageState
   Widget build(BuildContext context) {
     final selectedTimeType = ref.watch(timeTypeProvider);
 
-
-
     return _viewModel.reservationRegisterUiState.ui(builder: (context, state) {
       if (state.data is Loading || state.data is Error) {
-        return const Center(
-          child: YaruCircularProgressIndicator(
-            strokeWidth: 2,
-          ),
-        );
+        return const DecoratedBox(
+            decoration: BoxDecoration(color: Colors.white),
+            child: Center(
+              child: YaruCircularProgressIndicator(
+                strokeWidth: 2,
+                color: AppColors.boxDark,
+              ),
+            ));
       }
 
       if (state.data is Success) {
@@ -122,7 +123,7 @@ class _ReservationRegisterPageState
                     Expanded(
                         child: ChoiceAmPmBox(
                       title: "오후",
-                          timeRangeTitle: "2시~5시",
+                      timeRangeTitle: "2시~5시",
                       isFocus: selectedTimeType == TimeType.pm,
                       onTap: () => {
                         if (model.entity.pmResYn == "Y")
@@ -151,7 +152,8 @@ class _ReservationRegisterPageState
                     }
 
                     try {
-                      final response = await _viewModel.registerReservation(selectedTimeType, widget.selectedDateTime);
+                      final response = await _viewModel.registerReservation(
+                          selectedTimeType, widget.selectedDateTime);
 
                       if (!context.mounted) return;
 

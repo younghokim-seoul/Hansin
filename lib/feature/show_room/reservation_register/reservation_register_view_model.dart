@@ -25,6 +25,7 @@ class ReservationRegisterViewModel implements ViewModelInterface {
     param['day'] = dateTime.day.toString();
     loadState(Loading());
     try {
+      await Future.delayed(const Duration(milliseconds: 500));
       final response = await _itemRepository.getRestCalendarDetail(param);
       Log.d(":::response => $response");
       loadState(Success(entity: response));

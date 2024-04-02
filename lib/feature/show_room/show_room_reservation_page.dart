@@ -20,7 +20,8 @@ class ShowRoomReservationPage extends StatefulWidget {
   const ShowRoomReservationPage({super.key});
 
   @override
-  State<ShowRoomReservationPage> createState() => _ShowRoomReservationPageState();
+  State<ShowRoomReservationPage> createState() =>
+      _ShowRoomReservationPageState();
 }
 
 class _ShowRoomReservationPageState extends State<ShowRoomReservationPage> {
@@ -52,7 +53,8 @@ class _ShowRoomReservationPageState extends State<ShowRoomReservationPage> {
     );
   }
 
-  Widget buildShowReservationEventView() => _viewModel.showRoomReservationUiState.ui(builder: (context, state) {
+  Widget buildShowReservationEventView() =>
+      _viewModel.showRoomReservationUiState.ui(builder: (context, state) {
         if (!state.hasData || state.data.isNullOrEmpty) return Container();
 
         if (state.data is Success) {
@@ -61,7 +63,11 @@ class _ShowRoomReservationPageState extends State<ShowRoomReservationPage> {
           return SingleChildScrollView(
             child: CachedNetworkImage(
               imageUrl: model.entity.contentImage,
-              placeholder: (context, url) => const YaruCircularProgressIndicator(strokeWidth: 2),
+              placeholder: (context, url) =>
+                  const YaruCircularProgressIndicator(
+                strokeWidth: 2,
+                color: AppColors.boxDark,
+              ),
               errorWidget: (context, url, error) => const Icon(YaruIcons.error),
             ),
           );
@@ -90,7 +96,8 @@ class _ShowRoomReservationPageState extends State<ShowRoomReservationPage> {
                 children: [
                   Expanded(
                     child: InkWell(
-                      onTap: () => context.router.popUntil((route) => route.settings.name == HomeRoute.name),
+                      onTap: () => context.router.popUntil(
+                          (route) => route.settings.name == HomeRoute.name),
                       child: DecoratedBox(
                         decoration: const BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(0)),
@@ -99,7 +106,8 @@ class _ShowRoomReservationPageState extends State<ShowRoomReservationPage> {
                         child: Text(
                           '기본 화면으로',
                           textAlign: TextAlign.center,
-                          style: AppTextStyle.textStyleBold.copyWith(fontSize: 28, color: Colors.black),
+                          style: AppTextStyle.textStyleBold
+                              .copyWith(fontSize: 28, color: Colors.black),
                         ).paddingOnly(top: 15, bottom: 15),
                       ),
                     ),
@@ -107,11 +115,15 @@ class _ShowRoomReservationPageState extends State<ShowRoomReservationPage> {
                   Expanded(
                     child: InkWell(
                         onTap: _viewModel.setToggleCalendar,
-                        child: Text(
-                          '날짜선택완료',
-                          textAlign: TextAlign.center,
-                          style: AppTextStyle.textStyleBold.copyWith(fontSize: 28, color: Colors.white),
-                        ).paddingOnly(top: 15, bottom: 15)),
+                        child: _viewModel.isVisibleCalendar.ui(
+                            builder: (context, state) {
+                          return Text(
+                            state.data == true ? "날짜선택완료" : "예약하기",
+                            textAlign: TextAlign.center,
+                            style: AppTextStyle.textStyleBold
+                                .copyWith(fontSize: 28, color: Colors.white),
+                          ).paddingOnly(top: 15, bottom: 15);
+                        })),
                   ),
                 ],
               ),

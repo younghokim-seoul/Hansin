@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:gap/gap.dart';
 import 'package:hansin/assets/assets.gen.dart';
 import 'package:hansin/feature/login/component/login_button_box.dart';
@@ -16,11 +17,14 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
+      body: AnnotatedRegion<SystemUiOverlayStyle>(
+        value: SystemUiOverlayStyle.light.copyWith(
+          statusBarColor: Colors.transparent,
+        ),
         child: Stack(
           children: [
             Positioned.fill(
-              child: Assets.images.loginBg.image(fit: BoxFit.fill),
+              child: Assets.images.loginBg.image(fit: BoxFit.cover),
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -44,7 +48,7 @@ class LoginPage extends StatelessWidget {
             ),
           ],
         ),
-      )
+      ),
     );
   }
 }
