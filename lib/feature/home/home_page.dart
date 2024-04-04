@@ -41,7 +41,7 @@ class HomePage extends StatelessWidget {
               children: [
                 Flexible(
                   child: HomeListBox(
-                      title: '쇼룸 안내 및 예약',
+                      title: '전시매장 안내 및 예약',
                       bgColor: AppColors.boxDark,
                       onTap: () {
                         context.router.push(const ShowRoomReservationRoute());

@@ -9,8 +9,6 @@ import 'package:hansin/domain/entity/certify_entity.dart';
 import 'package:hansin/theme.dart';
 import 'package:hansin/utils/dev_log.dart';
 
-import 'package:hansin/widget/dialog/dialogs.dart';
-
 @RoutePage()
 class PassCertifyPage extends ConsumerStatefulWidget {
   static const routeName = '/pass_certify';
@@ -23,13 +21,11 @@ class PassCertifyPage extends ConsumerStatefulWidget {
 
 class _PassCertifyPageState extends ConsumerState<PassCertifyPage> {
   final GlobalKey webViewKey = GlobalKey();
+
   @override
   void initState() {
     super.initState();
   }
-
-  Future<void> showError(String title, String message) =>
-      showErrorDialog(context: context, title: title, message: message);
 
   @override
   Widget build(BuildContext context) {
@@ -44,19 +40,15 @@ class _PassCertifyPageState extends ConsumerState<PassCertifyPage> {
             Navigator.pop(context);
           },
         ),
-        title: Text("PASS",
-            style: AppTextStyle.textStyleBold
-                .copyWith(fontSize: 20, color: Colors.white)),
+        title: Text("PASS", style: AppTextStyle.textStyleBold.copyWith(fontSize: 20, color: Colors.white)),
         centerTitle: true,
         elevation: 0.0,
-        shape: const Border(
-            bottom: BorderSide(color: Color(0xFF485057), width: 1)),
+        shape: const Border(bottom: BorderSide(color: Color(0xFF485057), width: 1)),
       ),
       // body: WebViewWidget(controller: controller),
       body: InAppWebView(
         key: webViewKey,
-        initialUrlRequest: URLRequest(
-            url: Uri.parse("http://13.125.57.183:8080/danal/requestAuth")),
+        initialUrlRequest: URLRequest(url: Uri.parse("http://13.125.57.183:8080/danal/requestAuth")),
         initialOptions: InAppWebViewGroupOptions(
           crossPlatform: InAppWebViewOptions(
             cacheEnabled: true,
@@ -67,8 +59,7 @@ class _PassCertifyPageState extends ConsumerState<PassCertifyPage> {
           ),
           android: AndroidInAppWebViewOptions(
               useHybridComposition: true,
-              mixedContentMode:
-                  AndroidMixedContentMode.MIXED_CONTENT_ALWAYS_ALLOW,
+              mixedContentMode: AndroidMixedContentMode.MIXED_CONTENT_ALWAYS_ALLOW,
               initialScale: 100),
           ios: IOSInAppWebViewOptions(
             allowsInlineMediaPlayback: true,
@@ -86,7 +77,8 @@ class _PassCertifyPageState extends ConsumerState<PassCertifyPage> {
                 var code = model['code'] as int;
                 var response = model['response'];
                 Log.d(":::code $code");
-                var entity = CertifyEntity(code : code,name: response['name'], gender: response['gender'], phone: response['phone']);
+                var entity = CertifyEntity(
+                    code: code, name: response['name'], gender: response['gender'], phone: response['phone']);
                 Log.d(":::entity $entity");
                 context.router.pop(entity);
               });

@@ -99,7 +99,7 @@ class _VerificationPageState extends State<VerificationPage> {
         color: AppColors.boxDark,
       ),
       child: Text(
-        '대량 구매\n고객 대상 서비스',
+        '대량 구매\n고객 대상 혜택',
         textAlign: TextAlign.center,
         style: AppTextStyle.textStyleBold
             .copyWith(fontSize: 28, color: Colors.white),

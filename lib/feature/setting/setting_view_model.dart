@@ -33,7 +33,7 @@ class SettingViewModel implements ViewModelInterface {
 
   void onLogoutUser() async {
     Log.d(":::onLogoutUser");
-    // await _settingRepository.saveUserId(userIds: "");
+    await _settingRepository.saveUserId(userIds: "");
     loadState(LogOutSuccess());
   }
 
