@@ -49,7 +49,7 @@ class SettingPage extends StatelessWidget {
           const Gap(10),
           SizedBox(
             height: 120,
-            child: HomeListBox(title: '로그 아웃', bgColor: AppColors.boxDark, onTap: viewModel.onLogoutUser),
+            child: HomeListBox(title: '로그아웃', bgColor: AppColors.boxDark, onTap: viewModel.onLogoutUser),
           ),
           SizedBox(
             height: 120,

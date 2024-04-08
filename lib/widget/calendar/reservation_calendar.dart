@@ -1,7 +1,6 @@
 import 'dart:collection';
 
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hansin/feature/show_room/show_room_reservation_view_model.dart';
 import 'package:hansin/theme.dart';
@@ -32,7 +31,6 @@ class _ReservationCalendarState extends State<ReservationCalendar> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _selectedDay = _focusedDay;
     widget.viewModel.onLoadCalendarData();
