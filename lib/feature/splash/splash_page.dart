@@ -32,7 +32,7 @@ class _SplashPageState extends ConsumerState<SplashPage> {
       if (!userIds.isNullOrEmpty) {
         context.router.replace(const HomeRoute());
       } else {
-        context.router.replace(const LoginRoute());
+        context.router.replace(const PassCertifyRoute());
       }
     });
   }
