@@ -84,7 +84,7 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
             child: Column(
               children: [
                 const Gap(20),
-                Assets.images.titleLogo.image(height: 70,fit: BoxFit.fill),
+                Assets.images.titleLogo.image(height: 100,fit: BoxFit.fill),
                 const Gap(10),
                 LabeledInputField(
                   controller: _nameController,

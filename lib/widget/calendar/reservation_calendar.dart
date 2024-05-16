@@ -65,12 +65,24 @@ class _ReservationCalendarState extends State<ReservationCalendar> {
         return Column(
           children: [
             Text(
-              '날짜를 선택해주세요!',
+              '날짜를 선택해주세요',
               style: AppTextStyle.textStyleBold.copyWith(
                 fontSize: 25,
                 color: Colors.black,
               ),
             ).marginOnly(top: 15),
+            RichText(
+              text: TextSpan(
+                style: AppTextStyle.textStyleNormal.copyWith(
+                  fontSize: 16,
+                  color: Colors.black,
+                ),
+                children: const [
+                  TextSpan(text: '클릭', style: TextStyle(color: Colors.red)),
+                  TextSpan(text: '해주세요!'),
+                ],
+              ),
+            ),
             TableCalendar(
               locale: 'ko_KR',
               focusedDay: _focusedDay,

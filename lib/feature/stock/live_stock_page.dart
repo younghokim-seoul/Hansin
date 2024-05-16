@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:hansin/assets/assets.gen.dart';
 import 'package:hansin/data/model/response/content_info_vo.dart';
 import 'package:hansin/feature/stock/live_stock_state.dart';
 import 'package:hansin/feature/stock/live_stock_view_model.dart';
@@ -42,8 +43,7 @@ class _LiveStockPageState extends State<LiveStockPage> {
               child: Column(
                 children: [
                   const Gap(15),
-                  buildLogoView(),
-                  const Gap(15),
+                  Assets.images.icStockTitle.image(height: 100, fit: BoxFit.fill),
                   Text(
                     '재고 현황',
                     style: AppTextStyle.textStyleBold.copyWith(
@@ -64,14 +64,6 @@ class _LiveStockPageState extends State<LiveStockPage> {
                       child: buildStockView(),
                     ),
                   ),
-                  Text('010-7328-8301',
-                          style: AppTextStyle.textStyleBold.copyWith(fontSize: 28, color: AppColors.boxDark))
-                      .paddingOnly(left: 10, right: 10),
-                  Text('문의사항이 있을 시\n문자주시면 24시간 내로 회신드리겠습니다.',
-                          textAlign: TextAlign.center,
-                          style: AppTextStyle.textStyleBold.copyWith(fontSize: 15, color: Colors.black))
-                      .paddingOnly(left: 10, right: 10),
-                  const Gap(15),
                 ],
               ),
             ),
@@ -81,6 +73,7 @@ class _LiveStockPageState extends State<LiveStockPage> {
       ),
     );
   }
+
 
   Widget buildStockView() => Stack(
         children: [
@@ -95,32 +88,8 @@ class _LiveStockPageState extends State<LiveStockPage> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 const Gap(30),
-                Text('한신기계 일반제품', style: AppTextStyle.textStyleBold.copyWith(fontSize: 18, color: Colors.white)),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('전기종', style: AppTextStyle.textStyleBold.copyWith(fontSize: 28, color: AppColors.boxDark)),
-                    const Gap(20),
-                    Stack(
-                      children: [
-                        Positioned(
-                          bottom: 5,
-                          left: 0,
-                          right: 0,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: const BorderRadius.all(Radius.circular(20)),
-                              color: Colors.yellow.withOpacity(0.8),
-                            ),
-                            height: 15,
-                          ),
-                        ),
-                        Text('120대 보유',
-                            style: AppTextStyle.textStyleBold.copyWith(fontSize: 28, color: AppColors.boxDark)),
-                      ],
-                    ),
-                  ],
-                ),
+                Text('한신기계 표준형 제품', style: AppTextStyle.textStyleBold.copyWith(fontSize: 32, color: Colors.white)),
+                const Gap(15),
                 StockInformationView(viewModel: _viewModel),
                 Container(
                   width: getScreenWidth(context),
@@ -133,7 +102,7 @@ class _LiveStockPageState extends State<LiveStockPage> {
                   child: Column(
                     children: [
                       Text(
-                        '부품 전품종',
+                        '부품•소모품 전품목',
                         textAlign: TextAlign.start,
                         style: AppTextStyle.textStyleBold.copyWith(fontSize: 32, color: AppColors.boxDark),
                       ),

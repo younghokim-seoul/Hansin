@@ -15,6 +15,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/demo.pdf
   String get demo => 'assets/images/demo.pdf';
 
+  /// File path: assets/images/ic_stock_title.png
+  AssetGenImage get icStockTitle =>
+      const AssetGenImage('assets/images/ic_stock_title.png');
+
   /// File path: assets/images/login_bg.png
   AssetGenImage get loginBg =>
       const AssetGenImage('assets/images/login_bg.png');
@@ -33,8 +37,15 @@ class $AssetsImagesGen {
       const AssetGenImage('assets/images/title_logo.png');
 
   /// List of all assets
-  List<dynamic> get values =>
-      [demo, loginBg, termsOfPrivacy, termsOfUse, termsUseAdmin, titleLogo];
+  List<dynamic> get values => [
+        demo,
+        icStockTitle,
+        loginBg,
+        termsOfPrivacy,
+        termsOfUse,
+        termsUseAdmin,
+        titleLogo
+      ];
 }
 
 class Assets {

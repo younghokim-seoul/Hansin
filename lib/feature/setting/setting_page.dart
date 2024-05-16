@@ -39,7 +39,7 @@ class SettingPage extends StatelessWidget {
       body: SafeArea(
         child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
           const Gap(10),
-          Assets.images.titleLogo.image(height: 70, fit: BoxFit.fill),
+          Assets.images.titleLogo.image(height: 100, fit: BoxFit.fill),
           const Gap(10),
           Text(
             "계정 관리 페이지",
