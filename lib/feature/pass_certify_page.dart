@@ -17,7 +17,7 @@ class PassCertifyPage extends ConsumerStatefulWidget {
 class _PassCertifyPageState extends ConsumerState<PassCertifyPage> {
   final GlobalKey webViewKey = GlobalKey();
 
-  InAppWebViewController? _webViewController;
+
 
   @override
   void initState() {
@@ -65,9 +65,6 @@ class _PassCertifyPageState extends ConsumerState<PassCertifyPage> {
             var uri = navigationAction.request.url;
             Log.d(":::shouldOverrideUrlLoading $uri");
             return NavigationActionPolicy.ALLOW;
-          },
-          onWebViewCreated: (controller) {
-            _webViewController = controller;
           },
         ),
       );
