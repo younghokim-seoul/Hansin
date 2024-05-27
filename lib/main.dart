@@ -5,7 +5,7 @@ import 'package:hansin/injector.dart';
 import 'package:hansin/theme.dart';
 import 'package:hansin/utils/router/app_route.dart';
 import 'package:intl/date_symbol_data_local.dart';
-import 'package:yaru/yaru.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,32 +22,28 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return YaruTheme(
-      builder: (context, custom, child) => MaterialApp.router(
-        theme: custom.theme,
-        darkTheme: custom.darkTheme,
-        themeMode: ThemeMode.light,
-        debugShowCheckedModeBanner: false,
-        routerConfig: appRouter.config(),
-        builder: (context, child) {
-          final theme = Theme.of(context);
-          final brightness = theme.brightness;
-          final overlayStyle = brightness == Brightness.dark ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark;
+    return  MaterialApp.router(
+      themeMode: ThemeMode.light,
+      debugShowCheckedModeBanner: false,
+      routerConfig: appRouter.config(),
+      builder: (context, child) {
+        final theme = Theme.of(context);
+        final brightness = theme.brightness;
+        final overlayStyle = brightness == Brightness.dark ? SystemUiOverlayStyle.light : SystemUiOverlayStyle.dark;
 
-          return AnnotatedRegion<SystemUiOverlayStyle>(
-            value: overlayStyle.copyWith(
-              statusBarColor: Colors.white,
-              statusBarBrightness: Brightness.light,
-              systemNavigationBarColor: AppColors.lightBackground,
-              systemNavigationBarIconBrightness:
-              brightness == Brightness.dark
-                  ? Brightness.light
-                  : Brightness.dark,
-            ),
-            child: child!,
-          );
-        },
-      ),
+        return AnnotatedRegion<SystemUiOverlayStyle>(
+          value: overlayStyle.copyWith(
+            statusBarColor: Colors.white,
+            statusBarBrightness: Brightness.light,
+            systemNavigationBarColor: AppColors.lightBackground,
+            systemNavigationBarIconBrightness:
+            brightness == Brightness.dark
+                ? Brightness.light
+                : Brightness.dark,
+          ),
+          child: child!,
+        );
+      },
     );
   }
 }
