@@ -2,7 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:hansin/theme.dart';
 import 'package:ubuntu_widgets/ubuntu_widgets.dart';
-import 'package:yaru_icons/yaru_icons.dart';
+import 'package:yaru/icons.dart';
+
 
 const kMaxWidth = 500.0;
 

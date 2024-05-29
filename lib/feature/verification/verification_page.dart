@@ -12,8 +12,9 @@ import 'package:hansin/utils/extension/margin_extension.dart';
 import 'package:hansin/utils/extension/value_extension.dart';
 import 'package:hansin/utils/router/app_route.dart';
 import 'package:hansin/utils/screen_util.dart';
-import 'package:yaru_icons/yaru_icons.dart';
-import 'package:yaru_widgets/yaru_widgets.dart';
+import 'package:yaru/icons.dart';
+import 'package:yaru/widgets.dart';
+
 
 @RoutePage()
 class VerificationPage extends StatefulWidget {

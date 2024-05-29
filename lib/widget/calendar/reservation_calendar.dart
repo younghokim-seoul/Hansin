@@ -9,7 +9,8 @@ import 'package:hansin/utils/extension/margin_extension.dart';
 import 'package:hansin/utils/extension/value_extension.dart';
 import 'package:hansin/utils/router/app_route.dart';
 import 'package:table_calendar/table_calendar.dart';
-import 'package:yaru_widgets/widgets.dart';
+import 'package:yaru/widgets.dart';
+
 
 class ReservationCalendar extends StatefulWidget {
   const ReservationCalendar({super.key, required this.viewModel});

@@ -11,7 +11,8 @@ import 'package:hansin/utils/file/file_utils.dart';
 import 'package:hansin/utils/helper_message.dart';
 import 'package:hansin/utils/router/app_route.dart';
 import 'package:hansin/utils/screen_util.dart';
-import 'package:yaru_icons/yaru_icons.dart';
+import 'package:yaru/icons.dart';
+
 
 @RoutePage()
 class TermsPage extends ConsumerStatefulWidget {

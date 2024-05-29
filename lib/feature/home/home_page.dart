@@ -9,7 +9,8 @@ import 'package:hansin/feature/home/component/home_list_box.dart';
 import 'package:hansin/injector.dart';
 import 'package:hansin/theme.dart';
 import 'package:hansin/utils/router/app_route.dart';
-import 'package:yaru_widgets/yaru_widgets.dart';
+import 'package:yaru/widgets.dart';
+
 
 final callProvider = FutureProvider<String>((ref) async {
   final repository = getIt<ItemRepository>();
