@@ -20,6 +20,7 @@ mixin _$CertifyEntity {
   String get name => throw _privateConstructorUsedError;
   String get gender => throw _privateConstructorUsedError;
   String get phone => throw _privateConstructorUsedError;
+  CertifyType get type => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CertifyEntityCopyWith<CertifyEntity> get copyWith =>
@@ -32,7 +33,8 @@ abstract class $CertifyEntityCopyWith<$Res> {
           CertifyEntity value, $Res Function(CertifyEntity) then) =
       _$CertifyEntityCopyWithImpl<$Res, CertifyEntity>;
   @useResult
-  $Res call({int code, String name, String gender, String phone});
+  $Res call(
+      {int code, String name, String gender, String phone, CertifyType type});
 }
 
 /// @nodoc
@@ -52,6 +54,7 @@ class _$CertifyEntityCopyWithImpl<$Res, $Val extends CertifyEntity>
     Object? name = null,
     Object? gender = null,
     Object? phone = null,
+    Object? type = null,
   }) {
     return _then(_value.copyWith(
       code: null == code
@@ -70,6 +73,10 @@ class _$CertifyEntityCopyWithImpl<$Res, $Val extends CertifyEntity>
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as CertifyType,
     ) as $Val);
   }
 }
@@ -82,7 +89,8 @@ abstract class _$$CertifyEntityImplCopyWith<$Res>
       __$$CertifyEntityImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int code, String name, String gender, String phone});
+  $Res call(
+      {int code, String name, String gender, String phone, CertifyType type});
 }
 
 /// @nodoc
@@ -100,6 +108,7 @@ class __$$CertifyEntityImplCopyWithImpl<$Res>
     Object? name = null,
     Object? gender = null,
     Object? phone = null,
+    Object? type = null,
   }) {
     return _then(_$CertifyEntityImpl(
       code: null == code
@@ -118,6 +127,10 @@ class __$$CertifyEntityImplCopyWithImpl<$Res>
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
               as String,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as CertifyType,
     ));
   }
 }
@@ -129,7 +142,8 @@ class _$CertifyEntityImpl implements _CertifyEntity {
       {required this.code,
       required this.name,
       required this.gender,
-      required this.phone});
+      required this.phone,
+      required this.type});
 
   @override
   final int code;
@@ -139,10 +153,12 @@ class _$CertifyEntityImpl implements _CertifyEntity {
   final String gender;
   @override
   final String phone;
+  @override
+  final CertifyType type;
 
   @override
   String toString() {
-    return 'CertifyEntity(code: $code, name: $name, gender: $gender, phone: $phone)';
+    return 'CertifyEntity(code: $code, name: $name, gender: $gender, phone: $phone, type: $type)';
   }
 
   @override
@@ -153,11 +169,12 @@ class _$CertifyEntityImpl implements _CertifyEntity {
             (identical(other.code, code) || other.code == code) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.gender, gender) || other.gender == gender) &&
-            (identical(other.phone, phone) || other.phone == phone));
+            (identical(other.phone, phone) || other.phone == phone) &&
+            (identical(other.type, type) || other.type == type));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, code, name, gender, phone);
+  int get hashCode => Object.hash(runtimeType, code, name, gender, phone, type);
 
   @JsonKey(ignore: true)
   @override
@@ -171,7 +188,8 @@ abstract class _CertifyEntity implements CertifyEntity {
       {required final int code,
       required final String name,
       required final String gender,
-      required final String phone}) = _$CertifyEntityImpl;
+      required final String phone,
+      required final CertifyType type}) = _$CertifyEntityImpl;
 
   @override
   int get code;
@@ -181,6 +199,8 @@ abstract class _CertifyEntity implements CertifyEntity {
   String get gender;
   @override
   String get phone;
+  @override
+  CertifyType get type;
   @override
   @JsonKey(ignore: true)
   _$$CertifyEntityImplCopyWith<_$CertifyEntityImpl> get copyWith =>

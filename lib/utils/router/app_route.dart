@@ -11,6 +11,7 @@ import 'package:hansin/feature/show_room/reservation_register/reservation_regist
 import 'package:hansin/feature/show_room/reservation_register/reservation_register_provider.dart';
 import 'package:hansin/feature/show_room/show_room_reservation_page.dart';
 import 'package:hansin/feature/sign_up/certify/pass_certify_page.dart';
+import 'package:hansin/feature/sign_up/passwod_reset/password_reset_page.dart';
 import 'package:hansin/feature/sign_up/sign_up_page.dart';
 import 'package:hansin/feature/splash/splash_page.dart';
 import 'package:hansin/feature/stock/live_stock_page.dart';
@@ -54,5 +55,6 @@ class AppRouter extends _$AppRouter {
             path: ReservationCheckPage.routeName,
             page: ReservationCheckRoute.page),
         CupertinoRoute(path: SettingPage.routeName, page: SettingRoute.page),
+        CupertinoRoute(path: PasswordResetPage.routeName, page: PasswordResetRoute.page),
       ];
 }

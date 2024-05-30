@@ -16,17 +16,19 @@ import 'package:hansin/data/repository/item_repository_impl.dart' as _i8;
 import 'package:hansin/data/repository/setting_repository_impl.dart' as _i6;
 import 'package:hansin/domain/repository/item_repository.dart' as _i7;
 import 'package:hansin/domain/repository/setting_repository.dart' as _i5;
-import 'package:hansin/feature/login/phone/phone_join_view_model.dart' as _i11;
+import 'package:hansin/feature/login/phone/phone_join_view_model.dart' as _i12;
 import 'package:hansin/feature/mega_sale/mega_sale_view_model.dart' as _i10;
-import 'package:hansin/feature/setting/setting_view_model.dart' as _i13;
+import 'package:hansin/feature/setting/setting_view_model.dart' as _i14;
 import 'package:hansin/feature/show_room/reservation_register/reservation_register_view_model.dart'
-    as _i12;
+    as _i13;
 import 'package:hansin/feature/show_room/show_room_reservation_view_model.dart'
-    as _i14;
-import 'package:hansin/feature/sign_up/sign_up_view_model.dart' as _i15;
+    as _i15;
+import 'package:hansin/feature/sign_up/passwod_reset/password_reset_view_model.dart'
+    as _i11;
+import 'package:hansin/feature/sign_up/sign_up_view_model.dart' as _i16;
 import 'package:hansin/feature/stock/live_stock_view_model.dart' as _i9;
 import 'package:hansin/feature/verification/verification_view_model.dart'
-    as _i16;
+    as _i17;
 import 'package:injectable/injectable.dart' as _i2;
 
 extension GetItInjectableX on _i1.GetIt {
@@ -48,25 +50,27 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i9.LiveStockViewModel(gh<_i7.ItemRepository>()));
     gh.factory<_i10.MegaSaleViewModel>(
         () => _i10.MegaSaleViewModel(gh<_i7.ItemRepository>()));
-    gh.factory<_i11.PhoneJoinViewModel>(() => _i11.PhoneJoinViewModel(
+    gh.factory<_i11.PasswordResetViewModel>(
+        () => _i11.PasswordResetViewModel(gh<_i7.ItemRepository>()));
+    gh.factory<_i12.PhoneJoinViewModel>(() => _i12.PhoneJoinViewModel(
           gh<_i7.ItemRepository>(),
           gh<_i5.SettingRepository>(),
         ));
-    gh.factory<_i12.ReservationRegisterViewModel>(
-        () => _i12.ReservationRegisterViewModel(
+    gh.factory<_i13.ReservationRegisterViewModel>(
+        () => _i13.ReservationRegisterViewModel(
               gh<_i7.ItemRepository>(),
               gh<_i5.SettingRepository>(),
             ));
-    gh.factory<_i13.SettingViewModel>(() => _i13.SettingViewModel(
+    gh.factory<_i14.SettingViewModel>(() => _i14.SettingViewModel(
           gh<_i7.ItemRepository>(),
           gh<_i5.SettingRepository>(),
         ));
-    gh.factory<_i14.ShowRoomReservationViewModel>(
-        () => _i14.ShowRoomReservationViewModel(gh<_i7.ItemRepository>()));
-    gh.factory<_i15.SignUpViewModel>(
-        () => _i15.SignUpViewModel(gh<_i7.ItemRepository>()));
-    gh.factory<_i16.VerificationModel>(
-        () => _i16.VerificationModel(gh<_i7.ItemRepository>()));
+    gh.factory<_i15.ShowRoomReservationViewModel>(
+        () => _i15.ShowRoomReservationViewModel(gh<_i7.ItemRepository>()));
+    gh.factory<_i16.SignUpViewModel>(
+        () => _i16.SignUpViewModel(gh<_i7.ItemRepository>()));
+    gh.factory<_i17.VerificationModel>(
+        () => _i17.VerificationModel(gh<_i7.ItemRepository>()));
     return this;
   }
 }

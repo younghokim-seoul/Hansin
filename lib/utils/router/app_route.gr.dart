@@ -44,9 +44,23 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     PassCertifyRoute.name: (routeData) {
+      final args = routeData.argsAs<PassCertifyRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const PassCertifyPage(),
+        child: PassCertifyPage(
+          key: args.key,
+          certifyType: args.certifyType,
+        ),
+      );
+    },
+    PasswordResetRoute.name: (routeData) {
+      final args = routeData.argsAs<PasswordResetRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: PasswordResetPage(
+          key: args.key,
+          certifyEntity: args.certifyEntity,
+        ),
       );
     },
     PhoneJoinRoute.name: (routeData) {
@@ -212,16 +226,78 @@ class MegaSaleRouteArgs {
 
 /// generated route for
 /// [PassCertifyPage]
-class PassCertifyRoute extends PageRouteInfo<void> {
-  const PassCertifyRoute({List<PageRouteInfo>? children})
-      : super(
+class PassCertifyRoute extends PageRouteInfo<PassCertifyRouteArgs> {
+  PassCertifyRoute({
+    Key? key,
+    required CertifyType certifyType,
+    List<PageRouteInfo>? children,
+  }) : super(
           PassCertifyRoute.name,
+          args: PassCertifyRouteArgs(
+            key: key,
+            certifyType: certifyType,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'PassCertifyRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<PassCertifyRouteArgs> page =
+      PageInfo<PassCertifyRouteArgs>(name);
+}
+
+class PassCertifyRouteArgs {
+  const PassCertifyRouteArgs({
+    this.key,
+    required this.certifyType,
+  });
+
+  final Key? key;
+
+  final CertifyType certifyType;
+
+  @override
+  String toString() {
+    return 'PassCertifyRouteArgs{key: $key, certifyType: $certifyType}';
+  }
+}
+
+/// generated route for
+/// [PasswordResetPage]
+class PasswordResetRoute extends PageRouteInfo<PasswordResetRouteArgs> {
+  PasswordResetRoute({
+    Key? key,
+    required CertifyEntity certifyEntity,
+    List<PageRouteInfo>? children,
+  }) : super(
+          PasswordResetRoute.name,
+          args: PasswordResetRouteArgs(
+            key: key,
+            certifyEntity: certifyEntity,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'PasswordResetRoute';
+
+  static const PageInfo<PasswordResetRouteArgs> page =
+      PageInfo<PasswordResetRouteArgs>(name);
+}
+
+class PasswordResetRouteArgs {
+  const PasswordResetRouteArgs({
+    this.key,
+    required this.certifyEntity,
+  });
+
+  final Key? key;
+
+  final CertifyEntity certifyEntity;
+
+  @override
+  String toString() {
+    return 'PasswordResetRouteArgs{key: $key, certifyEntity: $certifyEntity}';
+  }
 }
 
 /// generated route for

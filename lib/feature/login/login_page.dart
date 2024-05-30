@@ -3,8 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gap/gap.dart';
 import 'package:hansin/assets/assets.gen.dart';
+import 'package:hansin/domain/entity/certify_entity.dart';
 import 'package:hansin/feature/login/component/login_button_box.dart';
+import 'package:hansin/feature/sign_up/certify/pass_certify_page.dart';
 import 'package:hansin/theme.dart';
+import 'package:hansin/utils/dev_log.dart';
+import 'package:hansin/utils/helper_message.dart';
 import 'package:hansin/utils/router/app_route.dart';
 import 'package:hansin/utils/screen_util.dart';
 
@@ -41,6 +45,27 @@ class LoginPage extends StatelessWidget {
                     title: "회원가입",
                     bgColor: AppColors.boxLight,
                     onTap: () => context.router.push(const TermsRoute())),
+                LoginButtonBox(
+                  title: "비밀번호찾기",
+                  bgColor: Colors.transparent,
+                  onTap: ()  async {
+                    final result = await context.router.push(PassCertifyRoute(certifyType: CertifyType.RESET));
+                    Log.d("result.. $result");
+                    if (result != null) {
+                      Log.d("::");
+                      final model = result as CertifyEntity;
+                      if (model.code == 0) {
+                        AppMessage.showMessage("인증에 성공 하였습니다.");
+                        if (context.mounted) {
+                          context.router.push(PasswordResetRoute(certifyEntity: model));
+                        }
+                      } else {
+                        AppMessage.showMessage("인증에 실패 하였습니다.");
+                      }
+                    }
+                  },
+                  isUnderline: true,
+                ),
                 SizedBox(
                   height: getScreenHeight(context) * 0.15,
                 )

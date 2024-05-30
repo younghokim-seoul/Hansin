@@ -9,11 +9,15 @@ import 'package:hansin/domain/entity/certify_entity.dart';
 import 'package:hansin/theme.dart';
 import 'package:hansin/utils/dev_log.dart';
 
+enum CertifyType { PASS, RESET }
+
 @RoutePage()
 class PassCertifyPage extends ConsumerStatefulWidget {
   static const routeName = '/pass_certify';
 
-  const PassCertifyPage({super.key});
+  const PassCertifyPage({super.key,required this.certifyType});
+
+  final CertifyType certifyType;
 
   @override
   ConsumerState createState() => _PassCertifyPageState();
@@ -77,8 +81,7 @@ class _PassCertifyPageState extends ConsumerState<PassCertifyPage> {
                 var code = model['code'] as int;
                 var response = model['response'];
                 Log.d(":::code $code");
-                var entity = CertifyEntity(
-                    code: code, name: response['name'], gender: response['gender'], phone: response['phone']);
+                var entity = CertifyEntity(code: code, name: response['name'], gender: response['gender'], phone: response['phone'] ,type: widget.certifyType);
                 Log.d(":::entity $entity");
                 context.router.pop(entity);
               });

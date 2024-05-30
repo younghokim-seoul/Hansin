@@ -7,8 +7,15 @@ class LoginButtonBox extends StatelessWidget {
   final String title;
   final Color bgColor;
   final VoidCallback? onTap;
+  final bool isUnderline;
 
-  const LoginButtonBox({super.key, required this.title, required this.bgColor, this.onTap});
+  const LoginButtonBox({
+    super.key,
+    required this.title,
+    required this.bgColor,
+    this.isUnderline = false,
+    this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +33,13 @@ class LoginButtonBox extends StatelessWidget {
           child: Text(
             title,
             textAlign: TextAlign.center,
-            style: AppTextStyle.textStyleBold.copyWith(fontSize: 28, color: Colors.white),
+            style: AppTextStyle.textStyleBold.copyWith(
+                fontSize: 28,
+                color: Colors.white,
+                decoration: isUnderline
+                    ? TextDecoration.underline
+                    : TextDecoration.none,
+                decorationColor: Colors.white),
           ).paddingOnly(top: 10, bottom: 10),
         ),
       ),

@@ -3,6 +3,7 @@ class ApiUrl {
   static const String login = "/user/loginUser";
   static const String signUp = "/user/createUser";
   static const String delete = "/user/deleteUser";
+  static const String resetPassword = "/user/chgPassword";
   static const String getContent = "/content/getContentInfo";
   static const String getItemInfo = "/item/getItemInfo";
   static const String getRestCalendar = "/res/getRestCalendar";

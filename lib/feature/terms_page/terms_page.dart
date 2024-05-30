@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hansin/domain/entity/certify_entity.dart';
+import 'package:hansin/feature/sign_up/certify/pass_certify_page.dart';
 import 'package:hansin/feature/terms_page/terms_providers.dart';
 import 'package:hansin/theme.dart';
 import 'package:hansin/utils/dev_log.dart';
@@ -239,7 +240,7 @@ class _TermsPageState extends ConsumerState<TermsPage> {
       bottomNavigationBar: InkWell(
         onTap: () async {
           if (selectState.isEnable) {
-            final result = await context.router.push(const PassCertifyRoute());
+            final result = await context.router.push(PassCertifyRoute(certifyType: CertifyType.PASS));
             Log.d("result.. $result");
             if (result != null) {
               Log.d("::");

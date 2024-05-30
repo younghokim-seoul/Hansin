@@ -17,11 +17,11 @@ abstract class ItemRepository {
 
   Future<List<StockEntity>> getItemInfo();
 
-  //예약가능일자 조회
   Future<List<CalendarEnableSelectEntity>> getRestCalendar();
 
-  //예약가능일자 상세조회
   Future<CalendarDetailEntity> getRestCalendarDetail(Map<String, dynamic> param);
 
   Future<ReservationVO> insertResInfo(Map<String, dynamic> param);
+
+  Future<SignUpVO> resetPassword(Map<String, dynamic> param);
 }
