@@ -22,6 +22,9 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+
+
     return  MaterialApp.router(
       themeMode: ThemeMode.light,
       debugShowCheckedModeBanner: false,
