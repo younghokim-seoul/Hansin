@@ -60,7 +60,7 @@ class ErrorDialog extends StatelessWidget {
       actions: [
         PushButton.filled(
           onPressed: () {
-            context.router.pop();
+            context.router.popForced();
           },
           style: FilledButton.styleFrom(backgroundColor: AppColors.boxDark),
           child: const Text('취소'),
@@ -120,7 +120,7 @@ class WarningDialog extends StatelessWidget {
       actions: [
         PushButton.filled(
           onPressed: () {
-            context.router.pop();
+            context.router.popForced();
             onTap();
           },
           style: FilledButton.styleFrom(backgroundColor: AppColors.boxDark),
@@ -128,7 +128,7 @@ class WarningDialog extends StatelessWidget {
         ),
         PushButton.filled(
           onPressed: () {
-            context.router.pop();
+            context.router.popForced();
           },
           style: FilledButton.styleFrom(backgroundColor: AppColors.boxDark),
           child: const Text('취소'),

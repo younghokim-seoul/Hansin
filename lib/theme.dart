@@ -47,7 +47,7 @@ class AppTheme {
   /// Light theme and its settings.
   ThemeData get light => ThemeData(
         brightness: Brightness.light,
-        colorScheme: lightBase.colorScheme.copyWith(secondary: accentColor, background: _LightColors.background),
+        colorScheme: lightBase.colorScheme.copyWith(secondary: accentColor, surface: _LightColors.background),
         visualDensity: visualDensity,
         textTheme: HansinTextStyles.textTheme,
         appBarTheme: lightBase.appBarTheme.copyWith(
@@ -78,7 +78,7 @@ class AppTheme {
         brightness: Brightness.dark,
         colorScheme: darkBase.colorScheme.copyWith(
           secondary: accentColor,
-          background: _DarkColors.background,
+          surface: _DarkColors.background,
         ),
         visualDensity: visualDensity,
         textTheme: HansinTextStyles.textTheme,

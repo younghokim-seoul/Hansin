@@ -110,7 +110,7 @@ class _VerificationPageState extends State<VerificationPage> {
 
   Widget buildBottomView() => InkWell(
         onTap: () {
-          context.router.pop();
+          context.router.popForced();
         },
         borderRadius: const BorderRadius.all(Radius.circular(8)),
         child: Container(

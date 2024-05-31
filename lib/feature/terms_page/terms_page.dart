@@ -240,7 +240,7 @@ class _TermsPageState extends ConsumerState<TermsPage> {
       bottomNavigationBar: InkWell(
         onTap: () async {
           if (selectState.isEnable) {
-            final result = await context.router.push(PassCertifyRoute(certifyType: CertifyType.PASS));
+            final result = await context.router.push(PassCertifyRoute(certifyType: CertifyType.pass));
             Log.d("result.. $result");
             if (result != null) {
               Log.d("::");

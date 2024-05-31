@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hansin/widget/passcode/configurations/key_pad_button_config.dart';
 
-
-
 class KeyPadButton extends StatelessWidget {
   const KeyPadButton({
     super.key,
@@ -29,8 +27,7 @@ class KeyPadButton extends StatelessWidget {
           foregroundColor: config?.foregroundColor,
           backgroundColor: Colors.transparent,
           buttonStyle: config?.buttonStyle?.copyWith(
-            backgroundColor:
-                MaterialStateProperty.all<Color>(Colors.transparent),
+            backgroundColor: WidgetStateProperty.all<Color>(Colors.transparent),
           ),
         ),
         child: child,

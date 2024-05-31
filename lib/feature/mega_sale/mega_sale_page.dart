@@ -115,7 +115,7 @@ class _MegaSalePageState extends State<MegaSalePage> {
             ),
             Expanded(
               child: InkWell(
-                  onTap: () => context.router.pop(),
+                  onTap: () => context.router.popForced(),
                   child: Text(
                     '이전 화면으로',
                     textAlign: TextAlign.center,

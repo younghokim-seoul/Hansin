@@ -49,7 +49,7 @@ class LoginPage extends StatelessWidget {
                   title: "비밀번호찾기",
                   bgColor: Colors.transparent,
                   onTap: ()  async {
-                    final result = await context.router.push(PassCertifyRoute(certifyType: CertifyType.RESET));
+                    final result = await context.router.push(PassCertifyRoute(certifyType: CertifyType.reset));
                     Log.d("result.. $result");
                     if (result != null) {
                       Log.d("::");
