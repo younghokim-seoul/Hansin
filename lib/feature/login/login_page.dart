@@ -46,7 +46,7 @@ class LoginPage extends StatelessWidget {
                     bgColor: AppColors.boxLight,
                     onTap: () => context.router.push(const TermsRoute())),
                 LoginButtonBox(
-                  title: "비밀번호찾기",
+                  title: "비밀번호 재설정",
                   bgColor: Colors.transparent,
                   onTap: ()  async {
                     final result = await context.router.push(PassCertifyRoute(certifyType: CertifyType.reset));

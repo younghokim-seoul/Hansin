@@ -118,7 +118,7 @@ class _ShowRoomReservationPageState extends State<ShowRoomReservationPage> {
                         child: _viewModel.isVisibleCalendar.ui(
                             builder: (context, state) {
                           return Text(
-                            state.data == true ? "날짜선택완료" : "방문예약하기",
+                            state.data == true ? "이전 화면으로" : "방문예약하기",
                             textAlign: TextAlign.center,
                             style: AppTextStyle.textStyleBold
                                 .copyWith(fontSize: 28, color: Colors.white),

@@ -25,7 +25,7 @@ class PhoneJoinViewModel implements ViewModelInterface {
     Map<String, dynamic> param = {};
     param['userId'] = id;
     param['userPwd'] = pw;
-    param['adminPageYn'] = "";
+    param['adminPageYn'] = " ";
     loadState(Loading());
     try {
       final response = await _itemRepository.login(param);
