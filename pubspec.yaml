@@ -24,13 +24,13 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_svg: ^2.0.9
 
-  yaru: ^7.0.0
+  yaru: ^8.1.0
 
 
 
   http: ^1.2.0
   cached_network_image: ^3.3.1
-  intl: ^0.19.0
+  intl: ^0.20.2
   table_calendar: ^3.0.9
   ubuntu_widgets: ^0.7.2
   shared_preferences: ^2.5.3
