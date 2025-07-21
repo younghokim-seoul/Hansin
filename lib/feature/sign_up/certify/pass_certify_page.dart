@@ -51,24 +51,23 @@ class _PassCertifyPageState extends ConsumerState<PassCertifyPage> {
       ),
       // body: WebViewWidget(controller: controller),
       body: InAppWebView(
-        key: webViewKey,
-        initialUrlRequest: URLRequest(url: Uri.parse("http://13.125.57.183:8080/danal/requestAuth")),
-        initialOptions: InAppWebViewGroupOptions(
-          crossPlatform: InAppWebViewOptions(
-            cacheEnabled: true,
-            clearCache: true,
-            transparentBackground: true,
-            useShouldOverrideUrlLoading: true,
-            javaScriptEnabled: true,
-          ),
-          android: AndroidInAppWebViewOptions(
-              useHybridComposition: true,
-              mixedContentMode: AndroidMixedContentMode.MIXED_CONTENT_ALWAYS_ALLOW,
-              initialScale: 100),
-          ios: IOSInAppWebViewOptions(
-            allowsInlineMediaPlayback: true,
-            allowsBackForwardNavigationGestures: true,
-          ),
+        key: webViewKey, initialUrlRequest: URLRequest(url: WebUri("http://13.125.57.183:8080/danal/requestAuth")),
+        initialSettings: InAppWebViewSettings(
+          // cross-platform (공통)
+          cacheEnabled: true,
+          clearCache: true,
+          transparentBackground: true,
+          useShouldOverrideUrlLoading: true,
+          javaScriptEnabled: true,
+
+          // Android 전용
+          useHybridComposition: true,
+          mixedContentMode: MixedContentMode.MIXED_CONTENT_ALWAYS_ALLOW,
+          initialScale: 100,
+
+          // iOS 전용
+          allowsInlineMediaPlayback: true,
+          allowsBackForwardNavigationGestures: true,
         ),
         onLoadStop: (InAppWebViewController controller, uri) {},
         onWebViewCreated: (controller) {

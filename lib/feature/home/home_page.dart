@@ -79,27 +79,32 @@ class HomePage extends StatelessWidget {
           Consumer(builder: (context, ref, child) {
             final call = ref.watch(callProvider);
             return call.maybeWhen(
-              data: (v) => CachedNetworkImage(
-                fadeInDuration: const Duration(milliseconds: 100),
-                fadeOutDuration: const Duration(milliseconds: 200),
-                imageUrl: v,
-                imageBuilder: (context, imageProvider) => Image(
-                  image: imageProvider,
-                  filterQuality: FilterQuality.medium,
-                  height: 100,
-                  fit: BoxFit.fill,
+              data: (v) => AspectRatio(
+                aspectRatio: 1024 / 427,
+                child: CachedNetworkImage(
+                  imageUrl: v,
+                  fit: BoxFit.cover,
+                  placeholder: (context, url) => const Center(
+                    child: YaruCircularProgressIndicator(
+                      strokeWidth: 2,
+                      color: AppColors.boxDark,
+                    ),
+                  ),
+                  errorWidget: (context, url, error) => const Icon(Icons.error_outline),
                 ),
-                placeholder: (context, url) => const SizedBox.square(
+              ),
+              orElse: () => const AspectRatio(
+                aspectRatio: 1024 / 427,
+                child: Center(
                   child: YaruCircularProgressIndicator(
                     strokeWidth: 2,
                     color: AppColors.boxDark,
                   ),
                 ),
-                errorWidget: (context, url, error) => const SizedBox.shrink(),
               ),
-              orElse: () => const SizedBox.shrink(),
             );
           }),
+
           const Gap(10),
         ]),
       ),

@@ -4,7 +4,6 @@ import 'package:hansin/theme.dart';
 import 'package:ubuntu_widgets/ubuntu_widgets.dart';
 import 'package:yaru/icons.dart';
 
-
 const kMaxWidth = 500.0;
 
 Future<void> showErrorDialog({
@@ -82,7 +81,8 @@ class ErrorDialog extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    height: Theme.of(context).textTheme.titleMedium!.fontSize! * 1.5,
+                    height: Theme.of(context).textTheme.titleMedium!.fontSize! *
+                        1.5,
                     child: Text(
                       title,
                       style: Theme.of(context).textTheme.titleMedium,
@@ -150,7 +150,8 @@ class WarningDialog extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    height: Theme.of(context).textTheme.titleMedium!.fontSize! * 1.5,
+                    height: Theme.of(context).textTheme.titleMedium!.fontSize! *
+                        1.5,
                     child: Text(
                       title,
                       style: Theme.of(context).textTheme.titleMedium,
